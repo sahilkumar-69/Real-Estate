@@ -1,0 +1,19 @@
+/* Custom Swiper styles */
+.thumb-swiper .swiper-slide-thumb-active {
+  opacity: 1 !important;
+  border-color: #3b82f6 !important;
+}
+
+.thumb-swiper .swiper-slide {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-button-disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed;
+}
+
+body{
+  font-family: 'merMerriweather', sans-serif;
+}
