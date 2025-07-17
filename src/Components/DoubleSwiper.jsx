@@ -65,7 +65,7 @@ const DoubleSwiper = () => {
       </div>
 
       {/* Thumbnail Swiper */}
-      {/* <div className="px-8">
+      <div className="px-8">
         <Swiper
           onSwiper={setThumbsSwiper}
           spaceBetween={10}
@@ -87,7 +87,7 @@ const DoubleSwiper = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div> */}
+      </div>
     </div>
   );
 };

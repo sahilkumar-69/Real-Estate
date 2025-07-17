@@ -1,8 +1,7 @@
-import React from "react";
 
 const Professional = () => {
   return (
-    <div className="w-screen p-12 bg-[#d0eaf5] flex items-center justify-around ">
+    <div className=" p-12 bg-[#d0eaf5] flex items-center justify-around ">
       <div className="w-1/3 rounded-xl overflow-hidden object-cover ">
         <img
           src="src\assets\pexels-weirdfish-2640604.jpg"

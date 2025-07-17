@@ -5,7 +5,7 @@ const ExploreIn = () => {
   return (
     <div className="px-6 md:px-20 py-16">
       <h2 className="text-2xltext-3xl md:text-4xl font-bold text-slate-800 mb-12 max-w-4xl">
-        Explore Properties in India.
+        Explore Properties in India .
       </h2>
       <div className="flex  items-center justify-between">
         <div className="flex gap-4 items-center justify-between">

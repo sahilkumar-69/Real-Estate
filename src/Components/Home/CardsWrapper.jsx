@@ -1,45 +1,32 @@
-import React from "react";
-import Card from "./Card";
+// import React from "react";
+// import Card from "./Card";
+import { motion } from "motion/react";
 
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-
-const solutions = [
-  {
-    title: "Connect with a Specialist",
-    description:
-      "Access our dedicated team of over 400+ expert agents ready to assist you.",
-    icon: "src/assets/icons/specialist.svg",
-  },
-  {
-    title: "List Your Property",
-    description:
-      "Achieve optimal value by listing your property with our expert marketing strategies.",
-    icon: "src/assets/icons/listProperties.svg",
-  },
-  {
-    title: "Download Report",
-    description:
-      "Download the latest Comprehensive Dubai Real Estate Market Report Q1 2025",
-    icon: "src/assets/icons/downloadReport.svg",
-  },
-  {
-    title: "Explore Dubai Projects",
-    description:
-      "Browse and find your ideal property from our extensive portfolio of Dubai projects.",
-    icon: "src/assets/icons/skyscraper.svg",
-  },
-];
+import { solutions } from "../../Data";
 
 export default function RealEstateSolutions() {
   return (
     <section className="px-6 md:px-20 py-16 bg-white">
       <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12 max-w-4xl">
-        Dubai real estate solutions focused around excellent customer service.
+        India real estate solutions focused around excellent customer service.
       </h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {solutions.map((item, index) => (
-          <div
+          <motion.div
+            // whileTap={{
+            //   scale: 0.9,
+            //   transition: {
+            //     duration: 0.1,
+            //   },
+            // }}
+            initial={{
+              x: -2000,
+            }}
+            animate={{
+              x: 0,
+            }}
             key={index}
             className="rounded-xl border border-gray-200 p-6 hover:shadow-xl transition duration-300 bg-white"
           >
@@ -48,7 +35,7 @@ export default function RealEstateSolutions() {
               {item.title} <FaArrowUpRightFromSquare size={12} />
             </h3>
             <p className="text-sm text-gray-600 mt-2">{item.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
