@@ -2,14 +2,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useRef, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-// import PropertySwiperCard from "./PropertySwiperCard"; // keep your card separate for cleanliness
+ 
 
 import "swiper/css";
 import "swiper/css/navigation";
-import { PropertySwiperCard } from "./PropertySwiperCard";
+// import { PropertySwiperCard } from "./PropertySwiperCard";
 import { propertyData } from "../../Data";
+import ConsultantCard from "../Cards/MeetExpertCard";
 
-export default function PropertyList() {
+export default function ExpertCardsWraper() {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -56,7 +57,7 @@ export default function PropertyList() {
         >
           {propertyData.map((property, index) => (
             <SwiperSlide key={index}>
-              <PropertySwiperCard data={property} />
+              <ConsultantCard key={index} />
             </SwiperSlide>
           ))}
         </Swiper>

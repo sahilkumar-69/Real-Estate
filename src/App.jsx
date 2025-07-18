@@ -6,17 +6,23 @@ import "swiper/css/pagination";
 
 import "./App.css";
 import NavigationBar from "./Components/NavigationBar";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 
 import HomePage from "./Pages/HomePage";
 import PropertyListingPage from "./Pages/PropertiesForRent";
 import DedicatedPageForProp from "./Pages/DedicatedPageForProp";
-import DownArrow from "./Components/DownArrow";
-import Footer from "./Components/Footer";
+import DownArrow from "./Components/Others/DownArrow";
+import Footer from "./Components/Service/Footer";
 import Services from "./Pages/Services";
+import RentPropertyListingPage from "./Pages/PropertiesForRent";
+import Developers from "./Pages/Developer";
 
 function App() {
-
   return (
     <Router>
       <DownArrow />
@@ -24,9 +30,14 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/developers" element={<Developers />} />
         <Route
           path="/buy/properties-for-sale"
           element={<PropertyListingPage />}
+        />
+        <Route
+          path="/buy/properties-for-rent"
+          element={<RentPropertyListingPage />}
         />
         <Route
           path="/rent/properties-for-rent"

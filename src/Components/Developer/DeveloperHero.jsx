@@ -1,0 +1,39 @@
+import { motion } from "motion/react";
+import { FaArrowRightLong } from "react-icons/fa6";
+
+const DeveloperHero = () => {
+  return (
+    <div className="text-center max-w-3xl mx-auto mb-20">
+      <h1 className="text-3xl md:text-4xl font-bold text-[#05264e]">
+        Dubai Real Estate Developers
+      </h1>
+      <p className="text-gray-600 mt-4 text-lg">
+        Browse through top developers in the UAE and explore their latest
+        projects.
+      </p>
+      <div className="flex   mt-4  w-full lg:w-[90%] items-center justify-center   ">
+        <motion.input
+          whileTap={{
+            scale: 0.97,
+          }}
+          type="text"
+          className="w-full  outline-none pl-7  p-3 border-2 rounded-l-4xl  border-black text-lg "
+          placeholder="Search the developers . . . "
+          name="search developer"
+          id=""
+        />
+        <motion.button
+          whileTap={{
+            scale: 0.9,
+          }}
+          className=" flex hover:text-[#2ee42f]  items-center justify-center gap-2  p-4 px-6 bg-black font-semibold text-white rounded-r-4xl   "
+        >
+          Search
+          <FaArrowRightLong />
+        </motion.button>
+      </div>
+    </div>
+  );
+};
+
+export default DeveloperHero;

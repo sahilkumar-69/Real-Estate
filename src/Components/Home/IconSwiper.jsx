@@ -1,41 +1,56 @@
 import { FaBuilding, FaHouseUser } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { GiHouseKeys } from "react-icons/gi";
 import { FaHouseChimney } from "react-icons/fa6";
 import { RiBuilding2Fill } from "react-icons/ri";
-import { Navigation } from "swiper/modules";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css"; // Important
+
+const icons = [
+  FaHouseUser,
+  FaHouseChimney,
+  GiHouseKeys,
+  FaBuilding,
+  RiBuilding2Fill,
+  FaHouseUser,
+  FaHouseChimney,
+  GiHouseKeys,
+  FaBuilding,
+  RiBuilding2Fill,
+  FaHouseUser,
+  FaHouseChimney,
+  GiHouseKeys,
+  FaBuilding,
+  RiBuilding2Fill,
+];
+
 const IconSwiper = () => {
   return (
-    <div className="w-full bg-[#AFDBF5]">
+    <div className="w-full bg-[#AFDBF5] py-6">
       <Swiper
-        modules={[Navigation]}
-        navigation
-        autoplay={true}
+        modules={[Autoplay]}
+        loop={true}
+        autoplay={{
+          delay: 0,
+          disableOnInteraction: false,
+        }}
+        speed={2000}
+        slidesPerView={5}
+        breakpoints={{
+          640: { slidesPerView: 4 },
+          768: { slidesPerView: 6 },
+          1024: { slidesPerView: 8 },
+        }}
         spaceBetween={30}
-
-        // breakpoints={{
-        //   640: { slidesPerView: 1 },
-        //   768: { slidesPerView: 2 },
-        //   1024: { slidesPerView: 3 },
-        // }}
-        // className="mySwiper"
       >
-        <SwiperSlide>
-          <marquee scrollamount={30} loop >
-            <div className="flex gap-20" >
-              <FaHouseUser className="w-25 h-25" />
-              <FaHouseChimney className="w-25 h-25" />
-              <GiHouseKeys className="w-25 h-25" />
-              <FaBuilding className="w-25 h-25" />
-              <RiBuilding2Fill className="w-25 h-25" />
-              <FaHouseUser className="w-25 h-25" />
-              <FaHouseChimney className="w-25 h-25" />
-              <GiHouseKeys className="w-25 h-25" />
-              <FaBuilding className="w-25 h-25" />
-              <RiBuilding2Fill className="w-25 h-25" />
+        {icons.map((Icon, index) => (
+          <SwiperSlide key={index}>
+            <div className="flex justify-center items-center">
+              <Icon className="text-5xl md:text-6xl   hover:text-blue-600 transition duration-300" />
             </div>
-          </marquee>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

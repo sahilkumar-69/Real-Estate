@@ -9,18 +9,23 @@ import {
 } from "react-icons/fi";
 import { FaBed, FaBath, FaRulerCombined } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
-import { navigate, properties } from "../Data";
-import ExploreIn from "../Components/Home/ExploreIn";
-// import {  } from "lucide-react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { properties } from "../Data";
+import { useNavigate } from "react-router-dom";
 
-const PropertyListingPage = () => {
+import ExploreIn from "../Components/Home/ExploreIn";
+import PropertyFilterButton from "../Components/ButtonComponents/PropertyFilterButton";
+import ExpertCardsWraper from "../Components/PropForSale/ExpertCardsWraper";
+import Description from "../Components/Others/Description";
+import HelpFindProperty from "../Components/PropForSale/PostComponent";
+
+const RentPropertyListingPage = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState("latest");
+  const navigate = useNavigate();
 
-  // Sample property data
-
+ 
   // Filter properties based on active filter
   const filteredProperties = properties.filter((property) => {
     if (activeFilter === "all") return true;
@@ -30,6 +35,15 @@ const PropertyListingPage = () => {
     if (activeFilter === "off-plan") return property.status === "off-plan";
     return true;
   });
+  //button title data
+
+  const btnTitle = [
+    "All Properties",
+    "Featured",
+    "Villas",
+    "Apartments",
+    "Off-Plan",
+  ];
 
   // Sort properties
   const sortedProperties = [...filteredProperties].sort((a, b) => {
@@ -64,7 +78,7 @@ const PropertyListingPage = () => {
       </div>
 
       {/* Search and Filter Section */}
-      <div className="container mx-auto px-4 py-8 -mt-10 relative z-20">
+      <div className="container mx-auto px-14 py-8 -mt-10 relative z-20">
         <div className="bg-white rounded-lg shadow-lg p-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
             <div>
@@ -113,56 +127,14 @@ const PropertyListingPage = () => {
 
           <div className="flex flex-wrap items-center justify-between">
             <div className="flex space-x-2 mb-4 md:mb-0">
-              <button
-                onClick={() => setActiveFilter("all")}
-                className={`px-4 py-2 rounded-lg ${
-                  activeFilter === "all"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-              >
-                All Properties
-              </button>
-              <button
-                onClick={() => setActiveFilter("featured")}
-                className={`px-4 py-2 rounded-lg ${
-                  activeFilter === "featured"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-              >
-                Featured
-              </button>
-              <button
-                onClick={() => setActiveFilter("villas")}
-                className={`px-4 py-2 rounded-lg ${
-                  activeFilter === "villas"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-              >
-                Villas
-              </button>
-              <button
-                onClick={() => setActiveFilter("apartments")}
-                className={`px-4 py-2 rounded-lg ${
-                  activeFilter === "apartments"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-              >
-                Apartments
-              </button>
-              <button
-                onClick={() => setActiveFilter("off-plan")}
-                className={`px-4 py-2 rounded-lg ${
-                  activeFilter === "off-plan"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-              >
-                Off-Plan
-              </button>
+              {btnTitle.map((title, index) => (
+                <PropertyFilterButton
+                  title={title}
+                  key={index}
+                  activeFilter={activeFilter}
+                  setActiveFilter={setActiveFilter}
+                />
+              ))}
             </div>
 
             <div className="flex items-center space-x-4">
@@ -226,6 +198,7 @@ const PropertyListingPage = () => {
                     <input
                       type="number"
                       placeholder="0"
+                      min={0}
                       className="w-full p-2 border border-gray-300 rounded-lg"
                     />
                   </div>
@@ -235,6 +208,7 @@ const PropertyListingPage = () => {
                     </label>
                     <input
                       type="number"
+                      min={0}
                       placeholder="Any"
                       className="w-full p-2 border border-gray-300 rounded-lg"
                     />
@@ -247,28 +221,19 @@ const PropertyListingPage = () => {
       </div>
 
       {/* Property Listings */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-14 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedProperties.map((property) => (
             <div
               key={property.id}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300"
+              className="bg-white rounded-lg overflow-hidden  hover:shadow-lg transition duration-300"
             >
               <div className="relative">
-                {/* <img
-                  src={property.image}
-                  alt={property.title}
-                  className="w-full h-64 object-cover"
-                />
-                {property.featured && (
-                  <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    Featured
-                  </div>
-                )} */}
                 <Swiper
-                  modules={[Navigation, Pagination]}
+                  modules={[Autoplay, Pagination]}
                   pagination={{ clickable: true }}
-                  navigation
+                  autoplay={{ delay: 2500, disableOnInteraction: false }}
+                  loop="true"
                   className="w-full overflow-hidden h-64"
                 >
                   {property.image.map((img, idx) => (
@@ -358,8 +323,19 @@ const PropertyListingPage = () => {
         </div>
         <ExploreIn />
       </div>
+      <HelpFindProperty />
+      <div className="px-6 md:px-20 py-16">
+        <h2 className="text-2xltext-3xl md:text-4xl font-bold text-slate-800 mb-2  max-w-4xl">
+          Meet out Experts Now. Contact them when you feel free !
+        </h2>
+
+        <ExpertCardsWraper />
+      </div>
+      <div className="px-6 md:px-20 py-16">
+        <Description />
+      </div>
     </div>
   );
 };
 
-export default PropertyListingPage;
+export default RentPropertyListingPage;
