@@ -9,10 +9,21 @@ import "swiper/css/navigation";
 import { PropertySwiperCard } from "./PropertySwiperCard";
 import { propertyData } from "../../Data";
 
-export default function PropertyList() {
+export default function PropertyList({ Cardtype }) {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
+
+  //  const renderCard = (property) => {
+  //   switch (Cardtype) {
+  //     case "compact":
+  //       return <PropertyCompactCard data={property} />;
+  //     case "highlight":
+  //       return <PropertyHighlightCard data={property} />;
+  //     default:
+  //       return <PropertySwiperCard data={property} />;
+  //   }
+  // };
 
   useEffect(() => {
     if (
@@ -28,8 +39,8 @@ export default function PropertyList() {
   }, [swiperInstance]);
 
   return (
-    <section className="py-12 bg-gray-50 relative">
-      <div className="container mx-auto px-4 relative">
+    <section className="py-12 rounded-2xl  relative">
+      <div className="container   mx-auto px-4 relative">
         {/* Nav Buttons */}
         <button
           ref={navigationPrevRef}

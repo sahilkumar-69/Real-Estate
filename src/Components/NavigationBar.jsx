@@ -63,44 +63,6 @@ export default function Navbar() {
 
       {/* Right Side Buttons */}
       <div className="hidden md:flex items-center gap-4 relative">
-        {/* Currency */}
-        <div
-          onClick={() => setShowCurrency(!showCurrency)}
-          className="cursor-pointer flex items-center gap-1 hover:text-gray-300"
-        >
-          <FaGlobe />
-          {currency}
-          <svg className="ml-1 w-3 h-3" viewBox="0 0 20 20">
-            <path
-              d="M5.25 7.75L10 12.5l4.75-4.75"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-          </svg>
-        </div>
-        {showCurrency && (
-          <div className="absolute top-10 right-28 bg-white text-black shadow-md rounded w-24 z-50">
-            {currencies.map((cur) => (
-              <div
-                key={cur}
-                className="px-3 py-2 hover:bg-gray-200 cursor-pointer"
-                onClick={() => {
-                  setCurrency(cur);
-                  setShowCurrency(false);
-                }}
-              >
-                {cur}
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Buttons */}
-        <button className="flex items-center border px-4 py-1 rounded hover:bg-white hover:text-blue-600 transition">
-          <FaUser className="mr-2" />
-          Login
-        </button>
         <button className="border px-4 py-1 rounded hover:bg-white hover:text-blue-600 transition">
           List Property
         </button>

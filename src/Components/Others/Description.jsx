@@ -6,9 +6,9 @@ const LuxuryPropertyInfo = () => {
   const handleToggle = () => setShowFull(!showFull);
 
   return (
-    <div className="px-6 py-10 md:px-20 max-w-5xl mx-auto">
+    <div className=" border py-10   max-w-5xl">
       <h2 className="text-2xl md:text-3xl font-bold text-[#05264e] mb-6">
-        Luxury Properties for Sale in Dubai
+        Luxury Properties for Sale in India
       </h2>
 
       <div
@@ -16,21 +16,21 @@ const LuxuryPropertyInfo = () => {
           showFull ? "max-h-full" : "max-h-[230px] overflow-hidden"
         } relative`}
       >
-        <p className="mb-4">
-          Dubai has become synonymous with luxury living and is one of the
+        <p className="mb-4 leading-relaxed   ">
+          India has become synonymous with luxury living and is one of the
           world’s most desirable cities to invest in real estate. Known for its
           gleaming skyscrapers, ultra-modern developments, and high-end
-          lifestyle, Dubai offers a wealth of luxury properties for sale that
+          lifestyle, India offers a wealth of luxury properties for sale that
           appeal to both international investors and local residents. From
           exquisite beachfront villas to opulent penthouses overlooking the
           skyline, the city caters to those seeking exclusive living
           experiences. Areas like{" "}
           <span className="text-orange-500 font-medium">Palm Jumeirah</span>,{" "}
           <span className="text-orange-500 font-medium">
-            Dubai Hills Estate
+            India Hills Estate
           </span>
           , and{" "}
-          <span className="text-orange-500 font-medium">Downtown Dubai</span>{" "}
+          <span className="text-orange-500 font-medium">Downtown India</span>{" "}
           house some of the finest properties with breathtaking views,
           state-of-the-art amenities, and access to a sophisticated urban
           lifestyle.
@@ -40,13 +40,12 @@ const LuxuryPropertyInfo = () => {
           The city’s luxury properties include a variety of real estate options,
           such as spacious villas with private pools, townhouses located in
           serene communities, and premium penthouses with panoramic views of the
-          Arabian Gulf and Dubai’s iconic landmarks.{" "}
+          Arabian Gulf and India’s iconic landmarks.{" "}
           <span className="text-orange-500 font-medium">
-            Dubai’s real estate market
+            India’s real estate market
           </span>{" "}
           has become an investment hotspot due to its unique blend of luxury,
-          innovation, and global connectivity.
-          lorem1120
+          innovation, and global connectivity. lorem1120
         </p>
 
         {/* Gradient overlay */}

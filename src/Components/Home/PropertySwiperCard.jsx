@@ -1,4 +1,5 @@
 import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import { FiHeart, FiShare2 } from "react-icons/fi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { PiBedBold } from "react-icons/pi";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -6,9 +7,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export const PropertySwiperCard = ({ data }) => {
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 h-full flex flex-col">
+    <div className="bg-white  rounded-lg hover_img overflow-hidden  hover:shadow-lg transition duration-300 h-full flex flex-col">
       {/* Swiper Image Slider */}
-      <div className="relative h-48">
+      <div className="relative  h-48">
         <Swiper
           modules={[Autoplay, Pagination]}
           pagination={{ clickable: true }}
@@ -21,14 +22,25 @@ export const PropertySwiperCard = ({ data }) => {
               <img
                 src={img}
                 alt={data.title}
-                className="w-full h-full object-cover"
+                className="w-full  h-full object-cover"
               />
             </SwiperSlide>
           ))}
         </Swiper>
+        <div
+          id="fav_share"
+          className="absolute z-50  top-2 right-2 hidden space-x-2"
+        >
+          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+            <FiHeart className="text-gray-700" />
+          </button>
+          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+            <FiShare2 className="text-gray-700" />
+          </button>
+        </div>
 
         {/* Tags */}
-        <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+        <div className="absolute top-3 z-50 left-3 flex flex-wrap gap-2">
           {data.tags.map((tag, i) => (
             <span
               key={i}

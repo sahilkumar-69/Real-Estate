@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Hero() {
+export default function Hero({ video }) {
   const Navigate = useNavigate();
   return (
     <section className="relative h-[95svh] w-full overflow-hidden">
@@ -12,7 +12,10 @@ export default function Hero() {
         muted
         playsInline
       >
-        <source src="src\assets\realEstate_bg_video.mp4" type="video/mp4" />
+        <source
+          src={video || "src/assets/realEstate_bg_video.mp4"}
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
 

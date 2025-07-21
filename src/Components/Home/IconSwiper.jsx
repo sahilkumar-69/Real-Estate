@@ -27,7 +27,7 @@ const icons = [
 
 const IconSwiper = () => {
   return (
-    <div className="w-full bg-[#AFDBF5] py-6">
+    <div className="w-full border bg-[#AFDBF5] py-6">
       <Swiper
         modules={[Autoplay]}
         loop={true}

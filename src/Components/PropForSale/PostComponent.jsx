@@ -13,7 +13,7 @@ const HelpFindProperty = () => {
         <div className="md:w-1/2 w-full">
           <img
             src=" https://static.vecteezy.com/system/resources/previews/013/507/535/non_2x/confident-it-expert-handsome-young-man-in-shirt-and-tie-working-on-laptop-and-smiling-while-standing-against-grey-background-free-photo.JPG" // replace with actual path or import
-            alt="Dubai Property"
+            alt="India Property"
             className="w-full h-full object-cover"
           />
         </div>
@@ -33,13 +33,13 @@ const HelpFindProperty = () => {
               <p>
                 As seasoned property experts, we understand how challenging it
                 can be to navigate through the myriad of options available in
-                Dubai's property market.
+                India's property market.
               </p>
               <p className="mt-4">
                 Don't know where to begin? You don't need to sift through
-                countless listings on various UAE property websites. Follow the
-                simple steps on the screen to get a personalized selection of
-                properties that match your preferences.
+                countless listings on various India property websites. Follow
+                the simple steps on the screen to get a personalized selection
+                of properties that match your preferences.
               </p>
 
               {!showMore && (

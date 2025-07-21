@@ -11,7 +11,7 @@ const ContactForm = () => {
   const [language, setLanguage] = useState("english");
 
   return (
-    <div className="flex flex-col md:flex-row bg-[#d0eaf5] p-6 md:p-10 lg:p-20 w-full justify-center items-center">
+    <div className="flex   flex-col md:flex-row bg-[#d0eaf5] p-6 md:p-10 lg:p-20 w-full justify-center items-center">
       {/* Left: Form */}
       <div className="w-full md:w-1/2 bg-white rounded-md shadow-md hover:shadow-lg p-6 sm:p-8 md:p-10 space-y-6">
         <motion.div
@@ -101,6 +101,25 @@ const ContactForm = () => {
               id="message"
             />
           </div>
+          <p className="text-center md:text-right text-sm text-gray-600 mt-4">
+        By clicking Submit, you agree to our{" "}
+        <a href="#" className="underline text-black">
+          Terms & Conditions
+        </a>{" "}
+        and{" "}
+        <a href="#" className="underline text-black">
+          Privacy Policy
+        </a>
+        .
+      </p>  
+          {/* <div> */}
+            <button
+            type="submit"
+            className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-md shadow hover:opacity-90 transition"
+          >
+            Submit Detail
+          </button>
+          {/* </div> */}
         </motion.div>
       </div>
 

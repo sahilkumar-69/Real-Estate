@@ -80,7 +80,7 @@ const socialIcons = [
 
 const Footer = () => {
   return (
-    <div className="bg-[#002366] px-6 py-10 text-white">
+    <div className="bg-[#002366] px-6 pt-10 text-white">
       <div className="flex flex-wrap justify-between border-b border-white pb-6">
         {footerSections.map((section, idx) => (
           <div key={idx} className="w-1/2 md:w-1/3 lg:w-[16%] mb-6 md:mb-0">
@@ -113,7 +113,7 @@ const Footer = () => {
             </motion.div>
           ))}
         </div>
-        <p className="border-t border-white pt-4 text-sm text-center w-full">
+        <p className="border-t border-white py-4 text-sm text-center w-full">
           All rights reserved © 2025 Nexus Real Estate
         </p>
       </div>

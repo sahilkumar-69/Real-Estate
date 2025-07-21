@@ -1,6 +1,6 @@
 const Professional = () => {
   return (
-    <section className="bg-[#d0eaf5] py-12 px-4 md:px-12">
+    <section className="bg-[#d0eaf5]   py-12 px-4 p-6 md:p-10 lg:p-20 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Left - Image */}
         <div className="w-full md:w-1/2">

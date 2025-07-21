@@ -7,7 +7,7 @@ import { solutions } from "../../Data";
 
 export default function RealEstateSolutions() {
   return (
-    <section className="px-6 md:px-20 py-16 bg-white">
+    <section className="   py-16 bg-white">
       <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12 max-w-4xl">
         India real estate solutions focused around excellent customer service.
       </h2>

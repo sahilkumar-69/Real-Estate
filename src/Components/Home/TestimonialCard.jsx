@@ -26,7 +26,7 @@ export default function TestimonialSwiper() {
   };
 
   return (
-    <div className="w-full px-6 md:px-20 pt-2 pb-16 bg-white">
+    <div className="w-full     pt-2 pb-16 bg-white">
       <h2 className="text-2xltext-3xl md:text-4xl font-bold text-slate-800 mb-2  max-w-4xl">
         Why Our Client Trust Us?
       </h2>

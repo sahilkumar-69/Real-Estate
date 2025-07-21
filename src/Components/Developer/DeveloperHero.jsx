@@ -5,10 +5,10 @@ const DeveloperHero = () => {
   return (
     <div className="text-center max-w-3xl mx-auto mb-20">
       <h1 className="text-3xl md:text-4xl font-bold text-[#05264e]">
-        Dubai Real Estate Developers
+        India Real Estate Developers
       </h1>
       <p className="text-gray-600 mt-4 text-lg">
-        Browse through top developers in the UAE and explore their latest
+        Browse through top developers in the India and explore their latest
         projects.
       </p>
       <div className="flex   mt-4  w-full lg:w-[90%] items-center justify-center   ">

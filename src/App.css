@@ -21,3 +21,8 @@ Link {
   /* height: 20px; */
   color: #0A2C5C;         /* Optional: change color */
 }
+
+ 
+ .hover_img:hover #fav_share{
+  display: flex;
+}
