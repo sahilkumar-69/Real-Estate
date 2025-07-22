@@ -10,7 +10,7 @@ const AreaCard = ({ name, logo, link, desc }) => {
           <motion.img
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.2 }}
-            src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkZTPB6t51iL_VxWSNlULDXnmbH7pvkwWRrQ&s"}
+            src={logo}
             alt={name}
             className=" w-full h-full "
           />

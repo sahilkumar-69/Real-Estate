@@ -9,6 +9,7 @@ import LuxuryPropertyInfo from "../Components/Others/Description";
 import FaqSection from "../Components/Others/FAQ";
 import WhyChoose from "../Components/Others/WhyChoose";
 import ProjectPage from "../Components/Others/PageFiller";
+import SubscribeSection from "../Components/SubscribeSection";
 
 const Projects = () => {
   useEffect(() => {
@@ -59,12 +60,12 @@ const Projects = () => {
       <Hero video={"src/assets/Project_Hero_Video.mp4"} />
       <SearchAndFilter {...SearchAndFilterProps} />
       <ProjectGrid />
-      <div className="px-4 md:px-16">
+      <div className=" px-10 p-4">
         <LuxuryPropertyInfo />
-      </div>
       <WhyChoose />
-      <FaqSection />
-      {/* <ProjectPage /> */}
+      {/* <FaqSection faqs={} /> */}
+      <SubscribeSection />
+      </div>
     </>
   );
 };

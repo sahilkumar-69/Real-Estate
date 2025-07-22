@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import TopCommunities from "../Components/Areas/Component1";
-import { area } from "../Data";
-import AreaCard from "../Components/Cards/AreaCard";
+import { area, areaDescription } from "../Data";
 import ExploreIn from "../Components/Home/ExploreIn";
+import MainGrid from "../Components/Developer/MainGrid";
+import SubscribeSection from "../Components/SubscribeSection";
+import Description from "../Components/Others/Description";
+
 
 const Area_page = () => {
   useEffect(() => {
@@ -12,12 +15,10 @@ const Area_page = () => {
   return (
     <div className="mt-15 px-6 md:px-10 lg:px-20 ">
       <TopCommunities />
-      <div className="grid grid-cols-1 lg:overflow-visible  overflow-x-clip sm:grid-cols-2 my-3 md:grid-cols-3 lg:grid-cols-4  gap-6">
-        {area.map((dev) => (
-          <AreaCard key={dev.id} {...dev} />
-        ))}
-      </div>
-      <ExploreIn />
+      <MainGrid data={area} />
+      <ExploreIn Enablebtn={false} Title={"Popular Area in India"} />
+      <Description content={areaDescription} />
+      <SubscribeSection />
     </div>
   );
 };

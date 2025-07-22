@@ -4,6 +4,8 @@ import { FaHouseChimney } from "react-icons/fa6";
 import { RiBuilding2Fill } from "react-icons/ri";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { GiProfit } from "react-icons/gi";
+import { BiSolidLandscape } from "react-icons/bi";
 import { Autoplay } from "swiper/modules";
 import "swiper/css"; // Important
 
@@ -13,13 +15,18 @@ const icons = [
   GiHouseKeys,
   FaBuilding,
   RiBuilding2Fill,
+  GiProfit,
+  BiSolidLandscape,
   FaHouseUser,
   FaHouseChimney,
   GiHouseKeys,
   FaBuilding,
   RiBuilding2Fill,
+  BiSolidLandscape,
+
   FaHouseUser,
   FaHouseChimney,
+  GiProfit,
   GiHouseKeys,
   FaBuilding,
   RiBuilding2Fill,
@@ -27,7 +34,7 @@ const icons = [
 
 const IconSwiper = () => {
   return (
-    <div className="w-full border bg-[#AFDBF5] py-6">
+    <div className="w-full   bg-blue-50 py-6">
       <Swiper
         modules={[Autoplay]}
         loop={true}

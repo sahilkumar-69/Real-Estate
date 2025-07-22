@@ -1,35 +1,9 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-const faqs = [
-  {
-    question: "Can I get a mortgage for an off-plan property in India?",
-    answer:
-      "Yes, many banks in India offer mortgages for off-plan properties, covering up to 50% of the property’s value during construction. Consult your bank for specific terms.",
-  },
-  {
-    question: "What are the benefits of buying an off-plan property in India?",
-    answer:
-      "Benefits include lower entry costs, flexible payment plans, and the chance to own a property with modern features and high investment potential.",
-  },
-  {
-    question: "What are the risks of buying off-plan properties?",
-    answer:
-      "Risks include potential construction delays or developer issues. Mitigate these risks by choosing reputable developers and understanding the project’s terms.",
-  },
-  {
-    question: "How can I verify the credibility of a developer?",
-    answer:
-      "Research the developer’s track record, review their completed projects, and check their RERA registration for credibility.",
-  },
-  {
-    question: "What types of off-plan properties are available in India?",
-    answer:
-      "India offers a wide variety of off-plan properties, including apartments, villas, townhouses, and penthouses, catering to diverse preferences and budgets.",
-  },
-];
 
-export default function FaqSection() {
+
+export default function FaqSection( {faqs} ) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {

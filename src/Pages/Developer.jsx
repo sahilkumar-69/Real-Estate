@@ -6,7 +6,7 @@ import { deve, developers } from "../Data";
 import LuxuryPropertyInfo from "../Components/Others/Description";
 import SubscribeSection from "../Components/SubscribeSection";
 import ExploreIn from "../Components/Home/ExploreIn";
-import AreaCard from "../Components/Cards/AreaCard";
+import MainGrid from "../Components/Developer/MainGrid";
 
 const Developers = () => {
   useEffect(() => {
@@ -14,17 +14,13 @@ const Developers = () => {
   }, []);
 
   return (
-    <div className="min-h-screen mt-15   bg-[#f7f7f7] pt-10 px-4 md:px-16  ">
+    <div className="min-h-screen mt-15   bg-[#f7f7f7] pt-10 px-6 md:px-20  ">
       {/* Hero Section */}
       <DeveloperHero />
-      <div className="grid grid-cols-1 lg:overflow-visible  overflow-x-clip sm:grid-cols-2 my-3 md:grid-cols-3 lg:grid-cols-4  gap-6">
-        {deve.map((dev) => (
-          <AreaCard key={dev.id} {...dev} />
-        ))}
-      </div>
-      <ExploreIn />
-      <ExploreIn />
-      <ContactForm />
+      <MainGrid data={deve} />
+      <ExploreIn Title={" Top Developers in India"} />
+      <ExploreIn Title={" Popular Projects by Developers"} />
+      {/* <ContactForm /> */}
       <LuxuryPropertyInfo />
       <SubscribeSection />
     </div>

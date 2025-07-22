@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { properties } from "../Data";
+import { propertiesForRent, rentDescription } from "../Data";
 import ExploreIn from "../Components/Home/ExploreIn";
 import ExpertCardsWraper from "../Components/PropForSale/ExpertCardsWraper";
 import Description from "../Components/Others/Description";
@@ -12,8 +12,9 @@ import FaqSection from "../Components/Others/FAQ";
 import WhyChoose from "../Components/Others/WhyChoose";
 import Hero from "../Components/Home/Home_Hero_section";
 import ContactForm from "../Components/Home/ContactForm";
+import { FAQForRent } from "../Data";
 
-const RentPropertyListingPage = () => {
+const RentProperty = () => {
   useEffect(() => {
     scrollTo(0, 0);
   }, []);
@@ -22,8 +23,14 @@ const RentPropertyListingPage = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState("latest");
 
+  // pagination
+
+  const itemsPerPage = 9;
+
+  const [currentPage, setCurrentPage] = useState(1);
+
   // Filter properties based on active filter
-  const filteredProperties = properties.filter((property) => {
+  const filteredProperties = propertiesForRent.filter((property) => {
     if (activeFilter === "all") return true;
     if (activeFilter === "featured") return property.featured;
     if (activeFilter === "villas") return property.type === "villa";
@@ -57,26 +64,41 @@ const RentPropertyListingPage = () => {
     setSortBy,
   };
 
+  const totalPages = Math.ceil(sortedProperties.length / itemsPerPage);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = sortedProperties.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
+  const handlePageChange = (pageNum) => {
+    setCurrentPage(pageNum);
+  };
+
+  const paginateProps = { totalPages, currentPage, handlePageChange };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-     <Hero video={"../src/assets/Project_Hero_Video.mp4"} />
+      <Hero video={"/src/assets/rent_hero.mp4"} />
       {/* Search and Filter Section */}
       <SearchAndFilter {...SearchAndFilterProps} />
 
       {/* Property Listings */}
       <div className="container mx-auto px-14 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedProperties.map((property) => (
+          {currentItems.map((property) => (
             <PropertyListingCard property={property} />
           ))}
         </div>
 
         {/* Pagination */}
-        <Pagination />
+        <Pagination {...paginateProps} />
 
         {/* Property */}
-        <ExploreIn />
+        <ExploreIn Title={"Properties in Low Budget"} PropertyType={"rent"} />
       </div>
       <HelpFindProperty />
       <div className="px-6 md:px-20 py-16">
@@ -89,13 +111,13 @@ const RentPropertyListingPage = () => {
       <ContactForm />
 
       <div className="px-6 md:px-20 py-16">
-        <Description />
+        <Description content={rentDescription} />
       </div>
       <WhyChoose />
 
-      <FaqSection />
+      <FaqSection faqs={FAQForRent} />
     </div>
   );
 };
 
-export default RentPropertyListingPage;
+export default RentProperty;

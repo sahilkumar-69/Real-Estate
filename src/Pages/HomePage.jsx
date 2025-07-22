@@ -8,6 +8,7 @@ import TestimonialCard from "../Components/Home/TestimonialCard";
 import IconSwiper from "../Components/Home/IconSwiper";
 import SubscribeSection from "../Components/SubscribeSection";
 import { useEffect } from "react";
+import PropertyMarketplace from "../Components/Home/NexusMarketPlace";
 
 const HomePage = () => {
   useEffect(() => {
@@ -21,17 +22,22 @@ const HomePage = () => {
       <div className="px-6 md:px-10 lg:px-20">
         <RealEstateSolutions />
         <BrandedDevelopments />
-        <ExploreIn />
+        <ExploreIn Enablebtn={true} Title={" Explore Properties in India"} />
+
         {/* <div className="p-4">
         <h1 className="text-3xl font-bold text-center mb-8">
         Property Gallery
         </h1>
         <DoubleSwiper />
         </div> */}
-        <TestimonialCard />
       </div>
       <ContactForm />
+      <div className="p-6 md:px-10 lg:px-20">
+        <TestimonialCard />
+      </div>
+
       <Professional />
+      <PropertyMarketplace />
       <div className="px-6 md:px-10 lg:px-20">
         <SubscribeSection />
       </div>

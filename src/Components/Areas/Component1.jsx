@@ -4,7 +4,7 @@ import { FaChevronDown } from "react-icons/fa6";
 
 export default function TopCommunities() {
   return (
-    <section className="bg-white border border-red-600 py-16 ">
+    <section className="bg-white   py-16 ">
       <div className="max-w-5xl mx-auto text-center">
         {/* Heading */}
         <h2 className="text-4xl font-bold text-[#0b2c50] mb-4">
@@ -34,7 +34,7 @@ export default function TopCommunities() {
 
           {/* Dropdown */}
           <div className="relative w-full sm:w-40">
-            <select className="appearance-none w-full px-4 py-3 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <select className="appearance-none w-full px-4 py-3 border rounded-md text-gray-700 focus:outline-none  ">
               <option value="">All</option>
               <option value="apartments">Apartments</option>
               <option value="villas">Villas</option>

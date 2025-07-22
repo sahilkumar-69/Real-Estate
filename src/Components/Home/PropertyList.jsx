@@ -7,23 +7,25 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import "swiper/css";
 import "swiper/css/navigation";
 import { PropertySwiperCard } from "./PropertySwiperCard";
-import { propertyData } from "../../Data";
+import { propertyData, propertiesForRent } from "../../Data";
+import { GiClawHammer } from "react-icons/gi";
 
-export default function PropertyList({ Cardtype }) {
+export default function PropertyList({ PropertyType }) {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
+  // let data;
+  // //  const renderCard = (property) => {
+  // switch (PropertyType) {
+  //   case "buy":
+  //     data = properties;
+  //     break;
+  //   case "rent":
+  //     data = propertiesForRent;
 
-  //  const renderCard = (property) => {
-  //   switch (Cardtype) {
-  //     case "compact":
-  //       return <PropertyCompactCard data={property} />;
-  //     case "highlight":
-  //       return <PropertyHighlightCard data={property} />;
-  //     default:
-  //       return <PropertySwiperCard data={property} />;
-  //   }
-  // };
+  //     break;
+  // }
+  // // };
 
   useEffect(() => {
     if (
@@ -37,6 +39,8 @@ export default function PropertyList({ Cardtype }) {
       swiperInstance.navigation.update();
     }
   }, [swiperInstance]);
+
+  // console.log(data)
 
   return (
     <section className="py-12 rounded-2xl  relative">

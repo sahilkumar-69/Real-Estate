@@ -7,7 +7,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import "swiper/css";
 import "swiper/css/navigation";
 // import { PropertySwiperCard } from "./PropertySwiperCard";
-import { propertyData } from "../../Data";
+import { indianRealEstateExperts, propertyData } from "../../Data";
 import ConsultantCard from "../Cards/MeetExpertCard";
 
 export default function ExpertCardsWraper() {
@@ -55,9 +55,9 @@ export default function ExpertCardsWraper() {
             1024: { slidesPerView: 3, spaceBetween: 24 },
           }}
         >
-          {propertyData.map((property, index) => (
+          {indianRealEstateExperts.map((data, index) => (
             <SwiperSlide key={index}>
-              <ConsultantCard key={index} />
+              <ConsultantCard data={data} key={index} />
             </SwiperSlide>
           ))}
         </Swiper>

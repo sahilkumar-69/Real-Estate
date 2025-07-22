@@ -20,7 +20,7 @@ const PropertyListingCard = ({ property }) => {
           loop="true"
           className="w-full overflow-hidden h-64"
         >
-          {property.image.map((img, idx) => (
+          {property.images.map((img, idx) => (
             <SwiperSlide key={property.idx}>
               <img
                 src={img}
@@ -47,7 +47,7 @@ const PropertyListingCard = ({ property }) => {
 
       <div className="p-5">
         <h3 className="text-xl font-bold text-gray-800 mb-1">
-          {property.title}
+          {property.title.slice(0, 24)}...
         </h3>
         <div className="flex items-center text-gray-600 mb-3">
           <FiMapPin className="mr-1" size={14} />

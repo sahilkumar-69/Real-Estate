@@ -1,52 +1,18 @@
 import { useState } from "react";
 
-const LuxuryPropertyInfo = () => {
+const LuxuryPropertyInfo = ({ content }) => {
   const [showFull, setShowFull] = useState(false);
 
   const handleToggle = () => setShowFull(!showFull);
 
   return (
-    <div className=" border py-10   max-w-5xl">
-      <h2 className="text-2xl md:text-3xl font-bold text-[#05264e] mb-6">
-        Luxury Properties for Sale in India
-      </h2>
-
+    <div className="   py-10   max-w-5xl">
       <div
         className={`text-lg leading-7 text-[#333] transition-all duration-500 ease-in-out ${
           showFull ? "max-h-full" : "max-h-[230px] overflow-hidden"
         } relative`}
       >
-        <p className="mb-4 leading-relaxed   ">
-          India has become synonymous with luxury living and is one of the
-          world’s most desirable cities to invest in real estate. Known for its
-          gleaming skyscrapers, ultra-modern developments, and high-end
-          lifestyle, India offers a wealth of luxury properties for sale that
-          appeal to both international investors and local residents. From
-          exquisite beachfront villas to opulent penthouses overlooking the
-          skyline, the city caters to those seeking exclusive living
-          experiences. Areas like{" "}
-          <span className="text-orange-500 font-medium">Palm Jumeirah</span>,{" "}
-          <span className="text-orange-500 font-medium">
-            India Hills Estate
-          </span>
-          , and{" "}
-          <span className="text-orange-500 font-medium">Downtown India</span>{" "}
-          house some of the finest properties with breathtaking views,
-          state-of-the-art amenities, and access to a sophisticated urban
-          lifestyle.
-        </p>
-
-        <p className="mb-4">
-          The city’s luxury properties include a variety of real estate options,
-          such as spacious villas with private pools, townhouses located in
-          serene communities, and premium penthouses with panoramic views of the
-          Arabian Gulf and India’s iconic landmarks.{" "}
-          <span className="text-orange-500 font-medium">
-            India’s real estate market
-          </span>{" "}
-          has become an investment hotspot due to its unique blend of luxury,
-          innovation, and global connectivity. lorem1120
-        </p>
+        <p dangerouslySetInnerHTML={{ __html: content }}></p>
 
         {/* Gradient overlay */}
         {!showFull && (

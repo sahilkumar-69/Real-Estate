@@ -49,7 +49,7 @@ const footerSections = [
       "Mortgages",
       "Conveyancing",
       "Holiday Homes",
-      "Partner with Provident",
+      "Partner with Nexus",
       "PRYPCO",
       "Ethnovate",
     ],

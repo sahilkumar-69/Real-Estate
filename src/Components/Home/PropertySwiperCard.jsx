@@ -6,6 +6,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export const PropertySwiperCard = ({ data }) => {
+  // console.log(data)
   return (
     <div className="bg-white  rounded-lg hover_img overflow-hidden  hover:shadow-lg transition duration-300 h-full flex flex-col">
       {/* Swiper Image Slider */}
