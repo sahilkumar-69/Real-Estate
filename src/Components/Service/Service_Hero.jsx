@@ -1,17 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Service_Hero = () => {
+  const [showForm, setShowForm] = useState(false);
+
+  const toggleForm = () => setShowForm(!showForm);
+
   return (
-    <>
-      <div className="w-full relative overflow-hidden object-cover  h-[95vh]">
-        <img
-          className="w-full z-40 h-full"
-          src="https://media.istockphoto.com/id/1927881398/photo/group-of-business-persons-talking-in-the-office.jpg?s=612x612&w=0&k=20&c=N0erlm9rQIa_kdBpwxSOa8E1my9bwY_oeN84wZIhais="
-          alt=""
-        />
+    <section
+      className="w-full h-[95vh] bg-cover bg-center z-10 flex items-center px-6 md:px-24 relative"
+      style={{
+        backgroundImage: `url("https://www.tribecacare.com/wp-content/uploads/2022/07/Edinburgh-Property-management.jpg")`,
+      }}
+    >
+      {/* Optional dark overlay */}
+      {/* <div className="absolute inset-0 bg-black bg-opacity-40 z-0"></div> */}
+
+      {/* Content */}
+      <div className="relative z-10 text-white max-w-2xl">
+        <h1 className="text-3xl md:text-5xl text-black font-bold mb-4">
+          Top–Notch Property Services in India
+        </h1>
+
+        <p className="text-lg text-black mb-6">
+          We provide turnkey solutions to help you reap the best returns on your
+          investment.
+        </p>
+
+        <button
+          onClick={toggleForm}
+          className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-md transition"
+        >
+          Enquire Now
+        </button>
       </div>
-      <h1 className="absolute top-11 left-6 z-50 ">hello this </h1>
-    </>
+
+      {/* Enquiry Form Modal */}
+      {showForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-center">
+          <div className="bg-white rounded-lg shadow-lg p-8 w-[90%] max-w-md relative">
+            <button
+              onClick={toggleForm}
+              className="absolute top-2 right-3 text-gray-700 text-2xl font-bold"
+            >
+              ×
+            </button>
+            <h2 className="text-xl font-semibold mb-4">Enquiry Form</h2>
+            <form className="space-y-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full border border-gray-300 rounded-md px-4 py-2"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full border border-gray-300 rounded-md px-4 py-2"
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="w-full border border-gray-300 rounded-md px-4 py-2"
+              />
+              <textarea
+                placeholder="Your Message"
+                rows="3"
+                className="w-full border border-gray-300 rounded-md px-4 py-2"
+              ></textarea>
+              <button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
 

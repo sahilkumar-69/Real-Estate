@@ -8,8 +8,10 @@
 // import FeaturedPost from "../components/Blog/FeaturedPost";
 import NewsHeader from "../Components/Blog/Hero";
 import MainGrid from "../Components/Developer/MainGrid";
+import ContactForm from "../Components/Home/ContactForm";
 
 import WhyChoose from "../Components/Others/WhyChoose";
+import SubscribeSection from "../Components/SubscribeSection";
 import { blogPosts } from "../Data";
 
 const BlogPage = () => {
@@ -65,8 +67,15 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen mt-15   bg-[#f7f7f7] pt-10 px-6 md:px-20  ">
       <NewsHeader />
-      <MainGrid blog={true} data={blogPosts} />
-      <WhyChoose />
+      <div className="mb-10">
+        <MainGrid blog={true} data={blogPosts} />
+      </div>
+      <ContactForm />
+
+      {/* <WhyChoose /> */}
+      <div className="px-6 md:px-10 lg:px-20">
+        <SubscribeSection />
+      </div>
     </div>
     // <div className="min-h-screen bg-gray-50">
     //   {/* Hero Section */}

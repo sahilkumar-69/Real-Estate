@@ -17,6 +17,7 @@ import Blogs from "./Pages/Blogs";
 import SaleProperty from "./Pages/PropertiesForSale";
 import RentProperty from "./Pages/PropertiesForRent";
 import BlogPage from './Pages/BlogPage';
+import AboutusPage from "./Pages/AboutusPage";
 
 function App() {
   return (
@@ -40,10 +41,9 @@ function App() {
 
         <Route path="/blogs" element={<BlogPage />} />
 
-        <Route
-          path="/buy/properties-for-sale/:propertyId"
-          element={<DedicatedPageForProp />}
-        />
+        <Route path="/about-us" element={<AboutusPage />} />
+        <Route path="/buy/properties-for-sale/:propertyId" element={<DedicatedPageForProp />} />
+
       </Routes>
       <Footer />
     </Router>

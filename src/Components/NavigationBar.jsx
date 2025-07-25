@@ -17,10 +17,9 @@ export default function Navbar() {
     { title: "Areas", path: "/areas" },
     { title: "Services", path: "/services" },
     { title: "Blogs", path: "/blogs" },
-    { title: "More", path: "/more" },
+    { title: "About Us", path: "/about-us" },
   ];
 
-  const currencies = ["USD", "INR", "AED", "EUR"];
 
   useEffect(() => {
     const onScroll = () => {
@@ -81,7 +80,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div
-          className={`absolute top-full left-0 w-full bg-black text-white flex flex-col gap-4 px-6 py-4 z-40 md:hidden transition-all`}
+          className={`absolute top-full left-0 w-full text-center bg-black text-white flex flex-col gap-4 px-6 py-4 z-40 md:hidden transition-all`}
         >
           {navOptions.map((option, index) => (
             <Link
@@ -93,23 +92,7 @@ export default function Navbar() {
               {option.title}
             </Link>
           ))}
-          <div className="flex items-center gap-2 pt-2 border-t border-gray-700">
-            <FaGlobe />
-            <select
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value)}
-              className="bg-black text-white border-none outline-none"
-            >
-              {currencies.map((cur) => (
-                <option key={cur} value={cur}>
-                  {cur}
-                </option>
-              ))}
-            </select>
-          </div>
-          <button className="border mt-2 py-1 rounded hover:bg-white hover:text-black transition">
-            Login
-          </button>
+  
           <button className="border py-1 rounded hover:bg-white hover:text-black transition">
             List Property
           </button>
