@@ -17,12 +17,13 @@ const HomePage = () => {
 
   return (
     <>
-      <Home_Hero_section />
+           <Home_Hero_section Hidebtn={false} />
+     
       <IconSwiper />
       <div className="px-6 md:px-10 lg:px-20">
         <RealEstateSolutions />
         <BrandedDevelopments />
-        <ExploreIn Enablebtn={true} Title={" Explore Properties in India"} />
+        <ExploreIn Enablebtn={false} Title={" Explore Properties in India"} />
 
         {/* <div className="p-4">
         <h1 className="text-3xl font-bold text-center mb-8">

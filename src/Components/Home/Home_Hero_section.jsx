@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Hero({ video }) {
+export default function Hero({ video ,Hidebtn}) {
   const Navigate = useNavigate();
   return (
     <section className="relative h-[95svh] w-full overflow-hidden">
@@ -29,10 +29,12 @@ export default function Hero({ video }) {
           Explore top real estate options around you.
         </p>
         <button
+        
           onClick={() => {
-            Navigate("/buy");
+            scrollTo({ top: 1700, behavior: "smooth" });
+            // Navigate("/buy/properties-for-sale");
           }}
-          className="bg-white text-black px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition"
+          className={`bg-white ${Hidebtn || Hidebtn == undefined ?"hidden":""} text-black px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition`}
         >
           Get Started
         </button>

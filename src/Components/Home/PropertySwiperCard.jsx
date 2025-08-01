@@ -2,10 +2,12 @@ import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { FiHeart, FiShare2 } from "react-icons/fi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { PiBedBold } from "react-icons/pi";
+import { Link, useNavigate } from "react-router-dom";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-export const PropertySwiperCard = ({ data }) => {
+export const PropertySwiperCard = ({ data,fr }) => {
+  const navigate = useNavigate();
   // console.log(data)
   return (
     <div className="bg-white  rounded-lg hover_img overflow-hidden  hover:shadow-lg transition duration-300 h-full flex flex-col">
@@ -21,24 +23,16 @@ export const PropertySwiperCard = ({ data }) => {
           {data.images.map((img, idx) => (
             <SwiperSlide key={idx}>
               <img
+                onClick={() =>
+                  navigate(`/property-details/${data.id + " " + fr}`)
+                }
                 src={img}
                 alt={data.title}
-                className="w-full  h-full object-cover"
+                className="w-full cursor-pointer  h-full object-cover"
               />
             </SwiperSlide>
           ))}
         </Swiper>
-        <div
-          id="fav_share"
-          className="absolute z-50  top-2 right-2 hidden space-x-2"
-        >
-          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
-            <FiHeart className="text-gray-700" />
-          </button>
-          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
-            <FiShare2 className="text-gray-700" />
-          </button>
-        </div>
 
         {/* Tags */}
         <div className="absolute top-3 z-50 left-3 flex flex-wrap gap-2">
@@ -70,7 +64,9 @@ export const PropertySwiperCard = ({ data }) => {
         <p className="text-sm text-gray-700 mt-2">
           Starting Price{" "}
           <span className="text-orange-600 text-base font-semibold">
-            {data.price}
+             {data.price.toString().slice(0, 2)}
+            {"."}
+            {data.price.toString().slice(2, 4)} Lakhs
           </span>
         </p>
         <div className="flex items-center mt-3 text-sm text-gray-500">
@@ -85,12 +81,20 @@ export const PropertySwiperCard = ({ data }) => {
 
       {/* Action Buttons */}
       <div className="grid grid-cols-2 gap-2 p-4 border-t border-gray-100">
-        <button className="flex items-center justify-center gap-2 text-[#ff8243] bg-gray-100 rounded py-2 text-sm font-semibold hover:bg-gray-200 transition">
+        <Link
+          to={`tel:${+918987898778}`}
+          className="flex items-center justify-center gap-2 text-[#ff8243] bg-gray-100 rounded py-2 text-sm font-semibold hover:bg-gray-200 transition"
+        >
           <FaPhoneAlt /> <span className="text-[#0C1844]">Call</span>
-        </button>
-        <button className="flex items-center justify-center gap-2 text-green-600 bg-gray-100 rounded py-2 text-sm font-semibold hover:bg-gray-200 transition">
+        </Link>
+        <Link
+          to={`https://wa.me/${+918987898778}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 text-green-600 bg-gray-100 rounded py-2 text-sm font-semibold hover:bg-gray-200 transition"
+        >
           <FaWhatsapp /> <span className="text-[#0C1844]">WhatsApp</span>
-        </button>
+        </Link>
       </div>
     </div>
   );

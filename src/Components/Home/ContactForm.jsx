@@ -10,7 +10,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
+    phoneNumber: "",
     language: "english",
     message: "",
   });
@@ -24,27 +24,38 @@ const ContactForm = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("https://realestatebackend-uhf9.onrender.com/api/Contact-Us", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://realestatebackend-2-v5e5.onrender.com/api/Contact-Us",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await res.json();
-      if (res.ok) {
-        alert("Message sent successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          language: "english",
-          message: "",
-        });
-      } else {
-        alert("Failed to send message: " + data.message);
+      console.log("Status:", res.status);
+      console.log("Response body:", data);
+      if (!res.ok) {
+        alert(
+          "Failed to send message: " +
+            (data?.message || data?.error || JSON.stringify(data))
+        );
+        return;
       }
+      alert("Message sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phoneNumber: "",
+        language: "english",
+        message: "",
+      });
+      // } else {
+      //   alert("Failed to send message: " + data.message);
+      // }
     } catch (error) {
       console.error("Error:", error);
       alert("Something went wrong.");

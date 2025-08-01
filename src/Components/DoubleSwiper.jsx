@@ -7,20 +7,14 @@ import "swiper/css/thumbs";
 import "swiper/css/free-mode";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-const DoubleSwiper = () => {
+const DoubleSwiper = ({images}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
-  const mainImages = [
-    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-  ];
+ 
 
-  const thumbImages = mainImages; // Using same images for thumbs in this example
+  const thumbImages = images; // Using same images for thumbs in this example
 
   return (
     <div className="max-w-4xl mx-auto p-4">
@@ -36,7 +30,7 @@ const DoubleSwiper = () => {
           modules={[Navigation, Thumbs]}
           className="rounded-lg shadow-lg"
         >
-          {mainImages.map((image, index) => (
+          {images.map((image, index) => (
             <SwiperSlide key={index}>
               <div className="aspect-w-16 aspect-h-9">
                 <img

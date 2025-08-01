@@ -3,67 +3,73 @@ import { FaFacebook, FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaTelegramPlane } from "react-icons/fa";
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 const footerSections = [
   {
+    title: "Pages",
+    items: [
+      { title: "Buy", to: "/buy/properties-for-sale" },
+      { title: "Rent", to: "/rent/properties-for-rent" },
+      { title: "Areas", to: "areas" },
+      { title: "Developers", to: "developers" },
+      { title: "Projects", to: "Partner with Nexus" },
+      { title: "Services", to: "services" },
+      // { title: "Ethnovate", to: "Ethnovate" },
+    ],
+  },
+  {
     title: "Buy",
     items: [
-      "Properties for Sale",
-      "Guide to Buying",
-      "Signature Collection",
-      "Mortgages",
-      "Property Management",
-      "Legal Services",
-      "Currency Exchange",
-      "Snagging & Inspection",
+      { title: "Properties for Sale", to: "Properties for Sale" },
+      { title: "Guide to Buying", to: "Guide to Buying" },
+      { title: "Signature Collection", to: "Signature Collection" },
+      { title: "Mortgages", to: "Mortgages" },
+      { title: "Property Management", to: "Property Management" },
+      { title: "Legal Services", to: "Legal Services" },
+      { title: "Currency Exchange", to: "Currency Exchange" },
+      { title: "Snagging & Inspection", to: "Snagging & Inspection" },
     ],
   },
   {
     title: "Sell",
-    items: ["List your Property", "Guide to Selling", "Book a Valuation"],
+    items: [
+      { title: "List your Property", to: "List your Property" },
+      { title: "Guide to Selling", to: "Guide to Selling" },
+      { title: "Book a Valuation", to: "Book a Valuation" },
+    ],
   },
   {
     title: "Off Plan",
     items: [
-      "New Projects",
-      "Guide to Buying Off Plan",
-      "Best India  Communities",
-      "Top India  Developers",
-      "Upcoming Roadshows",
-      "Branded Residences",
+      { title: "New Projects", to: "New Projects" },
+      { title: "Guide to Buying Off Plan", to: "Guide to Buying Off Plan" },
+      { title: "Best India  Communities", to: "Best India  Communities" },
+      { title: "Top India  Developers", to: "Top India  Developers" },
+      { title: "Upcoming Roadshows", to: "Upcoming Roadshows" },
+      { title: "Branded Residences", to: "Branded Residences" },
     ],
   },
   {
     title: "Rent",
     items: [
-      "Properties to Rent",
-      "Guide to Renting",
-      "Short Term Rentals",
-      "Property Management",
+      { title: "Properties to Rent", to: "Properties to Rent" },
+      { title: "Guide to Renting", to: "Guide to Renting" },
+      { title: "Short Term Rentals", to: "Short Term Rentals" },
+      { title: "Property Management", to: "Property Management" },
     ],
   },
-  {
-    title: "Services",
-    items: [
-      "Leasing",
-      "Mortgages",
-      "Conveyancing",
-      "Holiday Homes",
-      "Partner with Nexus",
-      "PRYPCO",
-      "Ethnovate",
-    ],
-  },
+
   {
     title: "About",
     items: [
-      "About Us",
-      "Meet The Team",
-      "Our Awards",
-      "Careers",
-      "Philanthropy",
-      "India  News & Blog",
-      "Sustainability Initiative",
+      { title: "About Us", to: "about-us" },
+      { title: "Meet The Team", to: "Meet The Team" },
+      { title: "Our Awards", to: "Our Awards" },
+      { title: "Careers", to: "Careers" },
+      { title: "Philanthropy", to: "Philanthropy" },
+      { title: "India  News & Blog", to: "India  News & Blog" },
+      { title: "Sustainability Initiative", to: "Sustainability Initiative" },
     ],
   },
 ];
@@ -86,12 +92,13 @@ const Footer = () => {
           <div key={idx} className="w-1/2 md:w-1/3 lg:w-[16%] mb-6 md:mb-0">
             <p className="text-lg font-semibold mb-3">{section.title}</p>
             {section.items.map((item, i) => (
-              <p
+              <Link
+                to={item.to}
                 key={i}
-                className="cursor-pointer text-sm font-thin hover:text-[#F68537] transition-colors duration-200 mb-1"
+                className="cursor-pointer block text-sm font-thin hover:text-[#F68537] transition-colors duration-200 mb-1"
               >
-                {item}
-              </p>
+                {item.title}
+              </Link>
             ))}
           </div>
         ))}
