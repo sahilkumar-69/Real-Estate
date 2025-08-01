@@ -3,7 +3,7 @@ import AreaCard from "../Cards/AreaCard";
 import Pagination from "../Others/Pagination";
 import BlogCard from "../Cards/BlogCard";
 
-const MainGrid = ({ data, blog }) => {
+const MainGrid3 = ({ data, blog }) => {
   const itemsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -36,7 +36,7 @@ const MainGrid = ({ data, blog }) => {
           blog ? (
             <BlogCard key={dev._id} {...dev} />
           ) : (
-            <AreaCard key={dev._id} {...dev} path="areas" />
+            <AreaCard key={dev._id} {...dev} path="services" />
           )
         )}
       </div>
@@ -49,4 +49,4 @@ const MainGrid = ({ data, blog }) => {
   );
 };
 
-export default MainGrid;
+export default MainGrid3;

@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const Professional = () => {
+  const navigate = useNavigate()
   return (
     <section className="bg-[#d0eaf5]   py-12 px-4 p-6 md:p-10 lg:p-20 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
@@ -20,7 +23,7 @@ const Professional = () => {
             Discover a seamless journey to finding your perfect home. Whether you're buying, selling, or renting,
             our team of professionals is here to make your dream a reality with trust, transparency, and ease.
           </p>
-          <button className="px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition duration-300">
+          <button onClick={() =>  navigate("/learn-less") }  className="px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition duration-300">
             Learn More
           </button>
         </div>

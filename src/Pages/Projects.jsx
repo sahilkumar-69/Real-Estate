@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import ProjectGrid from "../Components/ProjectGrid";
-import RentAndBuyHeroSection from "../Components/RentAndBuyHeroSection";
+
 import { properties } from "../Data";
 import SearchAndFilter from "../Components/SearchAndFilter";
 import Hero from "../Components/Home/Home_Hero_section";
 import LuxuryPropertyInfo from "../Components/Others/Description";
-import FaqSection from "../Components/Others/FAQ";
+
 import WhyChoose from "../Components/Others/WhyChoose";
-import ProjectPage from "../Components/Others/PageFiller";
+
 import SubscribeSection from "../Components/SubscribeSection";
 
 const Projects = () => {
@@ -62,9 +62,9 @@ const Projects = () => {
       <ProjectGrid />
       <div className=" px-10 p-4">
         <LuxuryPropertyInfo />
-      <WhyChoose />
-      {/* <FaqSection faqs={} /> */}
-      <SubscribeSection />
+        <WhyChoose />
+        {/* <FaqSection faqs={} /> */}
+        <SubscribeSection />
       </div>
     </>
   );
