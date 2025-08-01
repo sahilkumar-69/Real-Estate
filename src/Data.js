@@ -9,6 +9,8 @@ export const properties = [
     area: 4200,
     type: "villa",
     status: "ready",
+    description:
+      "A waterfront townhouse offering spectacular views and modern interiors. Ideal for families seeking peace, space, and a vibrant community.",
     images: [
       "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -27,6 +29,8 @@ export const properties = [
     area: 1450,
     type: "apartment",
     status: "ready",
+    description:
+      "A waterfront townhouse offering spectacular views and modern interiors. Ideal for families seeking peace, space, and a vibrant community.",
     images: [
       "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -43,6 +47,8 @@ export const properties = [
     area: 2800,
     type: "townhouse",
     status: "off-plan",
+    description:
+      "A waterfront townhouse offering spectacular views and modern interiors. Ideal for families seeking peace, space, and a vibrant community.",
     images: [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -61,6 +67,8 @@ export const properties = [
     area: 3800,
     type: "penthouse",
     status: "ready",
+    description:
+      "A waterfront townhouse offering spectacular views and modern interiors. Ideal for families seeking peace, space, and a vibrant community.",
     images: [
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -77,6 +85,8 @@ export const properties = [
     area: 3200,
     type: "villa",
     status: "ready",
+    description:
+      "A waterfront townhouse offering spectacular views and modern interiors. Ideal for families seeking peace, space, and a vibrant community.",
     images: [
       "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -95,6 +105,8 @@ export const properties = [
     area: 800,
     type: "apartment",
     status: "off-plan",
+    description:
+      "A waterfront townhouse offering spectacular views and modern interiors. Ideal for families seeking peace, space, and a vibrant community.",
     images: [
       "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -112,24 +124,28 @@ export const solutions = [
     description:
       "Access our dedicated team of over 400+ expert agents ready to assist you.",
     icon: "src/assets/icons/specialist.svg",
+    to:"/under-developement"
   },
   {
     title: "List Your Property",
     description:
       "Achieve optimal value by listing your property with our expert marketing strategies.",
     icon: "src/assets/icons/listProperties.svg",
+    to:"/under-developement"
   },
   {
     title: "Download Report",
     description:
       "Download the latest Comprehensive India Real Estate Market Report Q1 2025",
     icon: "src/assets/icons/downloadReport.svg",
+    to:"/under-developement"
   },
   {
     title: "Explore India Projects",
     description:
       "Browse and find your ideal property from our extensive portfolio of India projects.",
     icon: "src/assets/icons/skyscraper.svg",
+    to:"/projects"
   },
 ];
 
@@ -192,13 +208,16 @@ export const testimonials = [
 
 export const propertyData = [
   {
+    id: 1,
     title: "Crestlane",
     developer: "Meraas",
-    price: "AED 2.62M",
+    price: 2238293,
     location: "City Walk",
     beds: ["1", "2", "3", "4", "5"],
     tags: ["Apartment", "Ponthouse", "Duelux"],
     year: "2024",
+    description:
+      "A luxurious 5-bedroom villa located in the prestigious Palm Jumeirah. This elegant property offers private beach access, stunning views, and world-class amenities.",
     images: [
       "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -206,35 +225,43 @@ export const propertyData = [
     ],
   },
   {
+    id: 2,
     title: "Bayfront Marina Residences",
     developer: "Sobha Realty",
-    price: "AED 1.33M",
+    price: 1138293,
     location: "Sobha Siniya Island",
     beds: ["1", "2", "3"],
     tags: ["Apartment"],
     year: "2023",
+    description:
+      "A stylish and contemporary 2-bedroom apartment in the heart of Downtown. Perfect for professionals or small families who appreciate city life.",
     images: [
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     ],
   },
   {
+    id: 3,
     title: "Binghamton Circle",
     developer: "Binghamton",
-    price: "AED 675K",
+    price: 5238293,
     location: "Jumeirah Village Circle (JVC)",
     beds: ["1", "2", "3"],
     tags: ["Apartment", "Studio", "Offices"],
     year: "2025",
+    description:
+      "A waterfront townhouse offering spectacular views and modern interiors. Ideal for families seeking peace, space, and a vibrant community.",
     images: [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     ],
   },
   {
+    id: 4,
+
     title: "Crestlane",
     developer: "Meraas",
-    price: "AED 2.62M",
+    price: 5438293,
     location: "City Walk",
     beds: ["1", "2", "3", "4", "5"],
     tags: ["Apartment", "Ponthouse", "Duelux"],
@@ -246,9 +273,10 @@ export const propertyData = [
     ],
   },
   {
+    id: 5,
     title: "Bayfront Marina Residences",
     developer: "Sobha Realty",
-    price: "AED 1.33M",
+    price: 345677654,
     location: "Sobha Siniya Island",
     beds: ["1", "2", "3"],
     tags: ["Apartment"],
@@ -259,9 +287,10 @@ export const propertyData = [
     ],
   },
   {
+    id: 6,
     title: "Binghamton Circle",
     developer: "Binghamton",
-    price: "AED 675K",
+    price: 938993,
     location: "Jumeirah Village Circle (JVC)",
     beds: ["1", "2", "3"],
     tags: ["Apartment", "Studio", "Offices"],
@@ -417,10 +446,10 @@ export const filterdata = [
     label: "Price Range",
     options: [
       "Any Price",
-      "AED 0 - 1,000,000",
-      "AED 1,000,000 - 3,000,000",
-      "AED 3,000,000 - 5,000,000",
-      "AED 5,000,000",
+      "0 - 1,000,000",
+      "1,000,000 - 3,000,000",
+      "3,000,000 - 5,000,000",
+      "Above 5,000,000  ",
     ],
   },
 ];
@@ -429,142 +458,182 @@ export const deve = [
   {
     id: 1,
     name: "Lodha Group",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO_W1WROHyEhrZOTp1xhS2cjV-1vlwW7kCaA&s",
-    link: "/developers/lodha",
-    desc: "One of India’s top real estate players with luxurious skyscrapers across Mumbai, Pune, and beyond.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO_W1WROHyEhrZOTp1xhS2cjV-1vlwW7kCaA&s",
+    logo: "/developers/lodha",
+    description:
+      "One of India’s top real estate players with luxurious skyscrapers across Mumbai, Pune, and beyond.",
   },
   {
     id: 2,
     name: "Godrej Properties",
-    logo: "https://www.godrejmsrcity.info/images/godrej/about-us-godrej-properties.webp",
-    link: "/developers/godrej",
-    desc: "A legacy brand combining innovation and sustainability in residential and commercial properties across India.",
+    image:
+      "https://www.godrejmsrcity.info/images/godrej/about-us-godrej-properties.webp",
+    logo: "/developers/godrej",
+    description:
+      "A legacy brand combining innovation and sustainability in residential and commercial properties across India.",
   },
   {
     id: 3,
     name: "Prestige Group",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJv9l28o4jNSBnBluNlhCmdLNXwiQ9iESZ8g&s",
-    link: "/developers/prestige",
-    desc: "Renowned in South India, delivering premium projects across Bengaluru, Chennai, and Hyderabad.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJv9l28o4jNSBnBluNlhCmdLNXwiQ9iESZ8g&s",
+    logo: "/developers/prestige",
+    description:
+      "Renowned in South India, delivering premium projects across Bengaluru, Chennai, and Hyderabad.",
   },
   {
     id: 4,
     name: "Brigade Group",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN1VzSKtOspJNXBCoCZW1Cq8EjykPLYgAFYw&s",
-    link: "/developers/brigade",
-    desc: "Pioneers of integrated enclaves, office spaces, malls, and hotels primarily in South India.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN1VzSKtOspJNXBCoCZW1Cq8EjykPLYgAFYw&s",
+    logo: "/developers/brigade",
+    description:
+      "Pioneers of integrated enclaves, office spaces, malls, and hotels primarily in South India.",
   },
   {
     id: 5,
     name: "Sobha Limited",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQxHWBIhxCSQ1Emlmthao3RlgGv2fG0Eh_BA&s",
-    link: "/developers/sobha",
-    desc: "Synonymous with luxury, Sobha delivers meticulous craftsmanship and global quality standards.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQxHWBIhxCSQ1Emlmthao3RlgGv2fG0Eh_BA&s",
+    logo: "/developers/sobha",
+    description:
+      "Synonymous with luxury, Sobha delivers meticulous craftsmanship and global quality standards.",
   },
   {
     id: 6,
     name: "DLF",
-    logo: "https://www.asiapropertyawards.com/wp-content/uploads/2024/02/DLF-DOWNTOWN.jpg",
-    link: "/developers/dlf",
-    desc: "India’s largest publicly listed real estate company shaping Gurugram and Delhi NCR skyline.",
+    image:
+      "https://www.asiapropertyawards.com/wp-content/uploads/2024/02/DLF-DOWNTOWN.jpg",
+    logo: "/developers/dlf",
+    description:
+      "India’s largest publicly listed real estate company shaping Gurugram and Delhi NCR skyline.",
   },
   {
     id: 7,
     name: "Emaar",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnYrUn276mWDo78LUeHHiIJaUq_P0OawogFQ&s",
-    link: "/developers/emaar",
-    desc: "Luxury real estate developer shaping India's skyline with premium properties. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem minima doloremque unde vitae.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnYrUn276mWDo78LUeHHiIJaUq_P0OawogFQ&s",
+    logo: "/developers/emaar",
+    description:
+      "Luxury real estate developer shaping India's skyline with premium properties. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem minima doloremque unde vitae.",
   },
   {
     id: 8,
     name: "Tata Housing",
-    logo: "https://www.hcorealestates.com/_next/image?url=https%3A%2F%2Fwww.images.hcorealestates.com%2Fimg%2Fbanner%2FTata-housing-puts-another-luxury-segment-in-top-cities-with-the-budget-of-Rs-3%2C200.%20_blog-main-banner.webp&w=3840&q=75",
-    link: "/developers/tata-housing",
-    desc: "A Tata enterprise bringing affordable to luxury housing with trust and innovation at its core.",
+    image:
+      "https://www.hcorealestates.com/_next/image?url=https%3A%2F%2Fwww.images.hcorealestates.com%2Fimg%2Fbanner%2FTata-housing-puts-another-luxury-segment-in-top-cities-with-the-budget-of-Rs-3%2C200.%20_blog-main-banner.webp&w=3840&q=75",
+    logo: "/developers/tata-housing",
+    description:
+      "A Tata enterprise bringing affordable to luxury housing with trust and innovation at its core.",
   },
   {
     id: 9,
     name: "Oberoi Realty",
-    logo: "https://assets.upstox.com/content/assets/images/news/oberoi-realty.png",
-    link: "/developers/oberoi",
-    desc: "High-end real estate across Mumbai with a focus on elegance, design, and lifestyle amenities.",
+    image:
+      "https://assets.upstox.com/content/assets/images/news/oberoi-realty.png",
+    logo: "/developers/oberoi",
+    description:
+      "High-end real estate across Mumbai with a focus on elegance, design, and lifestyle amenities.",
   },
   {
     id: 10,
     name: "Runwal Group",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSajOn_uFyjsFQ2OX-_GFaIzQnMjA6zNn517g&s",
-    link: "/developers/runwal",
-    desc: "Premium township and residential developers with a strong footprint across Mumbai suburbs.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSajOn_uFyjsFQ2OX-_GFaIzQnMjA6zNn517g&s",
+    logo: "/developers/runwal",
+    description:
+      "Premium township and residential developers with a strong footprint across Mumbai suburbs.",
   },
   {
     id: 11,
     name: "Mahindra Lifespaces",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStxvmCwD0Yuaan_a4MTfogKfJSbu6BXD7SwNpVrFOBWmkJD95tFV838SUfCSzlEJmv32M&usqp=CAU",
-    link: "/developers/mahindra",
-    desc: "Eco-conscious homes and integrated cities blending modern living with sustainability.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStxvmCwD0Yuaan_a4MTfogKfJSbu6BXD7SwNpVrFOBWmkJD95tFV838SUfCSzlEJmv32M&usqp=CAU",
+    logo: "/developers/mahindra",
+    description:
+      "Eco-conscious homes and integrated cities blending modern living with sustainability.",
   },
   {
     id: 12,
     name: "Piramal Realty",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuIV9iyLC0sFtgtrfC0UXig4ZbqbGSqI1Blw&s",
-    link: "/developers/piramal",
-    desc: "Backed by the Piramal Group, they focus on luxurious residences in Mumbai.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuIV9iyLC0sFtgtrfC0UXig4ZbqbGSqI1Blw&s",
+    logo: "/developers/piramal",
+    description:
+      "Backed by the Piramal Group, they focus on luxurious residences in Mumbai.",
   },
   {
     id: 13,
     name: "Hiranandani",
-    logo: "https://www.constructionweekonline.in/cloud/2021/11/25/GJA2ckv9-Niranjan_Hiranandani_0189-8.jpg",
-    link: "/developers/hiranandani",
-    desc: "Creators of iconic townships like Hiranandani Powai & Thane; redefining suburban lifestyle.",
+    image:
+      "https://www.constructionweekonline.in/cloud/2021/11/25/GJA2ckv9-Niranjan_Hiranandani_0189-8.jpg",
+    logo: "/developers/hiranandani",
+    description:
+      "Creators of iconic townships like Hiranandani Powai & Thane; redefining suburban lifestyle.",
   },
   {
     id: 14,
     name: "Shapoorji Pallonji",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhR31Ziwd1ojdU-hLqnyz4s21KKyiReQM5aQ&s",
-    link: "/developers/shapoorji",
-    desc: "Historic infrastructure and real estate giant with pan-India premium developments.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhR31Ziwd1ojdU-hLqnyz4s21KKyiReQM5aQ&s",
+    logo: "/developers/shapoorji",
+    description:
+      "Historic infrastructure and real estate giant with pan-India premium developments.",
   },
   {
     id: 15,
     name: "ATS Greens",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx31STBEjcA3RsD1Mk_WX5Hl_9oTkfP1ZOA3fRoKTr0syVkhm6F3McFU1Qy1ICBeTt6pQ&usqp=CAU",
-    link: "/developers/ats",
-    desc: "Well-known builder in NCR offering high-quality residential projects with amenities galore.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx31STBEjcA3RsD1Mk_WX5Hl_9oTkfP1ZOA3fRoKTr0syVkhm6F3McFU1Qy1ICBeTt6pQ&usqp=CAU",
+    logo: "/developers/ats",
+    description:
+      "Well-known builder in NCR offering high-quality residential projects with amenities galore.",
   },
   {
     id: 16,
     name: "Salarpuria Sattva",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAzPAw_AX3t2Nw1wJAtRutIuX2m9MvPgsmPg&s",
-    link: "/developers/sattva",
-    desc: "Blending innovation and quality in commercial and residential developments across South India.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAzPAw_AX3t2Nw1wJAtRutIuX2m9MvPgsmPg&s",
+    logo: "/developers/sattva",
+    description:
+      "Blending innovation and quality in commercial and residential developments across South India.",
   },
   {
     id: 17,
     name: "TVS Emerald",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzdsQ4ttxEca74jz6dVcfAalESRtExZ2tZIA&s",
-    link: "/developers/tvs",
-    desc: "Part of the TVS Group, focused on delivering smart, affordable homes in Chennai and Bengaluru.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzdsQ4ttxEca74jz6dVcfAalESRtExZ2tZIA&s",
+    logo: "/developers/tvs",
+    description:
+      "Part of the TVS Group, focused on delivering smart, affordable homes in Chennai and Bengaluru.",
   },
   {
     id: 18,
     name: "Puravankara",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtsvQAsXx0COWmQmP9nnHrQ9wdIboGZjcKeg&s",
-    link: "/developers/puravankara",
-    desc: "Offering a range of residential properties from affordable Nexus housing to luxury homes.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtsvQAsXx0COWmQmP9nnHrQ9wdIboGZjcKeg&s",
+    logo: "/developers/puravankara",
+    description:
+      "Offering a range of residential properties from affordable Nexus housing to luxury homes.",
   },
   {
     id: 19,
     name: "Kolte-Patil",
-    logo: "https://storage.googleapis.com/realtyplusmag-news-photo/news-photo/109480.Kolte-Patil-Developers-Reports-Rs-28.10-Cr-Consolidated-Net-Loss-in-Q3-FY23.jpg",
-    link: "/developers/kolte-patil",
-    desc: "Prominent in Pune, Kolte Patil has delivered award-winning designs and lifestyle apartments.",
+    image:
+      "https://storage.googleapis.com/realtyplusmag-news-photo/news-photo/109480.Kolte-Patil-Developers-Reports-Rs-28.10-Cr-Consolidated-Net-Loss-in-Q3-FY23.jpg",
+    logo: "/developers/kolte-patil",
+    description:
+      "Prominent in Pune, Kolte Patil has delivered award-winning designs and lifestyle apartments.",
   },
   {
     id: 20,
     name: "Ajmera Realty",
-    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQEpnL3LyIevMQ/company-logo_200_200/company-logo_200_200/0/1697028652157/ajmera_realty__infra_ltd_logo?e=2147483647&v=beta&t=fKxJlEOrS8WpGuazjP8Cr-Cbky1DM0P53GmxxsjTpMs",
-    link: "/developers/ajmera",
-    desc: "From Mumbai to Bengaluru, Ajmera delivers quality living with affordability and style.",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4D0BAQEpnL3LyIevMQ/company-logo_200_200/company-logo_200_200/0/1697028652157/ajmera_realty__infra_ltd_logo?e=2147483647&v=beta&t=fKxJlEOrS8WpGuazjP8Cr-Cbky1DM0P53GmxxsjTpMs",
+    logo: "/developers/ajmera",
+    description:
+      "From Mumbai to Bengaluru, Ajmera delivers quality living with affordability and style.",
   },
 ];
 
@@ -572,142 +641,181 @@ export const area = [
   {
     id: 1,
     name: "Delhi",
-    logo: "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/c5/e8/5c.jpg",
-    link: "/developers/lodha",
-    desc: "One of India’s top real estate players with luxurious skyscrapers across Mumbai, Pune, and beyond.",
+    image:
+      "https://media.tacdn.com/media/attractions-splice-spp-674x446/0f/c5/e8/5c.jpg",
+    logo: "/developers/lodha",
+    description:
+      "One of India’s top real estate players with luxurious skyscrapers across Mumbai, Pune, and beyond.",
   },
   {
     id: 2,
     name: "Mumbai",
-    logo: "https://s7ap1.scene7.com/is/image/incredibleindia/chhatrapati-shivaji-maharaj-terminus-mumbai-maharashtra-1-attr-hero?qlt=82&ts=1742191876250",
-    link: "/developers/godrej",
-    desc: "A legacy brand combining innovation and sustainability in residential and commercial properties across India.",
+    image:
+      "https://s7ap1.scene7.com/is/image/incredibleindia/chhatrapati-shivaji-maharaj-terminus-mumbai-maharashtra-1-attr-hero?qlt=82&ts=1742191876250",
+    logo: "/developers/godrej",
+    description:
+      "A legacy brand combining innovation and sustainability in residential and commercial properties across India.",
   },
   {
     id: 3,
     name: "Bengaluru",
-    logo: "https://static.theprint.in/wp-content/uploads/2024/03/bangalore.jpg",
-    link: "/developers/prestige",
-    desc: "Renowned in South India, delivering premium projects across Bengaluru, Chennai, and Hyderabad.",
+    image:
+      "https://static.theprint.in/wp-content/uploads/2024/03/bangalore.jpg",
+    logo: "/developers/prestige",
+    description:
+      "Renowned in South India, delivering premium projects across Bengaluru, Chennai, and Hyderabad.",
   },
   {
     id: 4,
     name: "Hyderabad",
-    logo: "https://s7ap1.scene7.com/is/image/incredibleindia/2-charminar_hyderabad_telangana-1-city-hero?qlt=82&ts=1742190636845",
-    link: "/developers/brigade",
-    desc: "Pioneers of integrated enclaves, office spaces, malls, and hotels primarily in South India.",
+    image:
+      "https://s7ap1.scene7.com/is/image/incredibleindia/2-charminar_hyderabad_telangana-1-city-hero?qlt=82&ts=1742190636845",
+    logo: "/developers/brigade",
+    description:
+      "Pioneers of integrated enclaves, office spaces, malls, and hotels primarily in South India.",
   },
   {
     id: 5,
     name: "Chennai",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/Chennai_Central.jpg",
-    link: "/developers/sobha",
-    desc: "Synonymous with luxury, Sobha delivers meticulous craftsmanship and global quality standards.",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/3/32/Chennai_Central.jpg",
+    logo: "/developers/sobha",
+    description:
+      "Synonymous with luxury, Sobha delivers meticulous craftsmanship and global quality standards.",
   },
   {
     id: 6,
     name: "Kolkata",
-    logo: "https://cdn.britannica.com/74/127174-050-4E634E93/Victoria-Memorial-Hall-Kolkata-India-West-Bengal.jpg",
-    link: "/developers/dlf",
-    desc: "India’s largest publicly listed real estate company shaping Gurugram and Delhi NCR skyline.",
+    image:
+      "https://cdn.britannica.com/74/127174-050-4E634E93/Victoria-Memorial-Hall-Kolkata-India-West-Bengal.jpg",
+    logo: "/developers/dlf",
+    description:
+      "India’s largest publicly listed real estate company shaping Gurugram and Delhi NCR skyline.",
   },
   {
     id: 7,
     name: "Pune",
-    logo: "https://www.logisticsinsider.in/wp-content/uploads/2023/11/Pune.jpg",
-    link: "/developers/emaar",
-    desc: "Luxury real estate developer shaping India's skyline with premium properties. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem minima doloremque unde vitae.",
+    image:
+      "https://www.logisticsinsider.in/wp-content/uploads/2023/11/Pune.jpg",
+    logo: "/developers/emaar",
+    description:
+      "Luxury real estate developer shaping India's skyline with premium properties. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem minima doloremque unde vitae.",
   },
   {
     id: 8,
     name: "Ahmedabad",
-    logo: "https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/depositphotos737713342xl-1738989179762.jpg",
-    link: "/developers/tata-housing",
-    desc: "A Tata enterprise bringing affordable to luxury housing with trust and innovation at its core.",
+    image:
+      "https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/depositphotos737713342xl-1738989179762.jpg",
+    logo: "/developers/tata-housing",
+    description:
+      "A Tata enterprise bringing affordable to luxury housing with trust and innovation at its core.",
   },
   {
     id: 9,
     name: "Jaipur",
-    logo: "https://s7ap1.scene7.com/is/image/incredibleindia/amber-fort-jaipur-rajasthan-1-attr-hero?qlt=82&ts=1742157903972",
-    link: "/developers/oberoi",
-    desc: "High-end real estate across Mumbai with a focus on elegance, design, and lifestyle amenities.",
+    image:
+      "https://s7ap1.scene7.com/is/image/incredibleindia/amber-fort-jaipur-rajasthan-1-attr-hero?qlt=82&ts=1742157903972",
+    logo: "/developers/oberoi",
+    description:
+      "High-end real estate across Mumbai with a focus on elegance, design, and lifestyle amenities.",
   },
   {
     id: 10,
     name: "Lucknow",
-    logo: "https://s7ap1.scene7.com/is/image/incredibleindia/1-chota-imambara-lucknow-uttar-pradesh-attr-hero?qlt=82&ts=1742164819097",
-    link: "/developers/runwal",
-    desc: "Premium township and residential developers with a strong footprint across Mumbai suburbs.",
+    image:
+      "https://s7ap1.scene7.com/is/image/incredibleindia/1-chota-imambara-lucknow-uttar-pradesh-attr-hero?qlt=82&ts=1742164819097",
+    logo: "/developers/runwal",
+    description:
+      "Premium township and residential developers with a strong footprint across Mumbai suburbs.",
   },
   {
     id: 11,
     name: "Chandigarh",
-    logo: "https://citcochandigarh.com/wp-content/uploads/2021/03/chandigarh.jpg",
-    link: "/developers/mahindra",
-    desc: "Eco-conscious homes and integrated cities blending modern living with sustainability.",
+    image:
+      "https://citcochandigarh.com/wp-content/uploads/2021/03/chandigarh.jpg",
+    logo: "/developers/mahindra",
+    description:
+      "Eco-conscious homes and integrated cities blending modern living with sustainability.",
   },
   {
     id: 12,
     name: "Bhopal",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/Deewali_New_market.jpg",
-    link: "/developers/piramal",
-    desc: "Backed by the Piramal Group, they focus on luxurious residences in Mumbai.",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/3/32/Deewali_New_market.jpg",
+    logo: "/developers/piramal",
+    description:
+      "Backed by the Piramal Group, they focus on luxurious residences in Mumbai.",
   },
   {
     id: 13,
     name: "Indore",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Indore_Rajwada01.jpg",
-    link: "/developers/hiranandani",
-    desc: "Creators of iconic townships like Hiranandani Powai & Thane; redefining suburban lifestyle.",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/e/e1/Indore_Rajwada01.jpg",
+    logo: "/developers/hiranandani",
+    description:
+      "Creators of iconic townships like Hiranandani Powai & Thane; redefining suburban lifestyle.",
   },
   {
     id: 14,
     name: "Kochi",
-    logo: "https://mgi-iki.com/wp-content/uploads/2020/05/knochi-3-klein.jpg",
-    link: "/developers/shapoorji",
-    desc: "Historic infrastructure and real estate giant with pan-India premium developments.",
+    image: "https://mgi-iki.com/wp-content/uploads/2020/05/knochi-3-klein.jpg",
+    logo: "/developers/shapoorji",
+    description:
+      "Historic infrastructure and real estate giant with pan-India premium developments.",
   },
   {
     id: 15,
     name: "Thiruvananthapuram",
-    logo: "https://gaviya.com/wp-content/uploads/2024/07/Thiruvananthapuram-one-day-City-Tour.jpg",
-    link: "/developers/ats",
-    desc: "Well-known builder in NCR offering high-quality residential projects with amenities galore.",
+    image:
+      "https://gaviya.com/wp-content/uploads/2024/07/Thiruvananthapuram-one-day-City-Tour.jpg",
+    logo: "/developers/ats",
+    description:
+      "Well-known builder in NCR offering high-quality residential projects with amenities galore.",
   },
   {
     id: 16,
     name: "Nagpur",
-    logo: "https://storage.googleapis.com/realtyplusmag-news-photo/news-photo/119539.Nagpur-Witnesses-94%-Increase-In-Built-Up-Area-Since-F.png",
-    link: "/developers/sattva",
-    desc: "Blending innovation and quality in commercial and residential developments across South India.",
+    image:
+      "https://storage.googleapis.com/realtyplusmag-news-photo/news-photo/119539.Nagpur-Witnesses-94%-Increase-In-Built-Up-Area-Since-F.png",
+    logo: "/developers/sattva",
+    description:
+      "Blending innovation and quality in commercial and residential developments across South India.",
   },
   {
     id: 17,
     name: "Visakhapatnam",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Vizag_aerial_view.jpg",
-    link: "/developers/tvs",
-    desc: "Part of the TVS Group, focused on delivering smart, affordable homes in Chennai and Bengaluru.",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/f/fa/Vizag_aerial_view.jpg",
+    logo: "/developers/tvs",
+    description:
+      "Part of the TVS Group, focused on delivering smart, affordable homes in Chennai and Bengaluru.",
   },
   {
     id: 18,
     name: "Surat",
-    logo: "https://static.toiimg.com/thumb/msid-76452318,width-1280,height-720,imgsize-120901,resizemode-72,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
-    link: "/developers/puravankara",
-    desc: "Offering a range of residential properties from affordable Nexus housing to luxury homes.",
+    image:
+      "https://static.toiimg.com/thumb/msid-76452318,width-1280,height-720,imgsize-120901,resizemode-72,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
+    logo: "/developers/puravankara",
+    description:
+      "Offering a range of residential properties from affordable Nexus housing to luxury homes.",
   },
   {
     id: 19,
     name: "Varanasi",
-    logo: "https://s7ap1.scene7.com/is/image/incredibleindia/manikarnika-ghat-city-hero?qlt=82&ts=1727959374496",
-    link: "/developers/kolte-patil",
-    desc: "Prominent in Pune, Kolte Patil has delivered award-winning designs and lifestyle apartments.",
+    image:
+      "https://s7ap1.scene7.com/is/image/incredibleindia/manikarnika-ghat-city-hero?qlt=82&ts=1727959374496",
+    logo: "/developers/kolte-patil",
+    description:
+      "Prominent in Pune, Kolte Patil has delivered award-winning designs and lifestyle apartments.",
   },
   {
     id: 20,
     name: "Amritsar",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpEFwIiGoumJEZ0PdvWdoCfb6xRn5hv2uhxw&s",
-    link: "/developers/ajmera",
-    desc: "From Mumbai to Bengaluru, Ajmera delivers quality living with affordability and style.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpEFwIiGoumJEZ0PdvWdoCfb6xRn5hv2uhxw&s",
+    logo: "/developers/ajmera",
+    description:
+      "From Mumbai to Bengaluru, Ajmera delivers quality living with affordability and style.",
   },
 ];
 
@@ -1303,6 +1411,54 @@ export const FAQForSale = [
     question: "Can I get a home loan on this property?",
     answer:
       "Yes, if the property has clear legal status and is approved by banks. It's a good sign if major banks like SBI, HDFC, or ICICI have already approved it.",
+  },
+];
+
+export const steps = [
+  {
+    title: "Find the Right Real Estate Agent",
+    description: "Partner with India, sign Form A, get a free valuation.",
+  },
+  {
+    title: "Strategic Marketing & Listing",
+    description: "Professional listings, global marketing, optimized pricing.",
+  },
+  {
+    title: "Get the Best Buyer",
+    description:
+      "Manage viewings, negotiations, paperwork (Form F, NOC), mortgage settlement.",
+  },
+  {
+    title: "Transfer Ownership at DLD",
+    description: "Guide through DLD transfer, fees, title deed, handover.",
+  },
+  {
+    title: "Make the Most of Your Funds",
+    description:
+      "Use India’s market expertise to invest profits strategically.",
+  },
+];
+
+export const faqs = [
+  {
+    q: "Is selling property in India difficult?",
+    a: "No — guided properly, the process is smooth with the right agent.",
+  },
+  {
+    q: "How can I increase market value?",
+    a: "Upgrade finishes, repaint, modernize kitchen/bathrooms.",
+  },
+  {
+    q: "Can I sell without an agent?",
+    a: "Yes, but you'll shoulder marketing, negotiation & admin tasks yourself.",
+  },
+  {
+    q: "Is now a good time to sell?",
+    a: "Demand is strong; agent guidance helps capture peak price.",
+  },
+  {
+    q: "How to sell mortgaged property?",
+    a: "Obtain DLD registration, NOC, and clear the mortgage before transfer.",
   },
 ];
 

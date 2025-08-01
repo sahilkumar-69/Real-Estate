@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { FAQForSale, properties, SaleDescription } from "../Data";
+import { useContext, useEffect, useState } from "react";
+import { FAQForSale, SaleDescription } from "../Data";
 import ExploreIn from "../Components/Home/ExploreIn";
 import ExpertCardsWraper from "../Components/PropForSale/ExpertCardsWraper";
 import Description from "../Components/Others/Description";
@@ -12,20 +12,29 @@ import FaqSection from "../Components/Others/FAQ";
 import WhyChoose from "../Components/Others/WhyChoose";
 import Hero from "../Components/Home/Home_Hero_section";
 import ContactForm from "../Components/Home/ContactForm";
-
+import BlogContext from "../context/Property";
+import { PulseLoader } from "react-spinners";
 
 const SaleProperty = () => {
+  const { buyProperty, loading } = useContext(BlogContext);
+
   useEffect(() => {
     scrollTo(0, 0);
   }, []);
-  
 
   const [activeFilter, setActiveFilter] = useState("all");
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState("latest");
 
+  if (loading)
+    return (
+      <div className="text-center flex items-center justify-center h-screen mt-20 text-lg">
+        <PulseLoader size={25} />
+      </div>
+    );
+
   // Filter properties based on active filter
-  const filteredProperties = properties.filter((property) => {
+  const filteredProperties = buyProperty.data.filter((property) => {
     if (activeFilter === "all") return true;
     if (activeFilter === "featured") return property.featured;
     if (activeFilter === "villas") return property.type === "villa";
@@ -70,7 +79,7 @@ const SaleProperty = () => {
       <div className="container mx-auto px-14 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedProperties.map((property) => (
-            <PropertyListingCard property={property} />
+            <PropertyListingCard fr={"sale"} property={property} />
           ))}
         </div>
 

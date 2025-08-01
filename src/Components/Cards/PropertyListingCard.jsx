@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 
-const PropertyListingCard = ({ property }) => {
+const PropertyListingCard = ({ property, fr }) => {
   const navigate = useNavigate();
 
   return (
@@ -30,14 +30,7 @@ const PropertyListingCard = ({ property }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="absolute z-50  top-4 right-4 flex space-x-2">
-          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
-            <FiHeart className="text-gray-700" />
-          </button>
-          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
-            <FiShare2 className="text-gray-700" />
-          </button>
-        </div>
+
         {property.status === "off-plan" && (
           <div className="absolute bottom-4 left-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">
             Off-Plan
@@ -54,7 +47,9 @@ const PropertyListingCard = ({ property }) => {
           <span className="text-sm">{property.location}</span>
         </div>
         <div className="text-2xl font-bold text-blue-600 mb-4">
-          {property.price}
+          {property.price.toString().slice(0, 2)}
+          {"."}
+          {property.price.toString().slice(2, 4)} Lakhs
         </div>
 
         <div className="flex justify-between gap-2 leading-4 text-gray-700 border-t border-b border-gray-100 py-3 mb-4">
@@ -64,17 +59,17 @@ const PropertyListingCard = ({ property }) => {
           </div>
           <div className="flex items-center">
             <FaBath className="mr-2 text-gray-500" />
-            <span>{property.baths} Baths</span>
+            <span>{property.beds} Baths</span>
           </div>
           <div className="flex items-center">
             <FaRulerCombined className="mr-2 text-gray-500" />
-            <span>{property.area} sq.ft</span>
+            <span>{property.area || 1200} sq.ft</span>
           </div>
         </div>
 
         <button
           onClick={() => {
-            navigate("/rent/property-for-rent/dfsa");
+            navigate(`/property-details/${property._id + " " + fr}`);
           }}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition duration-300"
         >

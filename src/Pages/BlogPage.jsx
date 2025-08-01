@@ -1,97 +1,204 @@
-// import { useContext, useEffect, useState } from "react";
-// import DownArrow from "../components/DownArrow";
-// import { useNavigate } from "react-router-dom";
-// import BlogContext from "../Context/Blogs";
-// import NewsLetterSub from "../components/Blog/NewsLetterSub";
-// import HeroBlog from "../components/Blog/HeroBlog";
-// import BlogPost from "../components/Blog/BlogPost";
-// import FeaturedPost from "../components/Blog/FeaturedPost";
+import { useEffect, useState } from "react";
 import NewsHeader from "../Components/Blog/Hero";
 import MainGrid from "../Components/Developer/MainGrid";
 import ContactForm from "../Components/Home/ContactForm";
-
-import WhyChoose from "../Components/Others/WhyChoose";
 import SubscribeSection from "../Components/SubscribeSection";
-import { blogPosts } from "../Data";
 
 const BlogPage = () => {
-  // const { blogs, loading: loading1 } = useContext(BlogContext);
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   scrollTo(0, 0);
-  // }, []);
-  // const [searchTerm, setSearchTerm] = useState("");
-  // const [selectedCategory, setSelectedCategory] = useState("All");
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const postsPerPage = 6;
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // const blogPosts = blogs;
+  useEffect(() => {
+    window.scrollTo(0, 0);
 
-  // const filteredPosts = blogPosts.filter((post) => {
-  //   const matchesSearch =
-  //     post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     post.blogContent.toLowerCase().includes(searchTerm.toLowerCase());
-  //   const matchesCategory =
-  //     selectedCategory === "All" || post.category === selectedCategory;
-  //   return matchesSearch && matchesCategory;
-  // });
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch(
+          `https://realestatebackend-2-v5e5.onrender.com/api/blogs`
+        );
 
-  // const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-  // const startIndex = (currentPage - 1) * postsPerPage;
-  // const currentPosts = filteredPosts.slice(
-  //   startIndex,
-  //   startIndex + postsPerPage
-  // );
+        if (!response.ok) {
+          throw new Error(`Failed to fetch blogs: ${response.status}`);
+        }
 
-  // const featuredPosts = blogPosts.filter((post) => post.featured);
+        const result = await response.json();
 
-  // const BlogPostProps = {
-  //   startIndex,
-  //   postsPerPage,
-  //   filteredPosts,
-  //   currentPosts,
-  //   totalPages,
-  //   setCurrentPage,
-  //   currentPage,
-  //   navigate,
-  //   loading1,
-  // };
+        if (!Array.isArray(result)) {
+          throw new Error("Invalid blog format returned");
+        }
 
-  // const FeaturedPostProps = {
-  //   featuredPosts,
-  //   navigate,
-  //   loading1,
-  // };
+        setBlogPosts(result);
+        setFilteredPosts(result);
+      } catch (err) {
+        setError(
+          err.message || "Unexpected error occurred while loading blogs."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  // Search + category filtering logic
+  useEffect(() => {
+    let filtered = blogPosts;
+
+    if (searchTerm.trim()) {
+      filtered = filtered.filter((post) =>
+        post.title?.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    if (selectedCategory !== "All") {
+      filtered = filtered.filter((post) => post.category === selectedCategory);
+    }
+
+    setFilteredPosts(filtered);
+  }, [searchTerm, selectedCategory, blogPosts]);
 
   return (
-    <div className="min-h-screen mt-15   bg-[#f7f7f7] pt-10 px-6 md:px-20  ">
-      <NewsHeader />
-      <div className="mb-10">
-        <MainGrid blog={true} data={blogPosts} />
+    <div className="min-h-screen mt-15 bg-[#f7f7f7] pt-10 px-6 md:px-20">
+      {/* Header Title */}
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-[#1f3c88]">
+          News, Media Gallery & Insights
+        </h1>
+        <p className="text-gray-600 mt-2 text-lg">
+          Take a look at the latest Real Estate News, Videos & Insights.
+        </p>
       </div>
-      <ContactForm />
 
-      {/* <WhyChoose /> */}
+      {/* Search + Category Filter */}
+      <div className="flex flex-col md:flex-row gap-4 justify-center items-center mb-10">
+        <input
+          type="text"
+          placeholder="Search by title..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="px-4 py-3 rounded-lg border w-72"
+        />
+        <select
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          className="px-4 py-3 rounded-lg border w-64"
+        >
+          <option value="All">All Categories</option>
+          <option value="News">News</option>
+          <option value="Videos">Videos</option>
+          <option value="Insights">Insights</option>
+        </select>
+      </div>
+
+      {/* Blog Content */}
+      <div className="mb-10">
+        {loading ? (
+          <div className="text-center text-blue-600 text-xl py-10">
+            Loading blogs...
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-600 text-xl py-10">
+            Error: {error}
+          </div>
+        ) : filteredPosts.length === 0 ? (
+          <div className="text-center text-yellow-600 text-xl py-10">
+            No blog posts found.
+          </div>
+        ) : (
+          <MainGrid blog={true} data={filteredPosts} />
+        )}
+      </div>
+
+      {/* Contact + Subscribe */}
+      <ContactForm />
       <div className="px-6 md:px-10 lg:px-20">
         <SubscribeSection />
       </div>
     </div>
-    // <div className="min-h-screen bg-gray-50">
-    //   {/* Hero Section */}
-    //   <DownArrow />
-    //   <HeroBlog />
-
-    //   {/* Featured Posts */}
-    //   {featuredPosts.length > 0 && <FeaturedPost {...FeaturedPostProps} />}
-
-    //   {/* Blog Posts Grid */}
-    //   <BlogPost {...BlogPostProps} />
-
-    //   {/* Newsletter Subscription */}
-    //   <NewsLetterSub />
-    // </div>
   );
 };
 
 export default BlogPage;
+
+// import { useEffect, useState } from "react";
+// import NewsHeader from "../Components/Blog/Hero";
+// import MainGrid from "../Components/Developer/MainGrid";
+// import ContactForm from "../Components/Home/ContactForm";
+// import SubscribeSection from "../Components/SubscribeSection";
+// // import { blogPosts } from "../Data";
+
+// const BlogPage = () => {
+//   const [blogPosts, setBlogPosts] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     window.scrollTo(0, 0);
+
+//     const fetchBlogs = async () => {
+//       try {
+//         const response = await fetch(
+//           `https://realestatebackend-2-v5e5.onrender.com/api/blogs`
+//         );
+
+//         if (!response.ok) {
+//           throw new Error(`Failed to fetch blogs: ${response.status}`);
+//         }
+
+//         const result = await response.json();
+
+//         if (!Array.isArray(result)) {
+//           throw new Error("Invalid blog format returned");
+//         }
+
+//         setBlogPosts(result);
+//       } catch (err) {
+//         setError(
+//           err.message || "Unexpected error occurred while loading blogs."
+//         );
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchBlogs();
+//   }, []);
+
+//   return (
+//     <div className="min-h-screen mt-15 bg-[#f7f7f7] pt-10 px-6 md:px-20">
+//       <NewsHeader />
+
+//       <div className="mb-10">
+//         {loading ? (
+//           <div className="text-center text-blue-600 text-xl py-10">
+//             Loading blogs...
+//           </div>
+//         ) : error ? (
+//           <div className="text-center text-red-600 text-xl py-10">
+//             Error: {error}
+//           </div>
+//         ) : blogPosts.length === 0 ? (
+//           <div className="text-center text-yellow-600 text-xl py-10">
+//             No blog posts found.
+//           </div>
+//         ) : (
+//           <MainGrid blog={true} data={blogPosts} />
+//         )}
+//       </div>
+
+//       <ContactForm />
+
+//       <div className="px-6 md:px-10 lg:px-20">
+//         <SubscribeSection />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default BlogPage;

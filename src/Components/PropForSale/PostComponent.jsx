@@ -8,7 +8,7 @@ const HelpFindProperty = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-4 md:p-10">
-      <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col md:flex-row">
+      <div className="bg-white rounded-2xl lg:h-[500px] shadow-md overflow-hidden flex flex-col md:flex-row">
         {/* Left Side Image */}
         <div className="md:w-1/2 w-full">
           <img

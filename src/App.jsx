@@ -13,11 +13,16 @@ import Services from "./Pages/Services";
 import Developers from "./Pages/Developer";
 import Projects from "./Pages/Projects";
 import Area_page from "./Pages/Area_page";
-import Blogs from "./Pages/Blogs";
 import SaleProperty from "./Pages/PropertiesForSale";
 import RentProperty from "./Pages/PropertiesForRent";
-import BlogPage from './Pages/BlogPage';
+import BlogPage from "./Pages/BlogPage";
 import AboutusPage from "./Pages/AboutusPage";
+import DedicatedBlogPage from "./Pages/Blog";
+import DeveloperDetail from "./Pages/DeveloperDetail";
+import AreaDetail from "./Pages/AreaDetail";
+import SellGuidePage from "./Pages/SellGuidePage";
+import ServiceDetails from "./Pages/ServiceDetails";
+import UnderDevelopment from './Pages/UnderDevelopement';
 
 function App() {
   return (
@@ -33,17 +38,31 @@ function App() {
 
         <Route path="/services" element={<Services />} />
 
+        <Route path="/services/:id" element={<ServiceDetails />} />
+
         <Route path="/developers" element={<Developers />} />
 
         <Route path="/projects" element={<Projects />} />
 
         <Route path="/areas" element={<Area_page />} />
 
+        <Route path="/areas/:id" element={<AreaDetail />} />
+
         <Route path="/blogs" element={<BlogPage />} />
 
-        <Route path="/about-us" element={<AboutusPage />} />
-        <Route path="/buy/properties-for-sale/:propertyId" element={<DedicatedPageForProp />} />
+        <Route path="*" element={<UnderDevelopment />} />
 
+
+
+        <Route path="/about-us" element={<AboutusPage />} />
+
+        <Route path="/property-details/:id" element={<DedicatedPageForProp />} />
+
+        <Route path="/blogs/:id" element={<DedicatedBlogPage />} />
+
+        <Route path="/developers/:id" element={<DeveloperDetail />} />
+
+        <Route path="/Guide to Selling" element={<SellGuidePage />} />
       </Routes>
       <Footer />
     </Router>

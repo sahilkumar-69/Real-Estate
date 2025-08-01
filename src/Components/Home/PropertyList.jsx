@@ -7,8 +7,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import "swiper/css";
 import "swiper/css/navigation";
 import { PropertySwiperCard } from "./PropertySwiperCard";
-import { propertyData, propertiesForRent } from "../../Data";
-import { GiClawHammer } from "react-icons/gi";
+import { propertyData } from "../../Data";
 
 export default function PropertyList({ PropertyType }) {
   const navigationPrevRef = useRef(null);
@@ -71,7 +70,7 @@ export default function PropertyList({ PropertyType }) {
         >
           {propertyData.map((property, index) => (
             <SwiperSlide key={index}>
-              <PropertySwiperCard data={property} />
+              <PropertySwiperCard fr={"static"} data={property} />
             </SwiperSlide>
           ))}
         </Swiper>

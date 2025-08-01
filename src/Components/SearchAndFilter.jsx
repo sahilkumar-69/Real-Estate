@@ -10,6 +10,8 @@ const SearchAndFilter = ({
   showFilters,
   sortBy,
   setSortBy,
+  filterOptions,
+  setFilterOptions,
 }) => {
   const btnTitle = [
     "All Properties",
@@ -77,7 +79,14 @@ const SearchAndFilter = ({
                 {["Any", "1", "2", "3", "4", "5+"].map((num) => (
                   <button
                     key={num}
-                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100"
+                    onClick={() =>
+                      setFilterOptions((prev) => ({ ...prev, bedrooms: num }))
+                    }
+                    className={`px-4 py-2 border rounded-lg ${
+                      filterOptions.bedrooms === num
+                        ? "bg-blue-600 text-white border-blue-600"
+                        : "border-gray-300 hover:bg-gray-100"
+                    }`}
                   >
                     {num}
                   </button>
@@ -108,6 +117,13 @@ const SearchAndFilter = ({
                     type="number"
                     placeholder="0"
                     min={0}
+                    value={filterOptions.minArea}
+                    onChange={(e) =>
+                      setFilterOptions((prev) => ({
+                        ...prev,
+                        minArea: e.target.value,
+                      }))
+                    }
                     className="w-full p-2 border border-gray-300 rounded-lg"
                   />
                 </div>
@@ -117,8 +133,15 @@ const SearchAndFilter = ({
                   </label>
                   <input
                     type="number"
+                    placeholder="0"
                     min={0}
-                    placeholder="Any"
+                    value={filterOptions.maxArea}
+                    onChange={(e) =>
+                      setFilterOptions((prev) => ({
+                        ...prev,
+                        maxArea: e.target.value,
+                      }))
+                    }
                     className="w-full p-2 border border-gray-300 rounded-lg"
                   />
                 </div>

@@ -19,7 +19,7 @@ const AboutHero = () => {
       <div className="flex justify-center items-center text-sm text-[#001f3f] space-x-2 mb-6">
         <span>Home</span>
         <span className="text-gray-400">/</span>
-        <a href="*" className="underline underline-offset-4 text-[#001f3f]">
+        <a href="" className="underline underline-offset-4 text-[#001f3f]">
           About
         </a>
       </div>
