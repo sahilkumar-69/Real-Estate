@@ -1,14 +1,18 @@
+
 import React, {useEffect} from "react";
+
 import TeamGrid from "../Components/Cards/MeetMember";
 import VideoCard from "../Components/Aboutus/videoCard";
 import SubscribeSection from "../Components/SubscribeSection";
 import ContactForm from "../Components/Home/ContactForm";
 
 const MeetTeam = () => {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
  const teamMembers = [
+
     {
       name: "Feride Shimshilova",
       role: "Associate Director",
@@ -163,14 +167,14 @@ const MeetTeam = () => {
 
       {/* Description */}
       <p className="text-gray-700 max-w-2xl mx-auto mb-10 text-lg">
-        Each team member brings a unique skill set to Provident Dubai. We use
-        those skills to provide you with the best possible Estate Agent service.
+        Each team member brings a unique skill set to Nexus India. We use those
+        skills to provide you with the best possible Estate Agent service.
       </p>
 
       <TeamGrid teamMembers={teamMembers} />
       <VideoCard />
       <div className=" my-10">
-      <ContactForm />
+        <ContactForm />
       </div>
       <SubscribeSection />
     </section>

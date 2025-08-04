@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import DoubleSwiper from "../Components/DoubleSwiper";
-import { propertyData } from "../Data.js";
+import { properties } from "../Data.js";
 
 import {
   FaBed,
@@ -37,7 +37,7 @@ const PropertyDetails = () => {
           );
           setProperty(response.data.data);
         } else if (postfix == "static") {
-          response = propertyData.filter((items) => items.id == slicedId);
+          response = properties.filter((items) => items._id == slicedId);
           setProperty(response[0]);
         }
       } catch (error) {
@@ -86,10 +86,10 @@ const PropertyDetails = () => {
           {/* Tags Section */}
           <div className="flex flex-wrap gap-4 text-gray-700 text-sm">
             <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-md">
-              <FaBed /> {property.beds} Beds
+              <FaBed /> {property.beds == 0 ? property.bathroom: property.beds} Beds
             </div>
             <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-md">
-              <FaBath /> {property.bathroom} Baths
+              <FaBath />{property.bathroom == 0 ? property.beds: property.bathroom} Baths
             </div>
             <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-md">
               <FaRulerCombined /> {property.area} sqft
@@ -143,16 +143,19 @@ const PropertyDetails = () => {
               Owner Information
             </h4>
             <p className="flex items-center gap-2 text-gray-600">
-              <FaUser /> {property.owner}
+              <FaUser /> {property.owner  || "Nexus "}
             </p>
             <p className="flex items-center gap-2 text-gray-600">
-              <FaPhone /> {property.phoneNumber}
+              <FaPhone /> {property.phoneNumber  || "+91 9876543210"}
             </p>
           </div>
 
-          <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
-            <Link to={`tel:${property.phoneNumber}`}>Contact Owner</Link>
-          </button>
+          <Link
+            className="w-full block text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+            to={`tel:${property.phoneNumber}`} 
+          >
+            Contact Owner
+          </Link>
         </div>
       </div>
     </div>

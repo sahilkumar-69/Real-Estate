@@ -1,5 +1,6 @@
+// --- SearchAndFilter.jsx ---
+
 import { FiSearch, FiChevronDown, FiFilter } from "react-icons/fi";
-import { filterdata } from "../Data";
 import PropertyFilterButton from "./ButtonComponents/PropertyFilterButton";
 import FilterDropDown from "./Others/FilterDropDown";
 
@@ -12,6 +13,7 @@ const SearchAndFilter = ({
   setSortBy,
   filterOptions,
   setFilterOptions,
+  uniqueFilters,
 }) => {
   const btnTitle = [
     "All Properties",
@@ -24,10 +26,40 @@ const SearchAndFilter = ({
   return (
     <div className="container mx-auto px-14 py-8 -mt-10 relative z-20">
       <div className="bg-white rounded-lg shadow-lg p-6">
+        {/* Top dropdown filters */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          {filterdata.map((item, index) => (
-            <FilterDropDown key={index} data={item} />
-          ))}
+          {uniqueFilters?.locations?.length > 0 && (
+            <FilterDropDown
+              label="Location"
+              options={uniqueFilters.locations}
+              value={filterOptions.location}
+              onChange={(value) =>
+                setFilterOptions((prev) => ({ ...prev, location: value }))
+              }
+            />
+          )}
+
+          {uniqueFilters?.types?.length > 0 && (
+            <FilterDropDown
+              label="Property Type"
+              options={uniqueFilters.types}
+              value={filterOptions.type}
+              onChange={(value) =>
+                setFilterOptions((prev) => ({ ...prev, type: value }))
+              }
+            />
+          )}
+
+          {uniqueFilters?.statuses?.length > 0 && (
+            <FilterDropDown
+              label="Status"
+              options={uniqueFilters.statuses}
+              value={filterOptions.status}
+              onChange={(value) =>
+                setFilterOptions((prev) => ({ ...prev, status: value }))
+              }
+            />
+          )}
 
           <div className="flex items-end">
             <button className="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg font-medium flex items-center justify-center">
@@ -36,6 +68,7 @@ const SearchAndFilter = ({
           </div>
         </div>
 
+        {/* Filter Buttons and Sort */}
         <div className="flex flex-wrap items-center justify-between">
           <div className="flex space-x-2 mb-4 md:mb-0">
             {btnTitle.map((title, index) => (
@@ -55,6 +88,7 @@ const SearchAndFilter = ({
             >
               <FiFilter className="mr-2" /> More Filters
             </button>
+
             <div className="relative">
               <select
                 value={sortBy}
@@ -70,9 +104,10 @@ const SearchAndFilter = ({
           </div>
         </div>
 
-        {/* Advanced Filters - shown when showFilters is true */}
+        {/* Advanced Filters */}
         {showFilters && (
           <div className="mt-6 pt-6 border-t border-gray-200 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Bedrooms */}
             <div>
               <h4 className="font-medium text-gray-700 mb-3">Bedrooms</h4>
               <div className="flex flex-wrap gap-2">
@@ -93,19 +128,30 @@ const SearchAndFilter = ({
                 ))}
               </div>
             </div>
+
+            {/* Bathrooms */}
             <div>
               <h4 className="font-medium text-gray-700 mb-3">Bathrooms</h4>
               <div className="flex flex-wrap gap-2">
                 {["Any", "1", "2", "3", "4", "5+"].map((num) => (
                   <button
                     key={num}
-                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100"
+                    onClick={() =>
+                      setFilterOptions((prev) => ({ ...prev, bathrooms: num }))
+                    }
+                    className={`px-4 py-2 border rounded-lg ${
+                      filterOptions.bathrooms === num
+                        ? "bg-blue-600 text-white border-blue-600"
+                        : "border-gray-300 hover:bg-gray-100"
+                    }`}
                   >
                     {num}
                   </button>
                 ))}
               </div>
             </div>
+
+            {/* Area */}
             <div>
               <h4 className="font-medium text-gray-700 mb-3">Area (sq.ft)</h4>
               <div className="grid grid-cols-2 gap-4">

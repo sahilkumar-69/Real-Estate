@@ -9,7 +9,7 @@ const AboutStatement = () => {
             A word from our CEO
           </h4>
           <p className="text-2xl md:text-3xl leading-relaxed font-semibold text-[#0D2344]">
-            We are a passionate and dynamic real estate agency in Dubai,
+            We are a passionate and dynamic real estate agency in India,
             committed to connecting people with their ideal properties. With a
             deep understanding of the market and a client-first approach, we aim
             to redefine excellence in real estate.
@@ -52,7 +52,7 @@ const AboutStatement = () => {
         <div className="text-gray-700 space-y-6 text-base leading-relaxed">
           <div>
             <h3 className="font-bold text-lg text-[#0D2344] mb-2">
-              Driving Excellence in Dubai Real Estate
+              Driving Excellence in India Real Estate
             </h3>
             <p>
               At the crux of our business is our relentless dedication to
@@ -63,8 +63,8 @@ const AboutStatement = () => {
             </p>
           </div>
           <p>
-            Established in 2008, Provident Real Estate is a leading real estate
-            agency in Dubai with a strong focus on transparency, honesty, and
+            Established in 2008, Nexus Real Estate is a leading real estate
+            agency in India with a strong focus on transparency, honesty, and
             professionalism. Over the years, we have expanded our services to
             not only help you buy or lease a property but also manage your
             assets, secure financing options, and even find the perfect holiday
@@ -84,7 +84,7 @@ const AboutStatement = () => {
             <p>
               We believe in not just meeting expectations but exceeding them.
               With a proven track record and a comprehensive portfolio of
-              services, we aim to redefine the real estate experience in Dubai.
+              services, we aim to redefine the real estate experience in India.
               Our mission is to make property ownership and investment
               accessible, transparent, and rewarding for everyone we serve.
             </p>

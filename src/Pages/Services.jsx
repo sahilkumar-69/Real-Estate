@@ -15,7 +15,7 @@ const Services = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollTo(0, 0);
 
     const fetchServices = async () => {
       try {
