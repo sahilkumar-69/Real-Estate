@@ -1,13 +1,11 @@
 import { IoIosArrowForward } from "react-icons/io";
 import { LuSmartphone } from "react-icons/lu";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const AboutHero = () => {
-   const handleMeetTeam = () => {
-    const teamSection = document.getElementById("team-section");
-    if (teamSection) {
-      teamSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const navigate = useNavigate();
+  const handleMeetTeam = () => {
+    navigate("/meet-the-team");
   };
 
   const handleContactTeam = () => {
@@ -17,11 +15,8 @@ const AboutHero = () => {
   return (
     <section className="w-full py-20 px-4 md:px-0 text-center">
       <div className="flex justify-center items-center text-sm text-[#001f3f] space-x-2 mb-6">
-        <span>Home</span>
-        <span className="text-gray-400">/</span>
-        <a href="" className="underline underline-offset-4 text-[#001f3f]">
-          About
-        </a>
+        <span className="text-gray-400"></span>
+        <a href="" className="underline underline-offset-4 text-[#001f3f]"></a>
       </div>
 
       {/* Heading */}
