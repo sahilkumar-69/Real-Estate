@@ -33,8 +33,7 @@ export default function Navbar() {
     { title: "Services", path: "/services" },
     { title: "Blogs", path: "/blogs" },
     { title: "About Us", path: "/about-us" },
-    { title: "SellGuide", path: "/guide-to-selling" }, // fixed URL format
-  ];
+    ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
