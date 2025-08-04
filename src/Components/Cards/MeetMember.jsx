@@ -56,13 +56,10 @@ const TeamGrid = ({ teamMembers }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {filteredTeam.map((member, index) => (
           <div key={index} className="text-center">
-            <img
-              src={
-                "https://images.pexels.com/photos/32360758/pexels-photo-32360758.jpeg"
-              }
+              <img src={member.image}
               alt={member.name}
               className="w-40 h-40 object-cover rounded-full mx-auto mb-4"
-            />
+              />
             <h3 className="text-xl font-bold text-blue-900">{member.name}</h3>
             <p className="text-gray-700">{member.role}</p>
             <p className="mt-2 text-sm text-gray-600">
