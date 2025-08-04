@@ -5,7 +5,7 @@ import BlogContext from "../context/Property.js";
 const BlogProvider = ({ children }) => {
   const [property, setProperty] = useState([]);
   const [buyProperty, setBuyProperty] = useState([]);
-  const [featuredPost, setFeaturedPost] = useState([]);
+  // const [featuredPost, setFeaturedPost] = useState([]);
   const [project, setProject] = useState([]);
   const [area, setArea] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -54,6 +54,7 @@ const BlogProvider = ({ children }) => {
 
   useEffect(() => {
     fetchBlogs();
+    // console.log(project)
   }, []);
 
   return (

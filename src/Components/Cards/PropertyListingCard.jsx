@@ -47,19 +47,23 @@ const PropertyListingCard = ({ property, fr }) => {
           <span className="text-sm">{property.location}</span>
         </div>
         <div className="text-2xl font-bold text-blue-600 mb-4">
-          {property.price.toString().slice(0, 2)}
-          {"."}
-          {property.price.toString().slice(2, 4)} Lakhs
+          <p className="text-lg font-semibold text-slate-800">
+            {new Intl.NumberFormat("en-IN", {
+              style: "currency",
+              currency: "INR",
+              maximumFractionDigits: 0,
+            }).format(property.price)}
+          </p>
         </div>
 
         <div className="flex justify-between gap-2 leading-4 text-gray-700 border-t border-b border-gray-100 py-3 mb-4">
           <div className="flex items-center">
             <FaBed className="mr-2 text-gray-500" />
-            <span>{property.beds} Beds</span>
+            <span>{property.beds == 0 ? property.bathroom: property.beds} Beds</span>
           </div>
           <div className="flex items-center">
             <FaBath className="mr-2 text-gray-500" />
-            <span>{property.beds} Baths</span>
+            <span>{property.bathroom == 0 ? property.beds: property.bathroom} Baths</span>
           </div>
           <div className="flex items-center">
             <FaRulerCombined className="mr-2 text-gray-500" />

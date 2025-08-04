@@ -5,16 +5,6 @@ import BlogContext from "../context/Property";
 import { PulseLoader } from "react-spinners";
 
 const ProjectGrid = () => {
-  const { project, loading } = useContext(BlogContext);
-
-  if (loading)
-    return (
-      <div className="text-center flex items-center justify-center h-screen mt-20 text-lg">
-        <PulseLoader size={25} />
-      </div>
-    );
-
-    console.log(project)
 
   return (
     <div className="bg-gray-100 min-h-screen   px-10 p-4">
@@ -22,7 +12,7 @@ const ProjectGrid = () => {
         {/* Main Cards Section */}
         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* 4 square cards */}
-          {project.data.map((property, i) => (
+          {properties.map((property, i) => (
             <PropertyListingCard fr={"static"} key={i} property={property} />
           ))}
         </div>

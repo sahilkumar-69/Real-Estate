@@ -27,7 +27,7 @@ const AboutHero = () => {
 
       {/* Subheading */}
       <p className="text-lg text-gray-600 mt-6">
-        At Provident, we are your one-stop-shop for all things real estate.
+        At Nexus, we are your one-stop-shop for all things real estate.
       </p>
 
       {/* Buttons */}

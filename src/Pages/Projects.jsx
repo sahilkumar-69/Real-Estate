@@ -58,11 +58,12 @@ const Projects = () => {
   return (
     <>
       <Hero video={"src/assets/Project_Hero_Video.mp4"} />
-      <SearchAndFilter {...SearchAndFilterProps} />
+      {/* <SearchAndFilter {...SearchAndFilterProps} /> */}
       <ProjectGrid />
       <div className=" px-10 p-4">
         <LuxuryPropertyInfo />
         <WhyChoose />
+        {/* <FaqSection faqs={} /> */}
         <SubscribeSection />
       </div>
     </>
