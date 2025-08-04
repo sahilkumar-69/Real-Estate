@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import HeroBanner from "../components/SellingGuide/HeroBanner";
 import StepList from "../components/SellingGuide/StepList";
 // import FAQSection from '../components/SellingGuide/FAQSection';
@@ -32,6 +32,9 @@ const sampleProps = [
 
 
 export default function SellGuidePage() {
+ useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="font-sans text-gray-800">
       <HeroSection />

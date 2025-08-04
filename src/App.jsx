@@ -24,6 +24,7 @@ import SellGuidePage from "./Pages/SellGuidePage";
 import ServiceDetails from "./Pages/ServiceDetails";
 import UnderDevelopment from './Pages/UnderDevelopement';
 import MeetTeam from './Pages/MeetOurTeam';
+import PrivacyPolicy from './Pages/privacyPolicy';
 
 function App() {
   return (
@@ -64,6 +65,8 @@ function App() {
         <Route path="/developers/:id" element={<DeveloperDetail />} />
 
         <Route path="/Guide to Selling" element={<SellGuidePage />} />
+
+        <Route path="/Privacy-policy" element={<PrivacyPolicy/>} />
       </Routes>
       <Footer />
     </Router>
