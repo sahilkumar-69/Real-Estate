@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa6";
-// import { motion } from "motion/react";
+ 
 
 export default function TopCommunities() {
   return (

@@ -63,7 +63,6 @@ const Projects = () => {
       <div className=" px-10 p-4">
         <LuxuryPropertyInfo />
         <WhyChoose />
-        {/* <FaqSection faqs={} /> */}
         <SubscribeSection />
       </div>
     </>

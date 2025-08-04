@@ -23,14 +23,14 @@ const ProjectGrid = () => {
         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* 4 square cards */}
           {project.data.map((property, i) => (
-            <PropertyListingCard key={i} property={property} />
+            <PropertyListingCard fr={"static"} key={i} property={property} />
           ))}
         </div>
 
         {/* Sidebar Section */}
         <div className="relative   ">
           <div className="bg-white sticky  top-18 rounded-xl shadow p-6 flex items-center justify-center text-gray-700 font-semibold">
-            <PropertyListingCard key={"2"} property={properties[0]} />
+            <PropertyListingCard fr={"static"} key={"2"} property={properties[0]} />
           </div>
         </div>
       </div>

@@ -23,6 +23,7 @@ import AreaDetail from "./Pages/AreaDetail";
 import SellGuidePage from "./Pages/SellGuidePage";
 import ServiceDetails from "./Pages/ServiceDetails";
 import UnderDevelopment from './Pages/UnderDevelopement';
+import MeetTeam from './Pages/MeetOurTeam';
 
 function App() {
   return (
@@ -52,7 +53,7 @@ function App() {
 
         <Route path="*" element={<UnderDevelopment />} />
 
-
+        <Route path="/meet-the-team" element={<MeetTeam />} />
 
         <Route path="/about-us" element={<AboutusPage />} />
 
