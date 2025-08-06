@@ -24,8 +24,14 @@ import SellGuidePage from "./Pages/SellGuidePage";
 import ServiceDetails from "./Pages/ServiceDetails";
 import UnderDevelopment from './Pages/UnderDevelopement';
 import MeetTeam from './Pages/MeetOurTeam';
+
+import { Navbar2 } from "./Components/Nav";
+import LearnMore from "./Pages/LearnMore";
+import WhyListWithUs from "./Components/Others/WhyListWithUs";
+
 import PrivacyPolicy from './Pages/privacyPolicy';
 import OurAwardPage from './Pages/OurAwardPage';
+
 
 function App() {
   return (
@@ -53,11 +59,35 @@ function App() {
 
         <Route path="/blogs" element={<BlogPage />} />
 
+        <Route path="/learn-more" element={<LearnMore />} />
+
         <Route path="*" element={<UnderDevelopment />} />
 
         <Route path="/meet-the-team" element={<MeetTeam />} />
 
         <Route path="/our-awards" element={<OurAwardPage/>}/>
+
+        <Route path="/about-us" element={<AboutusPage />} />
+
+        <Route path="/list-property" element={<WhyListWithUs />} />
+
+        <Route
+          path="/property-details/:id"
+          element={<DedicatedPageForProp />}
+        />
+
+        <Route path="/blogs/:id" element={<DedicatedBlogPage />} />
+
+        <Route path="/developers/:id" element={<DeveloperDetail />} />
+
+        <Route path="/Guide to Selling" element={<SellGuidePage />} />
+
+
+        <Route path="/nav" element={<Navbar2 />} />
+
+        <Route path="/Privacy-policy" element={<PrivacyPolicy/>} />
+
+
 
         <Route path="/about-us" element={<AboutusPage />} />
 
@@ -68,8 +98,6 @@ function App() {
         <Route path="/developers/:id" element={<DeveloperDetail />} />
 
         <Route path="/Guide to Selling" element={<SellGuidePage />} />
-
-        <Route path="/Privacy-policy" element={<PrivacyPolicy/>} />
       </Routes>
       <Footer />
     </Router>

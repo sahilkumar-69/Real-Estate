@@ -1,3 +1,5 @@
+// --- SaleProperty.jsx ---
+
 import { useContext, useEffect, useState } from "react";
 import { FAQForSale, SaleDescription } from "../Data";
 import ExploreIn from "../Components/Home/ExploreIn";
@@ -26,6 +28,46 @@ const SaleProperty = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState("latest");
 
+  const [filterOptions, setFilterOptions] = useState({
+    bedrooms: "Any",
+    bathrooms: "Any",
+    minArea: "",
+    maxArea: "",
+    location: "",
+    type: "",
+    status: "",
+  });
+
+  const [uniqueFilters, setUniqueFilters] = useState({
+    locations: [],
+    types: [],
+    statuses: [],
+    bedrooms: [],
+    bathrooms: [],
+  });
+
+  const itemsPerPage = 9;
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    if (buyProperty?.data?.length > 0) {
+      const data = buyProperty.data;
+      const locations = [
+        ...new Set(data.map((p) => p.location).filter(Boolean)),
+      ];
+      const types = [...new Set(data.map((p) => p.type).filter(Boolean))];
+      const statuses = [...new Set(data.map((p) => p.status).filter(Boolean))];
+      const bedrooms = [
+        ...new Set(data.map((p) => p.bedrooms).filter(Boolean)),
+      ];
+      const bathrooms = [
+        ...new Set(data.map((p) => p.bathrooms).filter(Boolean)),
+      ];
+      setUniqueFilters({ locations, types, statuses, bedrooms, bathrooms });
+    }
+  }, [buyProperty]);
+
   if (loading)
     return (
       <div className="text-center flex items-center justify-center h-screen mt-20 text-lg">
@@ -33,29 +75,46 @@ const SaleProperty = () => {
       </div>
     );
 
-  // Filter properties based on active filter
   const filteredProperties = buyProperty.data.filter((property) => {
-    if (activeFilter === "all") return true;
-    if (activeFilter === "featured") return property.featured;
-    if (activeFilter === "villas") return property.type === "villa";
-    if (activeFilter === "apartments") return property.type === "apartment";
-    if (activeFilter === "off-plan") return property.status === "off-plan";
+    if (activeFilter !== "all") {
+      if (activeFilter === "featured" && !property.featured) return false;
+      if (activeFilter === "villas" && property.type !== "villa") return false;
+      if (activeFilter === "apartments" && property.type !== "apartment")
+        return false;
+      if (activeFilter === "off-plan" && property.status !== "off-plan")
+        return false;
+    }
+
+    if (filterOptions.location && property.location !== filterOptions.location)
+      return false;
+    if (filterOptions.type && property.type !== filterOptions.type)
+      return false;
+    if (filterOptions.status && property.status !== filterOptions.status)
+      return false;
+    if (
+      filterOptions.bedrooms !== "Any" &&
+      parseInt(property.bedrooms) !== parseInt(filterOptions.bedrooms)
+    )
+      return false;
+    if (
+      filterOptions.bathrooms !== "Any" &&
+      parseInt(property.bathrooms) !== parseInt(filterOptions.bathrooms)
+    )
+      return false;
+
+    const area = parseInt(property.area || "0");
+    const minArea = parseInt(filterOptions.minArea || "0");
+    const maxArea = parseInt(filterOptions.maxArea || "999999");
+    if (area < minArea || area > maxArea) return false;
+
     return true;
   });
 
-  // Sort properties
   const sortedProperties = [...filteredProperties].sort((a, b) => {
     if (sortBy === "latest") return b.id - a.id;
-    if (sortBy === "price-low")
-      return (
-        parseInt(a.price.replace(/[^\d]/g, "")) -
-        parseInt(b.price.replace(/[^\d]/g, ""))
-      );
-    if (sortBy === "price-high")
-      return (
-        parseInt(b.price.replace(/[^\d]/g, "")) -
-        parseInt(a.price.replace(/[^\d]/g, ""))
-      );
+    if (sortBy === "price-low") return (a.price || 0) - (b.price || 0);
+    if (sortBy === "price-high") return (b.price || 0) - (a.price || 0);
+
     return 0;
   });
 
@@ -66,27 +125,38 @@ const SaleProperty = () => {
     showFilters,
     sortBy,
     setSortBy,
+    filterOptions,
+    setFilterOptions,
+    uniqueFilters,
   };
+
+  const totalPages = Math.ceil(sortedProperties.length / itemsPerPage);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = sortedProperties.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
+  const handlePageChange = (pageNum) => {
+    setCurrentPage(pageNum);
+  };
+
+  const paginateProps = { totalPages, currentPage, handlePageChange };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
       <Hero video={"/src/assets/Sale_hero.mp4"} />
-      {/* Search and Filter Section */}
       <SearchAndFilter {...SearchAndFilterProps} />
-
-      {/* Property Listings */}
       <div className="container mx-auto px-14 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedProperties.map((property) => (
             <PropertyListingCard fr={"sale"} property={property} />
           ))}
         </div>
-
-        {/* Pagination */}
-        <Pagination />
-
-        {/* Property */}
+        <Pagination {...paginateProps} />
+        
         <ExploreIn Title={"Featured Properties"} />
       </div>
       <HelpFindProperty />
@@ -94,16 +164,13 @@ const SaleProperty = () => {
         <h2 className="text-2xltext-3xl md:text-4xl font-bold text-slate-800 mb-2  max-w-4xl">
           Meet out Experts Now. Contact them when you feel free !
         </h2>
-
         <ExpertCardsWraper />
       </div>
       <ContactForm />
-
       <div className="px-6 md:px-20 py-16">
         <Description content={SaleDescription} />
       </div>
       <WhyChoose />
-
       <FaqSection faqs={FAQForSale} />
     </div>
   );
