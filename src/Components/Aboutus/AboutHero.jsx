@@ -30,14 +30,15 @@ const AboutHero = () => {
           <span className="text-[#001f3f]">diversity.</span>
         </h1>
 
+ 
+        <p className="text-lg text-gray-600 mt-6">
+          At Nexus, we’re your one-stop solution for everything real estate.
+        </p>
+      </header>
+ 
+ 
 
-      {/* Subheading */}
-      <p className="text-lg text-gray-600 mt-6">
-        At Nexus, we are your one-stop-shop for all things real estate.
-      </p>
-        </header>
-
-
+ 
 
       {/* CTA Buttons */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-10">
@@ -65,3 +66,4 @@ const AboutHero = () => {
 
 export default AboutHero;
 
+ 

@@ -64,7 +64,9 @@ const AboutStatement = () => {
           </div>
           <p>
             Established in 2008, Nexus Real Estate is a leading real estate
+ 
             agency in India with a strong focus on transparency, honesty, and
+ 
             professionalism. Over the years, we have expanded our services to
             not only help you buy or lease a property but also manage your
             assets, secure financing options, and even find the perfect holiday

@@ -167,8 +167,10 @@ const MeetTeam = () => {
 
       {/* Description */}
       <p className="text-gray-700 max-w-2xl mx-auto mb-10 text-lg">
+ 
         Each team member brings a unique skill set to Nexus India. We use those
         skills to provide you with the best possible Estate Agent service.
+ 
       </p>
 
       <TeamGrid teamMembers={teamMembers} />
