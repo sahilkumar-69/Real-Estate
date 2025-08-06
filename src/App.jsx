@@ -30,6 +30,7 @@ import LearnMore from "./Pages/LearnMore";
 import WhyListWithUs from "./Components/Others/WhyListWithUs";
 
 import PrivacyPolicy from './Pages/privacyPolicy';
+import OurAwardPage from './Pages/OurAwardPage';
 
 
 function App() {
@@ -63,6 +64,8 @@ function App() {
         <Route path="*" element={<UnderDevelopment />} />
 
         <Route path="/meet-the-team" element={<MeetTeam />} />
+
+        <Route path="/our-awards" element={<OurAwardPage/>}/>
 
         <Route path="/about-us" element={<AboutusPage />} />
 
