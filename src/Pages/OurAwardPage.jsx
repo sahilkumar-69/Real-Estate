@@ -60,38 +60,33 @@ const OurAwardPage = () => {
     awards: [
       {
         number: 1,
-        title: "Sobha Star Awards 2024 – 2nd Place",
+        title: "Innovation Experts Annual Ceremony 2023 Stakeholder award",
       },
       {
         number: 2,
         title:
-          "Property Finder Awards 2024: DXB Enterprise Quality Brokerage of The Year (Secondary Team)",
+          "Dar Global Top Performing Agency Award 2023",
       },
       {
         number: 3,
-        title: "Recognized among DAMAC’s Top 20 Agencies for Q3",
+        title: "The black onyx awards 2023 by Meraas and Dubai properties",
       },
       {
         number: 4,
         title:
-          "Golden Tree Best Property Management Company Award (Nexus Property Management)",
+          "Sobha Realty-Platinum Signature Award",
       },
       {
         number: 5,
-        title: "Featured among Dubai’s Top 50 Brokerages by Property Time",
+        title: "Sobha Realty- 1st place-Top performing channel partner Q2 2023",
       },
       {
         number: 6,
-        title: "DAMAC Broker Awards 2024 - 10th Place",
+        title: "Sobha Realty- 1st place-outstanding performance award 2023",
       },
       {
         number: 7,
-        title: "Binghatti Broker Awards 2024 - 4th Place",
-      },
-      {
-        number: 8,
-        title:
-          "Black Onyx Awards - Platinum Top Performing Partners Meraas and Nakheel",
+        title: "Sobha Realty- 1st place-Top performing channel partner Q1 2023",
       },
     ],
   };
