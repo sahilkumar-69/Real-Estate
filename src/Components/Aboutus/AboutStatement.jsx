@@ -63,7 +63,7 @@ const AboutStatement = () => {
             </p>
           </div>
           <p>
-            Established in 2008, Provident Real Estate is a leading real estate
+            Established in 2008, Nexus Real Estate is a leading real estate
             agency in Dubai with a strong focus on transparency, honesty, and
             professionalism. Over the years, we have expanded our services to
             not only help you buy or lease a property but also manage your

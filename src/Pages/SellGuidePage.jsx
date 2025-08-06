@@ -12,17 +12,17 @@ import ExploreIn from "../Components/Home/ExploreIn.jsx";
 
 const sampleProps = [
   {
-    image: "/assets/placeholder1.avif",
+    image: "src/assets/placeholder1.avif",
     title: "Modern Marina Apt",
     price: "AED 3,950,000",
   },
   {
-    image: "/assets/placeholder3.avif",
+    image: "src/assets/placeholder3.avif",
     title: "Downtown 2‑Bed",
     price: "AED 5,000,000",
   },
   {
-    image: "/assets/placeholder.avif",
+    image: "src/assets/placeholder.avif",
     title: "Sports City Studio",
     price: "AED 565,000",
   },

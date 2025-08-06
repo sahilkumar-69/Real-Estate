@@ -25,6 +25,7 @@ import ServiceDetails from "./Pages/ServiceDetails";
 import UnderDevelopment from './Pages/UnderDevelopement';
 import MeetTeam from './Pages/MeetOurTeam';
 import PrivacyPolicy from './Pages/privacyPolicy';
+import OurAwardPage from './Pages/OurAwardPage';
 
 function App() {
   return (
@@ -55,6 +56,8 @@ function App() {
         <Route path="*" element={<UnderDevelopment />} />
 
         <Route path="/meet-the-team" element={<MeetTeam />} />
+
+        <Route path="/our-awards" element={<OurAwardPage/>}/>
 
         <Route path="/about-us" element={<AboutusPage />} />
 
