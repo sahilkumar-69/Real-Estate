@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HotDealsBanner = () => {
   const img =
     "https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg";
@@ -20,12 +22,12 @@ const HotDealsBanner = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-md transition">
+            <Link to={"/download-brochure"} className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-md transition">
               Download the Digital Edition
-            </button>
-            <button className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-md transition">
+            </Link>
+            <Link to={"/buy/properties-for-sale"} className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-md transition">
               Explore our properties
-            </button>
+            </Link>
           </div>
         </div>
       </div>

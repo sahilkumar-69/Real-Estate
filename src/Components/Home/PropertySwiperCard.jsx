@@ -64,9 +64,11 @@ export const PropertySwiperCard = ({ data,fr }) => {
         <p className="text-sm text-gray-700 mt-2">
           Starting Price{" "}
           <span className="text-orange-600 text-base font-semibold">
-             {data.price.toString().slice(0, 2)}
-            {"."}
-            {data.price.toString().slice(2, 4)} Lakhs
+            {new Intl.NumberFormat("en-IN", {
+              style: "currency",
+              currency: "INR",
+              maximumFractionDigits: 0,
+            }).format(data.price)}
           </span>
         </p>
         <div className="flex items-center mt-3 text-sm text-gray-500">
@@ -75,7 +77,7 @@ export const PropertySwiperCard = ({ data,fr }) => {
         </div>
         <div className="flex items-center mt-1 text-sm text-gray-500">
           <PiBedBold className="mr-1" />
-          {data.beds.join(", ")}
+          {data.beds}
         </div>
       </div>
 

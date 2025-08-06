@@ -15,13 +15,7 @@ const SearchAndFilter = ({
   setFilterOptions,
   uniqueFilters,
 }) => {
-  const btnTitle = [
-    "All Properties",
-    "Featured",
-    "Villas",
-    "Apartments",
-    "Off-Plan",
-  ];
+  const btnTitle = ["All Properties", "Villas", "Apartments"];
 
   return (
     <div className="container mx-auto px-14 py-8 -mt-10 relative z-20">
@@ -60,17 +54,11 @@ const SearchAndFilter = ({
               }
             />
           )}
-
-          <div className="flex items-end">
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg font-medium flex items-center justify-center">
-              <FiSearch className="mr-2" /> Search
-            </button>
-          </div>
         </div>
 
         {/* Filter Buttons and Sort */}
         <div className="flex flex-wrap items-center justify-between">
-          <div className="flex space-x-2 mb-4 md:mb-0">
+          {/* <div className="flex space-x-2 mb-4 md:mb-0">
             {btnTitle.map((title, index) => (
               <PropertyFilterButton
                 title={title}
@@ -79,16 +67,9 @@ const SearchAndFilter = ({
                 setActiveFilter={setActiveFilter}
               />
             ))}
-          </div>
+          </div> */}
 
           <div className="flex items-center space-x-4">
-            <button
-              onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center text-gray-700"
-            >
-              <FiFilter className="mr-2" /> More Filters
-            </button>
-
             <div className="relative">
               <select
                 value={sortBy}
@@ -101,6 +82,12 @@ const SearchAndFilter = ({
               </select>
               <FiChevronDown className="absolute right-3 top-3 text-gray-500" />
             </div>
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="flex items-center text-gray-700"
+            >
+              <FiFilter className="mr-2" /> More Filters
+            </button>
           </div>
         </div>
 
@@ -115,10 +102,10 @@ const SearchAndFilter = ({
                   <button
                     key={num}
                     onClick={() =>
-                      setFilterOptions((prev) => ({ ...prev, bedrooms: num }))
+                      setFilterOptions((prev) => ({ ...prev, beds: num }))
                     }
                     className={`px-4 py-2 border rounded-lg ${
-                      filterOptions.bedrooms === num
+                      filterOptions.beds === num
                         ? "bg-blue-600 text-white border-blue-600"
                         : "border-gray-300 hover:bg-gray-100"
                     }`}
@@ -137,10 +124,10 @@ const SearchAndFilter = ({
                   <button
                     key={num}
                     onClick={() =>
-                      setFilterOptions((prev) => ({ ...prev, bathrooms: num }))
+                      setFilterOptions((prev) => ({ ...prev, bathroom: num }))
                     }
                     className={`px-4 py-2 border rounded-lg ${
-                      filterOptions.bathrooms === num
+                      filterOptions.bathroom === num
                         ? "bg-blue-600 text-white border-blue-600"
                         : "border-gray-300 hover:bg-gray-100"
                     }`}

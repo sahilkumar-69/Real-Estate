@@ -60,7 +60,7 @@ const Services = () => {
         ) : error ? (
           <p className="text-center text-red-500">{error}</p>
         ) : servicesData.length > 0 ? (
-          <MainGrid3 data={servicesData} />
+          <MainGrid3 pagination={false} desc={"show"} data={servicesData} />
         ) : (
           <p className="text-center text-gray-500">No services found.</p>
         )}

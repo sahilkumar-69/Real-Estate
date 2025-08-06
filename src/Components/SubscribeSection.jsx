@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SubscribeSection() {
   const [formData, setFormData] = useState({ name: "", email: "" });
@@ -42,8 +43,12 @@ export default function SubscribeSection() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left content */}
         <div className="text-center md:text-left">
-          <h2 className="text-3xl font-bold text-[#0b2c50]">Stay in the loop</h2>
-          <p className="text-gray-600 mt-2">Get to know about the latest real estate insights.</p>
+          <h2 className="text-3xl font-bold text-[#0b2c50]">
+            Stay in the loop
+          </h2>
+          <p className="text-gray-600 mt-2">
+            Get to know about the latest real estate insights.
+          </p>
         </div>
 
         {/* Form */}
@@ -81,21 +86,25 @@ export default function SubscribeSection() {
 
       {/* Status Message */}
       {status === "success" && (
-        <p className="text-green-600 text-center mt-4">Thanks for subscribing!</p>
+        <p className="text-green-600 text-center mt-4">
+          Thanks for subscribing!
+        </p>
       )}
       {status === "error" && (
-        <p className="text-red-600 text-center mt-4">Something went wrong. Please try again.</p>
+        <p className="text-red-600 text-center mt-4">
+          Something went wrong. Please try again.
+        </p>
       )}
 
       <p className="text-center md:text-right text-sm text-gray-600 mt-4">
         By clicking Submit, you agree to our{" "}
-        <a href="#" className="underline text-black">
+        <Link to="/terms-and-privacy" className="underline text-black">
           Terms & Conditions
-        </a>{" "}
-        and{" "}
-        <a href="#" className="underline text-black">
-          Privacy Policy.
-        </a>
+        </Link>
+        {" and "}
+        <Link to="/Privacy-policy" className="underline text-black">
+          Privacy Policy
+        </Link>
       </p>
     </section>
   );

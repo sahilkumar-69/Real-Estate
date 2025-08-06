@@ -5,6 +5,7 @@ import MainGrid from "../Components/Developer/MainGrid";
 import SubscribeSection from "../Components/SubscribeSection";
 import Description from "../Components/Others/Description";
 import { PulseLoader } from "react-spinners";
+import { areaDescription } from "../Data";
 
 const Area_page = () => {
   const [areaData, setAreaData] = useState([]);
@@ -51,11 +52,7 @@ const Area_page = () => {
       )}
 
       <ExploreIn Enablebtn={false} Title={"Popular Area in India"} />
-      <Description
-        content={
-          "Explore top real estate areas in India and find your dream location."
-        }
-      />
+      <Description content={areaDescription} />
       <SubscribeSection />
     </div>
   );

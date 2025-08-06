@@ -2,7 +2,7 @@
 import PropertyOptButton from "../ButtonComponents/PropertyOptButton";
 import PropertyList from "./PropertyList";
 
-const ExploreIn = ({ Title, PropertyType, Enablebtn }) => {
+const ExploreIn = ({ Title, PropertyType, Enablebtn, data }) => {
   const buttonTitle = ["For Sale", "For Rent", "Off Plan"];
   return (
     <div className="pt-10">
@@ -30,7 +30,7 @@ const ExploreIn = ({ Title, PropertyType, Enablebtn }) => {
         ""
       )}
 
-      <PropertyList PropertyType={PropertyType} />
+      <PropertyList data={data} PropertyType={PropertyType} />
     </div>
   );
 };

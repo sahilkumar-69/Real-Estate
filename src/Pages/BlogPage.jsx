@@ -3,6 +3,7 @@ import NewsHeader from "../Components/Blog/Hero";
 import MainGrid from "../Components/Developer/MainGrid";
 import ContactForm from "../Components/Home/ContactForm";
 import SubscribeSection from "../Components/SubscribeSection";
+import { PulseLoader } from "react-spinners";
 
 const BlogPage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -100,7 +101,7 @@ const BlogPage = () => {
       <div className="mb-10">
         {loading ? (
           <div className="text-center text-blue-600 text-xl py-10">
-            Loading blogs...
+            <PulseLoader />
           </div>
         ) : error ? (
           <div className="text-center text-red-600 text-xl py-10">

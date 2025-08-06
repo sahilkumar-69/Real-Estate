@@ -9,6 +9,7 @@ const AreaCard = ({
   logo,
   description,
   path,
+  desc
 }) => {
   const navigate = useNavigate();
   return (
@@ -47,11 +48,11 @@ const AreaCard = ({
       </div>
 
       {/* Description */}
-      <p className="text-sm text-gray-700 px-3 pb-4">
+      {desc != "show" && <p className="text-sm text-gray-700 px-3 pb-4">
         {description?.length
           ? description.slice(0, 120) + "..."
           : "No description available."}
-      </p>
+      </p>}
     </div>
   );
 };

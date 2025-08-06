@@ -31,7 +31,7 @@ export default function Hero({ video ,Hidebtn}) {
         <button
         
           onClick={() => {
-            scrollTo({ top: 1700, behavior: "smooth" });
+            scrollTo({ top: 1600, behavior: "smooth" });
             // Navigate("/buy/properties-for-sale");
           }}
           className={`bg-white ${Hidebtn || Hidebtn == undefined ?"hidden":""} text-black px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition`}

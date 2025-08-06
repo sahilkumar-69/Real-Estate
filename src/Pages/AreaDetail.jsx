@@ -9,6 +9,7 @@ const AreaDetailPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    scrollTo(0, 0);
     const getArea = async () => {
       try {
         const res = await fetch(
@@ -55,9 +56,12 @@ const AreaDetailPage = () => {
         />
       )}
 
-      <p className="text-gray-700">
-        {areaData.description || "No description available."}
-      </p>
+      <div
+        dangerouslySetInnerHTML={{ __html: areaData.description }}
+        className="text-gray-700"
+      >
+        {/* {areaData.description || "No description available."} */}
+      </div>
       {/* Add more fields here if you want */}
     </div>
   );

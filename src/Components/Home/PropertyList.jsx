@@ -8,23 +8,25 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { PropertySwiperCard } from "./PropertySwiperCard";
 import { propertyData } from "../../Data";
+import AreaCard from "../Cards/AreaCard";
 
-export default function PropertyList({ PropertyType }) {
+export default function PropertyList({ PropertyType, data }) {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
-  // let data;
-  // //  const renderCard = (property) => {
-  // switch (PropertyType) {
-  //   case "buy":
-  //     data = properties;
-  //     break;
-  //   case "rent":
-  //     data = propertiesForRent;
 
-  //     break;
-  // }
-  // // };
+  let data1;
+  //  const renderCard = (property) => {
+  switch (PropertyType) {
+    case "developers":
+      data1 = data;
+      break;
+    // case "rent":
+    //   data1 = propertiesForRent;
+    default:
+      data1 = propertyData;
+  }
+  // };
 
   useEffect(() => {
     if (
@@ -68,11 +70,16 @@ export default function PropertyList({ PropertyType }) {
             1024: { slidesPerView: 3, spaceBetween: 24 },
           }}
         >
-          {propertyData.map((property, index) => (
-            <SwiperSlide key={index}>
-              <PropertySwiperCard fr={"static"} data={property} />
-            </SwiperSlide>
-          ))}
+          {data1 &&
+            data1.map((property, index) => (
+              <SwiperSlide key={index}>
+                {PropertyType == "developers" ? (
+                  <AreaCard key={index} {...property} path="developers" />
+                ) : (
+                  <PropertySwiperCard fr={"static"} data={property} />
+                )}
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
     </section>

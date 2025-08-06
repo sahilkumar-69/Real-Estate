@@ -1,19 +1,35 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-// import NavItemWithDropdown from "./NavItemWithDropdown";
+ 
 
 export const Navbar2 = () => {
+  const simpleLinks = [
+    { title: "Projects", path: "/projects" },
+    { title: "Developers", path: "/developers" },
+    { title: "Areas", path: "/areas" },
+    { title: "Services", path: "/services" },
+    { title: "Blogs", path: "/blogs" },
+    { title: "About Us", path: "/about-us" },
+  ];
+
   return (
     <nav className="bg-white shadow px-10 py-20 flex gap-6">
       <NavDropdown label="Buy" keyName="buy" />
       <NavDropdown label="Rent" keyName="rent" />
-      <NavDropdown label="Invest" keyName="invest" />
+
+      {simpleLinks.map((link) => (
+        <Link
+          key={link.title}
+          to={link.path}
+          className="text-[#0b2c50] hover:text-orange-600 font-medium"
+        >
+          {link.title}
+        </Link>
+      ))}
     </nav>
   );
 };
-
- 
 
 const dropdownOptions = {
   buy: {
@@ -40,7 +56,7 @@ const dropdownOptions = {
       label: "Explore Signature",
       title: "Signature Collection",
       to: "/signature",
-      src: "/images/signature.jpg",
+      src: "https://images.pexels.com/photos/7578931/pexels-photo-7578931.jpeg",
     },
   },
 
@@ -67,7 +83,7 @@ const dropdownOptions = {
       label: "Explore Rentals",
       title: "Luxury Rentals",
       to: "/rentals/luxury",
-      src: "/images/rentals.jpg",
+      src: "https://images.pexels.com/photos/7578931/pexels-photo-7578931.jpeg",
     },
   },
 
@@ -94,7 +110,7 @@ const dropdownOptions = {
       label: "Explore Investments",
       title: "Top Investment Picks",
       to: "/investments/top-picks",
-      src: "/images/invest.jpg",
+      src: "https://images.pexels.com/photos/7578931/pexels-photo-7578931.jpeg",
     },
   },
 };
@@ -103,7 +119,7 @@ const NavDropdown = ({ label, keyName }) => {
   const [open, setOpen] = useState(false);
   const content = dropdownOptions[keyName];
 
-  if (!content) return null;
+  if (!content.sections) return null;
 
   return (
     <div
@@ -143,7 +159,7 @@ const NavDropdown = ({ label, keyName }) => {
           </div>
 
           {/* Right Column: Image with CTA */}
-          <div className="w-60 relative">
+          <div className="w-70 h-50 relative">
             <img
               src={content.image.src}
               alt={content.image.title}
@@ -168,5 +184,5 @@ const NavDropdown = ({ label, keyName }) => {
 };
 
 export default NavDropdown;
-
-// export default NavItemWithDropdown;
+ 
+ 

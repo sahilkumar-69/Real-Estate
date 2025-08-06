@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { FaClock } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const HelpFindProperty = () => {
   const [showMore, setShowMore] = useState(false);
+  const Navigate = useNavigate()
 
   const toggleView = () => setShowMore(!showMore);
 
@@ -57,7 +59,10 @@ const HelpFindProperty = () => {
 
           {/* Call-to-Action Buttons */}
           <div className="flex items-center gap-4 mt-6 flex-wrap">
-            <button className="bg-orange-500 hover:bg-orange-600 transition text-white font-semibold px-6 py-3 rounded-lg">
+            <button onClick={(first) => { Navigate("/buy/properties-for-sale");scrollTo({
+              behavior:"smooth",
+              top:500
+            }) }}  className="bg-orange-500 hover:bg-orange-600 transition text-white font-semibold px-6 py-3 rounded-lg">
               Find My Dream Home!
             </button>
             <div className="flex items-center gap-2 text-orange-500 font-medium underline underline-offset-2">

@@ -1,42 +1,15 @@
 import React from "react";
 
-const steps = [
-  {
-    title: "Find The Right Real Estate Agent",
-    description:
-      "Begin by partnering with India Consultants and signing Form A to engage our brokerage and marketing services formally. Benefit from a complimentary, precise property valuation, ensuring you’re well-informed before proceeding with the sale.",
-  },
-  {
-    title: "Strategic Marketing Listing",
-    description:
-      "We craft listings with attention to detail, using professional photographs and engaging descriptions to highlight your property across various channels. For international visibility, we target the ideal buyer for you by leveraging DLD transaction data and property finder tools, ensuring your property is marketed at the most attractive selling price.",
-  },
-  {
-    title: "Get the Best Buyer!",
-    description:
-      "We manage property viewings and negotiations to secure the right buyer for you. We’ll then assist you with all the necessary paperwork, such as Form F and obtaining the NOC (No Objection Certificate) from the developer, in addition to taking care of any mortgage settlements if needed.",
-  },
-  {
-    title: "Transfer Ownership At The DLD",
-    description:
-      "A India consultant will accompany you and the conveyancer through the ownership transfer process at the DLD trustee’s office. Buyer payment, seller transfer fees, and the new Title Deed issuance are efficiently managed.",
-  },
-  {
-    title: "Make the Most of Your Funds.",
-    description:
-      "Leverage our extensive combined market experience of 65 years to strategically invest your earnings. Our highly trained consultants are committed to guiding you throughout your investment journey.",
-  },
-];
 
-export default function StepTimeline() {
+
+export default function StepTimeline({ steps, title, desc }) {
   return (
     <div className="max-w-6xl mx-auto px-4 py-16">
       <p className="text-sm text-center text-gray-500 uppercase font-medium tracking-widest mb-2">
-        Guide to sell property in India
+        {title}
       </p>
       <h2 className="text-3xl md:text-4xl text-center font-bold text-slate-800 mb-12">
-        Your step-by-step guide to making the most of your property sale in
-        India.
+        {desc}
       </h2>
 
       <div className="relative border-l-2 border-gray-200 ml-6">

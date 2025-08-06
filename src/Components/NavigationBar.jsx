@@ -1,40 +1,182 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import NavbarDropdown from "./Service/NavbarDropdown";
 
-export default function Navbar() {
+export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
   const navigate = useNavigate();
 
   const navOptions = [
-    {
-      title: "Buy",
-      path: "/buy/properties-for-sale",
-      submenu: [
-        { label: "Residential", path: "/buy/residential" },
-        { label: "Commercial", path: "/buy/commercial" },
-        { label: "Luxury Homes", path: "/buy/luxury" },
-        { label: "Plots", path: "/buy/plots" },
-      ],
-    },
-    {
-      title: "Rent",
-      path: "/rent/properties-for-rent",
-      submenu: [
-        { label: "Flats", path: "/rent/flats" },
-        { label: "Apartments", path: "/rent/apartments" },
-        { label: "PG", path: "/rent/pg" },
-      ],
-    },
+    { title: "Buy", path: "/buy/properties-for-sale" },
+    { title: "Rent", path: "/rent/properties-for-rent" },
     { title: "Projects", path: "/projects" },
     { title: "Developers", path: "/developers" },
     { title: "Areas", path: "/areas" },
     { title: "Services", path: "/services" },
     { title: "Blogs", path: "/blogs" },
     { title: "About Us", path: "/about-us" },
-    // { title: "SellGuide", path: "/guide-to-selling" }, // fixed URL format
   ];
+
+  const menuContent = {
+    Buy: {
+      title: "Buy Properties",
+      scroll: true,
+
+      sections: [
+        {
+          heading: "Property type",
+          items: [
+            {
+              to: "/buy/properties-for-sale",
+              label: "Studio",
+              value: "studio",
+            },
+            {
+              to: "/buy/properties-for-sale",
+              label: "Commercial",
+              value: "commercial",
+            },
+            {
+              to: "/buy/properties-for-sale",
+              label: "Pent House",
+              value: "penthouse",
+            },
+            {
+              to: "/buy/properties-for-sale",
+              label: "Bungalow",
+              value: "bungalow",
+            },
+            { to: "/buy/properties-for-sale", label: "Villa", value: "villa" },
+          ],
+        },
+      ],
+      image: {
+        src: "https://images.pexels.com/photos/7578931/pexels-photo-7578931.jpeg",
+        title: "Explore Properties",
+        label: "View All",
+        to: "/buy/properties-for-sale",
+      },
+    },
+    Rent: {
+      title: "Rent Properties",
+      scroll: true,
+
+      sections: [
+        {
+          heading: "Options",
+          items: [
+            {
+              value: "Apartment",
+              label: "Apartment",
+              to: "/rent/properties-for-rent",
+            },
+            {
+              value: "townhouse",
+              label: "Townhouse",
+              to: "/rent/properties-for-rent",
+            },
+            { value: "Villa", label: "Villa", to: "/rent/properties-for-rent" },
+          ],
+        },
+      ],
+      image: {
+        src: "/src/assets/rent_dropdown_img.jpg",
+        title: "Find Rentals",
+        label: "View All",
+        to: "/rent/properties-for-rent",
+      },
+    },
+    // Projects: {
+    //   title: "Latest Projects",
+    //   sections: [
+    //     {
+    //       heading: "Top Projects",
+    //       items: [
+    //         { label: "Under Construction", to: "/projects/under-construction" },
+    //         { label: "Ready to Move", to: "/projects/ready-to-move" },
+    //       ],
+    //     },
+    //   ],
+    //   image: {
+    //     src: "https://images.pexels.com/photos/7578931/pexels-photo-7578931.jpeg",
+    //     title: "Explore Projects",
+    //     label: "View All",
+    //     to: "/projects",
+    //   },
+    // },
+    Developers: {
+      title: "Top Developers",
+      scroll: false,
+      sections: [
+        {
+          heading: "Popular",
+          items: [
+            { label: "Binghatti", to: "/developers/6880d003c496783053e5e06d" },
+            {
+              label: "Samana Developers",
+              to: "/developers/6881c0aac496783053e5e079",
+            },
+            {
+              label: "Imtiaz Developments",
+              to: "/developers/6881c1dac496783053e5e07b",
+            },
+            {
+              label: "Aldar Properties",
+              to: "/developers/6881befcc496783053e5e077",
+            },
+          ],
+        },
+      ],
+      image: {
+        src: "/src/assets/developers_dropdown.jpg",
+        title: "All Developers",
+        label: "Browse",
+        to: "/developers",
+      },
+    },
+    Areas: {
+      title: "Popular Areas",
+      sections: [
+        {
+          heading: "Cities",
+          items: [
+            { label: "Hyderabad", to: "/areas/6889e1de8b94dd0080d2eb17" },
+            { label: "Mumbai", to: "/areas/6889e1048b94dd0080d2eb13" },
+            { label: "Kolkata", to: "/areas/6889e2918b94dd0080d2eb1b" },
+            { label: "Chandigarh", to: "/areas/6889e4538b94dd0080d2eb25" },
+          ],
+        },
+      ],
+      image: {
+        src: "/src/assets/area_dropdown.jpg",
+        title: "Explore Areas",
+        label: "Browse",
+        to: "/areas",
+      },
+    },
+    Services: {
+      title: "Our Services",
+      sections: [
+        {
+          heading: "We Offer",
+          items: [
+            { label: "Legal Advice", to: "/services/legal" },
+            { label: "Home Loans", to: "/services/loan" },
+            { label: "Property Management", to: "/services/management" },
+          ],
+        },
+      ],
+      image: {
+        src: "/src/assets/service_dropdown.jpg",
+        title: "Get Help",
+        label: "Explore",
+        to: "/services",
+      },
+    },
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -44,13 +186,16 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 px-4 md:px-6 py-4 flex items-center justify-between transition-all duration-300 ${
+      className={`fixed  top-0 left-0 w-full z-50 px-4 md:px-6 py-4 flex items-center justify-between transition-all duration-300 ${
         scrolled ? "bg-white shadow text-black" : "bg-black text-white"
       }`}
     >
       {/* Logo */}
       <div
-        onClick={() => navigate("/")}
+        onClick={() => {
+          navigate("/");
+          scrollTo({ behavior: "smooth", top: 0 });
+        }}
         className="flex items-center gap-2 cursor-pointer"
       >
         <img
@@ -61,33 +206,24 @@ export default function Navbar() {
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex gap-6 font-medium">
+      <div className="hidden md:flex gap-6 font-medium relative">
         {navOptions.map((option, index) => (
-          <div key={index} className="relative group">
-            {option.submenu ? (
-              <>
-                <Link
-                  to={option.path}
-                  className="hover:text-cyan-400 transition"
-                >
-                  {option.title}
-                </Link>
-                <div className="absolute top-full left-0 mt-0 hidden group-hover:flex flex-col bg-white text-black shadow-md rounded z-50 p-2 min-w-[180px]">
-                  {option.submenu.map((sub, subIndex) => (
-                    <Link
-                      key={subIndex}
-                      to={sub.path}
-                      className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
-                </div>
-              </>
-            ) : (
-              <Link to={option.path} className="hover:text-cyan-400 transition">
-                {option.title}
-              </Link>
+          <div
+            key={index}
+            className="relative group"
+            onMouseEnter={() => setOpenMenu(option.title)}
+            onMouseLeave={() => setOpenMenu(null)}
+          >
+            <Link to={option.path} className="hover:text-cyan-400 transition">
+              {option.title}
+            </Link>
+
+            {menuContent[option.title] && (
+              <NavbarDropdown
+                setFilterOptions={setFilterOptions}
+                open={openMenu === option.title}
+                content={menuContent[option.title]}
+              />
             )}
           </div>
         ))}
@@ -95,7 +231,10 @@ export default function Navbar() {
 
       {/* Right Buttons */}
       <div className="hidden md:flex items-center gap-4">
-        <button onClick={() =>  navigate("/list-property") }  className="border px-4 py-1 rounded hover:bg-white hover:text-blue-600 transition">
+        <button
+          onClick={() => navigate("/list-property")}
+          className="border px-4 py-1 rounded hover:bg-white hover:text-blue-600 transition"
+        >
           List Property
         </button>
       </div>
@@ -103,7 +242,8 @@ export default function Navbar() {
       {/* Mobile Hamburger Icon */}
       <div className="md:hidden flex items-center">
         <button
-          className="text-white text-xl"
+          className="text-green-700
+           text-xl"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <FaTimes /> : <FaBars />}
@@ -122,23 +262,28 @@ export default function Navbar() {
               >
                 {option.title}
               </Link>
-              {option.submenu && (
+              {menuContent[option.title]?.sections && (
                 <div className="pl-4 text-sm text-gray-300">
-                  {option.submenu.map((sub, subIndex) => (
-                    <Link
-                      key={subIndex}
-                      to={sub.path}
-                      className="block py-1 hover:text-white"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
+                  {menuContent[option.title].sections[0].items.map(
+                    (sub, subIndex) => (
+                      <Link
+                        key={subIndex}
+                        to={sub.to}
+                        className="block py-1 hover:text-white"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {sub.label}
+                      </Link>
+                    )
+                  )}
                 </div>
               )}
             </div>
           ))}
-          <button onClick={() =>  navigate("/list-property") } className="border py-1 rounded hover:bg-white hover:text-black transition">
+          <button
+            onClick={() => navigate("/list-property")}
+            className="border py-1 rounded hover:bg-white hover:text-black transition"
+          >
             List Property
           </button>
         </div>

@@ -20,10 +20,15 @@ const Professional = () => {
             Helping You Reach Your Dream Home
           </h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            Discover a seamless journey to finding your perfect home. Whether you're buying, selling, or renting,
-            our team of professionals is here to make your dream a reality with trust, transparency, and ease.
+            Discover a seamless journey to finding your perfect home. Whether
+            you're buying, selling, or renting, our team of professionals is
+            here to make your dream a reality with trust, transparency, and
+            ease.
           </p>
-          <button onClick={() =>  navigate("/learn-less") }  className="px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition duration-300">
+          <button
+            onClick={() => navigate("/Guide to buying")}
+            className="px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition duration-300"
+          >
             Learn More
           </button>
         </div>

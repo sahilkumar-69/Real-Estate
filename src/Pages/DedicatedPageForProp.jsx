@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import DoubleSwiper from "../Components/DoubleSwiper";
 import { propertyData } from "../Data.js";
-import { properties } from "../Data.js";
+// import { properties } from "../Data.js";
 
 import {
   FaBed,
@@ -38,7 +38,7 @@ const PropertyDetails = () => {
           );
           setProperty(response.data.data);
         } else if (postfix == "static") {
-          response = properties.filter((items) => items._id == slicedId);
+          response = propertyData.filter((items) => items.id == slicedId);
           setProperty(response[0]);
         }
       } catch (error) {
@@ -87,10 +87,12 @@ const PropertyDetails = () => {
           {/* Tags Section */}
           <div className="flex flex-wrap gap-4 text-gray-700 text-sm">
             <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-md">
-              <FaBed /> {property.beds == 0 ? property.bathroom: property.beds} Beds
+              <FaBed /> {property.beds == 0 ? property.bathroom : property.beds}{" "}
+              Beds
             </div>
             <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-md">
-              <FaBath />{property.bathroom == 0 ? property.beds: property.bathroom} Baths
+              <FaBath />
+              {property.bathroom == 0 ? property.beds : property.bathroom} Baths
             </div>
             <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-md">
               <FaRulerCombined /> {property.area} sqft
@@ -134,9 +136,11 @@ const PropertyDetails = () => {
         {/* Sidebar Info */}
         <div className="bg-gray-50 p-6 rounded-lg shadow-sm space-y-4">
           <div className="text-2xl font-bold text-blue-700">
-            {property.price.toString().slice(0, 2)}
-            {"."}
-            {property.price.toString().slice(2, 4)} Lakhs
+            {new Intl.NumberFormat("en-IN", {
+              style: "currency",
+              currency: "INR",
+              maximumFractionDigits: 0,
+            }).format(property.price)}
           </div>
 
           <div className="border-t pt-4">
@@ -144,16 +148,16 @@ const PropertyDetails = () => {
               Owner Information
             </h4>
             <p className="flex items-center gap-2 text-gray-600">
-              <FaUser /> {property.owner  || "Nexus "}
+              <FaUser /> {property.owner || "Nexus "}
             </p>
             <p className="flex items-center gap-2 text-gray-600">
-              <FaPhone /> {property.phoneNumber  || "+91 9876543210"}
+              <FaPhone /> {property.phoneNumber || "+91 9876543210"}
             </p>
           </div>
 
           <Link
             className="w-full block text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
-            to={`tel:${property.phoneNumber}`} 
+            to={`tel:${property.phoneNumber}`}
           >
             Contact Owner
           </Link>

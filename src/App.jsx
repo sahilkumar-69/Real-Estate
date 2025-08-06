@@ -29,20 +29,61 @@ import { Navbar2 } from "./Components/Nav";
 import LearnMore from "./Pages/LearnMore";
 import WhyListWithUs from "./Components/Others/WhyListWithUs";
 
-import PrivacyPolicy from './Pages/privacyPolicy';
-
+import PrivacyPolicy from "./Pages/privacyPolicy";
+import DownloadBrochure from "./Pages/DownloadBrochure";
+import TermsAndPrivacy from "./Pages/TermsAndPrivacy";
+import BuyGuidePage from "./Pages/BuyGuidePage";
+import CareerPage from "./Pages/CareerPage";
+import { useState } from "react";
 
 function App() {
+  const [filterOptions, setFilterOptions] = useState({
+    beds: "Any",
+    bathroom: "Any",
+    minArea: "",
+    maxArea: "",
+    location: "",
+    type: "",
+    status: "",
+  });
+  const [filterOptionsForRent, setFilterOptionsForRent] = useState({
+    beds: "Any",
+    bathroom: "Any",
+    minArea: "",
+    maxArea: "",
+    location: "",
+    type: "",
+    status: "",
+  });
+
   return (
     <Router>
       <DownArrow />
-      <NavigationBar />
+      <NavigationBar setFilterOptionsForRent={setFilterOptionsForRent} setFilterOptions={setFilterOptions} />
       <Routes>
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/buy/properties-for-sale" element={<SaleProperty />} />
+        <Route path="/careers" element={<CareerPage />} />
 
-        <Route path="/rent/properties-for-rent" element={<RentProperty />} />
+        <Route
+          path="/buy/properties-for-sale"
+          element={
+            <SaleProperty
+              filterOptions={filterOptions}
+              setFilterOptions={setFilterOptions}
+            />
+          }
+        />
+
+        <Route
+          path="/rent/properties-for-rent"
+          element={
+            <RentProperty
+              filterOptions={filterOptionsForRent}
+              setFilterOptions={setFilterOptionsForRent}
+            />
+          }
+        />
 
         <Route path="/services" element={<Services />} />
 
@@ -68,33 +109,26 @@ function App() {
 
         <Route path="/list-property" element={<WhyListWithUs />} />
 
+        <Route path="/blogs/:id" element={<DedicatedBlogPage />} />
+
+        <Route path="/nav" element={<Navbar2 />} />
+
+        <Route path="/download-brochure" element={<DownloadBrochure />} />
+
+        <Route path="/Privacy-policy" element={<PrivacyPolicy />} />
+
         <Route
           path="/property-details/:id"
           element={<DedicatedPageForProp />}
         />
 
-        <Route path="/blogs/:id" element={<DedicatedBlogPage />} />
-
         <Route path="/developers/:id" element={<DeveloperDetail />} />
 
         <Route path="/Guide to Selling" element={<SellGuidePage />} />
 
+        <Route path="/Guide to buying" element={<BuyGuidePage />} />
 
-        <Route path="/nav" element={<Navbar2 />} />
-
-        <Route path="/Privacy-policy" element={<PrivacyPolicy/>} />
-
-
-
-        <Route path="/about-us" element={<AboutusPage />} />
-
-        <Route path="/property-details/:id" element={<DedicatedPageForProp />} />
-
-        <Route path="/blogs/:id" element={<DedicatedBlogPage />} />
-
-        <Route path="/developers/:id" element={<DeveloperDetail />} />
-
-        <Route path="/Guide to Selling" element={<SellGuidePage />} />
+        <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
       </Routes>
       <Footer />
     </Router>

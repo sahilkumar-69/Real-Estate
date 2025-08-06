@@ -17,7 +17,7 @@ import ContactForm from "../Components/Home/ContactForm";
 import BlogContext from "../context/Property";
 import { PulseLoader } from "react-spinners";
 
-const SaleProperty = () => {
+const SaleProperty = ({filterOptions, setFilterOptions}) => {
   const { buyProperty, loading } = useContext(BlogContext);
 
   useEffect(() => {
@@ -28,22 +28,22 @@ const SaleProperty = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState("latest");
 
-  const [filterOptions, setFilterOptions] = useState({
-    bedrooms: "Any",
-    bathrooms: "Any",
-    minArea: "",
-    maxArea: "",
-    location: "",
-    type: "",
-    status: "",
-  });
+  // const [filterOptions, setFilterOptions] = useState({
+  //   bedrooms: "Any",
+  //   bathrooms: "Any",
+  //   minArea: "",
+  //   maxArea: "",
+  //   location: "",
+  //   type: "",
+  //   status: "",
+  // });
 
   const [uniqueFilters, setUniqueFilters] = useState({
     locations: [],
     types: [],
     statuses: [],
-    bedrooms: [],
-    bathrooms: [],
+    beds: [],
+    bathroom: [],
   });
 
   const itemsPerPage = 9;
@@ -58,13 +58,13 @@ const SaleProperty = () => {
       ];
       const types = [...new Set(data.map((p) => p.type).filter(Boolean))];
       const statuses = [...new Set(data.map((p) => p.status).filter(Boolean))];
-      const bedrooms = [
-        ...new Set(data.map((p) => p.bedrooms).filter(Boolean)),
+      const beds = [
+        ...new Set(data.map((p) => p.beds).filter(Boolean)),
       ];
-      const bathrooms = [
-        ...new Set(data.map((p) => p.bathrooms).filter(Boolean)),
+      const bathroom = [
+        ...new Set(data.map((p) => p.bathroom).filter(Boolean)),
       ];
-      setUniqueFilters({ locations, types, statuses, bedrooms, bathrooms });
+      setUniqueFilters({ locations, types, statuses, beds, bathroom });
     }
   }, [buyProperty]);
 
@@ -92,13 +92,13 @@ const SaleProperty = () => {
     if (filterOptions.status && property.status !== filterOptions.status)
       return false;
     if (
-      filterOptions.bedrooms !== "Any" &&
-      parseInt(property.bedrooms) !== parseInt(filterOptions.bedrooms)
+      filterOptions.beds !== "Any" &&
+      parseInt(property.beds) !== parseInt(filterOptions.beds)
     )
       return false;
     if (
-      filterOptions.bathrooms !== "Any" &&
-      parseInt(property.bathrooms) !== parseInt(filterOptions.bathrooms)
+      filterOptions.bathroom !== "Any" &&
+      parseInt(property.bathroom) !== parseInt(filterOptions.bathroom)
     )
       return false;
 
@@ -151,7 +151,7 @@ const SaleProperty = () => {
       <SearchAndFilter {...SearchAndFilterProps} />
       <div className="container mx-auto px-14 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedProperties.map((property) => (
+          {currentItems.map((property) => (
             <PropertyListingCard fr={"sale"} property={property} />
           ))}
         </div>

@@ -3,7 +3,7 @@ import AreaCard from "../Cards/AreaCard";
 import Pagination from "../Others/Pagination";
 import BlogCard from "../Cards/BlogCard";
 
-const MainGrid3 = ({ data, blog }) => {
+const MainGrid3 = ({ pagination, desc, data, blog }) => {
   const itemsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -36,15 +36,17 @@ const MainGrid3 = ({ data, blog }) => {
           blog ? (
             <BlogCard key={dev._id} {...dev} />
           ) : (
-            <AreaCard key={dev._id} {...dev} path="services" />
+            <AreaCard key={dev._id} {...dev} desc={desc} path="services" />
           )
         )}
       </div>
-      <Pagination
-        totalPages={totalPages}
-        currentPage={currentPage}
-        handlePageChange={handlePageChange}
-      />
+      {pagination && (
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+        />
+      )}
     </>
   );
 };

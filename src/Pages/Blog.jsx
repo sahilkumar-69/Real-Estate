@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { PulseLoader } from "react-spinners";
 
 export default function DedicatedBlogPage() {
   const { id } = useParams();
@@ -57,59 +58,15 @@ export default function DedicatedBlogPage() {
     };
 
     fetchBlogById();
-    fetchAllBlogs()
+    fetchAllBlogs();
 
     return () => controller.abort();
   }, [id]);
 
-  //   useEffect(() => {
-  //     window.scrollTo({ top: 0, behavior: "smooth" });
-
-  //     const controller = new AbortController();
-  //     const { signal } = controller;
-
-  //     const fetchBlogData = async () => {
-  //       try {
-  //         const res = await fetch(
-  //           `https://realestatebackend-2-v5e5.onrender.com/api/blogs`,
-  //           { signal }
-  //         );
-
-  //         if (!res.ok) throw new Error("Failed to fetch blogs");
-
-  //         const result = await res.json();
-
-  //         if (!Array.isArray(result.data)) {
-  //           throw new Error("Invalid blog data format");
-  //         }
-
-  //         const current = result.data.find((item) => item._id === id);
-  //         const others = result.data.filter((item) => item._id !== id);
-
-  //         if (!current) {
-  //           throw new Error("Blog not found");
-  //         }
-
-  //         setBlog(current);
-  //         setOtherBlogs(others);
-  //       } catch (err) {
-  //         if (err.name !== "AbortError") {
-  //           setError(err.message);
-  //         }
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     };
-
-  //     fetchBlogData();
-
-  //     return () => controller.abort();
-  //   }, [id]);
-
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center items-center text-blue-600 text-xl">
-        Loading blog...
+        <PulseLoader />
       </div>
     );
   }
@@ -124,7 +81,7 @@ export default function DedicatedBlogPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans px-4 py-6 md:px-10">
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col mt-15 lg:flex-row gap-8">
         {/* Sidebar */}
         <aside className="lg:w-1/4 bg-white shadow rounded-lg p-4 max-h-[80vh] overflow-y-auto sticky top-6">
           <h2 className="text-lg font-semibold mb-4 text-blue-600">
