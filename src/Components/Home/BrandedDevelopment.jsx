@@ -5,7 +5,7 @@ export default function BrandedDevelopments() {
     const [showModal, setShowModal] = useState(false);
 
     return (
-      <section className="bg-[#F3F8FB]   px-4  py-16   rounded-xl">
+      <section className="bg-[#F3F8FB]   px-4  py-10   rounded-xl">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Text Content */}
           <div className="max-w-2xl">
@@ -33,9 +33,9 @@ export default function BrandedDevelopments() {
           {/* Image */}
           <div className="mt-8 lg:mt-0">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScVcesfTgRVrBj8zXs8QJrX9KMIEnNNdsWmg&s" // replace with your actual path
+              src="https://images.pexels.com/photos/8134850/pexels-photo-8134850.jpeg" // replace with your actual path
               alt="Coffee Table Book"
-              className="w-72 md:w-96 rounded shadow-lg rotate-[10deg]   hover:rotate-0 transition-transform duration-500"
+              className="w-72 md:w-100 rounded shadow-lg rotate-[10deg]   hover:rotate-0 transition-transform duration-500"
             />
           </div>
         </div>

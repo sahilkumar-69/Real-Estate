@@ -6,6 +6,8 @@ import SubscribeSection from "../Components/SubscribeSection";
 import Description from "../Components/Others/Description";
 import { PulseLoader } from "react-spinners";
 import { areaDescription } from "../Data";
+import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard";
+import AreaCard from "../Components/Cards/AreaCard";
 
 const Area_page = () => {
   const [areaData, setAreaData] = useState([]);
@@ -35,8 +37,6 @@ const Area_page = () => {
     fetchAreas();
   }, []);
 
-  console.log(areaData.data);
-
   return (
     <div className="mt-15 px-6 md:px-10 lg:px-20">
       <TopCommunities />
@@ -51,7 +51,13 @@ const Area_page = () => {
         <MainGrid data={areaData.data} />
       )}
 
-      <ExploreIn Enablebtn={false} Title={"Popular Area in India"} />
+      <ExploreIn
+        Title={"Popular Area in India"}
+        Enablebtn={false}
+        data={ areaData.data && areaData.data.slice(7,15)}
+        CardComponent={AreaCard}
+        cardProps={{ path: "areas" }}
+      />
       <Description content={areaDescription} />
       <SubscribeSection />
     </div>

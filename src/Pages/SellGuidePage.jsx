@@ -4,11 +4,12 @@ import StepList from "../components/SellingGuide/StepList";
 // import FAQSection from '../components/SellingGuide/FAQSection';
 import CTASection from "../Components/SellingGuide/CTASection.jsx";
 import RelatedProperties from "../components/SellingGuide/RelatedProperties";
-import { stepsForSelling   } from "../Data.js";
+import { propertyData, stepsForSelling   } from "../Data.js";
 import StepTimeline from "../Components/SellingGuide/TimeLine.jsx";
 import HeroSection from "../Components/SellingGuide/HeroSection.jsx";
 import SubscribeSection from "../Components/SubscribeSection.jsx";
 import ExploreIn from "../Components/Home/ExploreIn.jsx";
+import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard.jsx";
  
 
 export default function SellGuidePage() {
@@ -69,8 +70,16 @@ export default function SellGuidePage() {
             <StepList steps={stepsForSelling} />
           </section>
 
-          <ExploreIn Title={"Explore new Properties"} />
+          {/* <ExploreIn Title={"Explore new Properties"} /> */}
       
+        <ExploreIn
+        Title={"Explore new Properties"}
+          // Title="Featured Properties"
+          Enablebtn={false}
+          data={propertyData}
+          CardComponent={PropertySwiperCard}
+          cardProps={{ fr: "static" }}
+        />
 
           <SubscribeSection />
         </main>

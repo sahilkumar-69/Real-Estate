@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const HeroSectionListProperty = () => {
   return (
-    <section className="relative px-10 w-full h-[85vh] md:h-[80vh] overflow-hidden">
+    <section className="relative mt-13 px-10 w-full h-[85vh] md:h-[80vh] overflow-hidden">
       {/* Fullscreen background image */}
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAT9szKYhgR5cP3Zu7FGdNxBIiQV7_mVN4CbLhnnnLrUOc0NN9meMxI09NglH_IenO8-E&usqp=CAU"

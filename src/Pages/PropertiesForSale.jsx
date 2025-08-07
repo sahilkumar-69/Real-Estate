@@ -1,7 +1,7 @@
 // --- SaleProperty.jsx ---
 
 import { useContext, useEffect, useState } from "react";
-import { FAQForSale, SaleDescription } from "../Data";
+import { FAQForSale, propertyData, SaleDescription } from "../Data";
 import ExploreIn from "../Components/Home/ExploreIn";
 import ExpertCardsWraper from "../Components/PropForSale/ExpertCardsWraper";
 import Description from "../Components/Others/Description";
@@ -16,6 +16,7 @@ import Hero from "../Components/Home/Home_Hero_section";
 import ContactForm from "../Components/Home/ContactForm";
 import BlogContext from "../context/Property";
 import { PulseLoader } from "react-spinners";
+import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard";
 
 const SaleProperty = ({filterOptions, setFilterOptions}) => {
   const { buyProperty, loading } = useContext(BlogContext);
@@ -157,7 +158,13 @@ const SaleProperty = ({filterOptions, setFilterOptions}) => {
         </div>
         <Pagination {...paginateProps} />
         
-        <ExploreIn Title={"Featured Properties"} />
+         <ExploreIn
+          Title="Featured Properties"
+          Enablebtn={false}
+          data={propertyData}
+          CardComponent={PropertySwiperCard}
+          cardProps={{ fr: "static" }}
+        />
       </div>
       <HelpFindProperty />
       <div className="px-6 md:px-20 py-16">

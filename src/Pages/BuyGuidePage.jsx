@@ -2,11 +2,12 @@ import { useEffect } from "react";
 
 import StepList from "../components/SellingGuide/StepList";
 
-import { stepsForBuying } from "../Data.js";
+import { propertyData, stepsForBuying } from "../Data.js";
 import StepTimeline from "../Components/SellingGuide/TimeLine.jsx";
 import HeroSection from "../Components/SellingGuide/HeroSection.jsx";
 import SubscribeSection from "../Components/SubscribeSection.jsx";
 import ExploreIn from "../Components/Home/ExploreIn.jsx";
+import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard.jsx";
 
 export default function BuyGuidePage() {
   useEffect(() => {
@@ -66,7 +67,13 @@ export default function BuyGuidePage() {
             <StepList steps={stepsForBuying} />
           </section>
 
-          <ExploreIn Title={"Explore new Properties"} />
+          <ExploreIn
+            Title={"Explore new Properties"}
+            Enablebtn={false}
+            data={propertyData}
+            CardComponent={PropertySwiperCard}
+            cardProps={{ fr: "static" }}
+          />
           {/* <RelatedProperties properties={sampleProps} /> */}
 
           <SubscribeSection />

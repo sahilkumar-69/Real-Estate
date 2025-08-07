@@ -40,6 +40,12 @@ const PropertyDetails = () => {
         } else if (postfix == "static") {
           response = propertyData.filter((items) => items.id == slicedId);
           setProperty(response[0]);
+        } else if (postfix == "project") {
+          response = await axios.get(
+            `https://realestatebackend-2-v5e5.onrender.com/API/all-ProjectData/${slicedId}`
+          );
+          setProperty(response.data.data);
+
         }
       } catch (error) {
         console.error("Error fetching property by ID:", error);
@@ -92,8 +98,8 @@ const PropertyDetails = () => {
             </div>
             <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-md">
               <FaBath />
-              {property.bathroom == 0 ? property.beds : property.bathroom} Baths
-            </div>
+              {property.bathroom == 0  ? property.beds : property.bathroom} Baths
+            </div>  
             <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-md">
               <FaRulerCombined /> {property.area} sqft
             </div>

@@ -13,15 +13,17 @@ const Service_Hero = () => {
       }}
     >
       {/* Optional dark overlay */}
-      {/* <div className="absolute inset-0 bg-black bg-opacity-40 z-0"></div> */}
+      <div className="absolute inset-0 bg-black/30 bg-opacity-40 z-0"></div>
 
       {/* Content */}
-      <div className="relative z-10 text-white max-w-2xl">
-        <h1 className="text-3xl md:text-5xl text-black font-bold mb-4">
-          Top–Notch Property Services in India
+      <div className="relative z-10 text-white max-w-[46rem]">
+        <h1 className="text-3xl md:text-5xl space-y-3.5 text-black font-bold mb-4">
+          Top–Notch{" "}
+          <span className="bg-black px-2 rounded-md text-white">Property Services</span> in
+          India
         </h1>
 
-        <p className="text-lg text-black mb-6">
+        <p className="text-lg  mb-6">
           We provide turnkey solutions to help you reap the best returns on your
           investment.
         </p>

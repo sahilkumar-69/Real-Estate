@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const NavbarDropdown = ({
   setFilterOptions,
+  setFilterOptionsForRent,
   open,
   content,
   className = "",
@@ -12,28 +13,51 @@ const NavbarDropdown = ({
   const scrollRef = useRef(null);
 
   return (
-    <div className="absolute top-full  left-0 w-[550px] bg-white shadow-xl rounded-xl p-6 flex gap-6 z-50">
+    <div className="absolute top-full   -left-20 w-[750px] bg-[#F5F5F5] shadow-xl rounded-xl p-5 flex gap-10 z-50">
       {/* Left Column: Links */}
-      <div className="flex-1 w-1/2">
+      <div className="flex-1 w-2/3">
         <h4 className="text-lg font-semibold text-[#0b2c50] mb-4">
           {content.title}
         </h4>
-        <div className="grid grid-cols-1 gap-y-3 text-gray-700 text-sm">
+        <div className="grid grid-cols-2 gap-y-3 text-gray-700 text-sm">
           {content.sections.map((section, idx) => (
             <div key={idx}>
               <h5 className="text-gray-400 font-semibold mb-2">
                 {section.heading}
               </h5>
-              <ul className="space-y-1">
+              <ul className="space-y-3 text-md font-semibold ">
                 {section.items.map((item) => (
                   <li ref={scrollRef} key={item.to}>
                     <Link
                       to={item.to}
                       onClick={() => {
-                        setFilterOptions((prev) => ({
-                          ...prev,
-                          type: item.value,
-                        }));
+                        content?.name == "rent"
+                          ? (setFilterOptionsForRent({
+                              beds: "Any",
+                              bathroom: "Any",
+                              minArea: "",
+                              maxArea: "",
+                              location: "",
+                              type: "",
+                              status: "",
+                            }),
+                            setFilterOptionsForRent((prev) => ({
+                              ...prev,
+                              [section.type]: item.value,
+                            })))
+                          : (setFilterOptions({
+                              beds: "Any",
+                              bathroom: "Any",
+                              minArea: "",
+                              maxArea: "",
+                              location: "",
+                              type: "",
+                              status: "",
+                            }),
+                            setFilterOptions((prev) => ({
+                              ...prev,
+                              [section.type]: item.value,
+                            })));
 
                         content.scroll &&
                           setTimeout(() => {
@@ -41,7 +65,7 @@ const NavbarDropdown = ({
                               top: 600,
                               behavior: "smooth",
                             });
-                          }, 200);
+                          }, 300);
                       }}
                       className="hover:text-blue-600"
                     >
@@ -56,7 +80,7 @@ const NavbarDropdown = ({
       </div>
 
       {/* Right Column: Image with CTA */}
-      <div className="hidden lg:block h-50 w-1/2 relative shrink-0">
+      <div className="hidden lg:block h-70 w-1/2 relative shrink-0">
         <img
           src={content.image.src}
           alt={content.image.title}

@@ -1,11 +1,16 @@
 import { useContext, useEffect, useState } from "react";
-import { propertiesForRent, rentDescription, FAQForRent } from "../Data";
+import {
+  propertiesForRent,
+  rentDescription,
+  FAQForRent,
+  propertyData,
+} from "../Data";
 import ExploreIn from "../Components/Home/ExploreIn";
 import ExpertCardsWraper from "../Components/PropForSale/ExpertCardsWraper";
 import Description from "../Components/Others/Description";
 import HelpFindProperty from "../Components/PropForSale/PostComponent";
 import SearchAndFilter from "../Components/SearchAndFilter";
-import { PulseLoader } from "react-spinners"; 
+import { PulseLoader } from "react-spinners";
 import Pagination from "../Components/Others/Pagination";
 import PropertyListingCard from "../Components/Cards/PropertyListingCard";
 import FaqSection from "../Components/Others/FAQ";
@@ -13,15 +18,15 @@ import WhyChoose from "../Components/Others/WhyChoose";
 import Hero from "../Components/Home/Home_Hero_section";
 import BlogContext from "../context/Property.js";
 import ContactForm from "../Components/Home/ContactForm";
+import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard.jsx";
 
-const RentProperty = ({filterOptions, setFilterOptions}) => {
+const RentProperty = ({ filterOptions, setFilterOptions }) => {
   const { property, loading } = useContext(BlogContext);
 
   useEffect(() => {
     scrollTo(0, 0);
   }, []);
 
-  
   // const [filterOptions, setFilterOptions] = useState({
   //   bedrooms: "Any",
   //   bathrooms: "Any",
@@ -48,7 +53,7 @@ const RentProperty = ({filterOptions, setFilterOptions}) => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-   useEffect(() => {
+  useEffect(() => {
     if (property?.data?.length > 0) {
       const data = property.data;
       const locations = [
@@ -56,9 +61,7 @@ const RentProperty = ({filterOptions, setFilterOptions}) => {
       ];
       const types = [...new Set(data.map((p) => p.type).filter(Boolean))];
       const statuses = [...new Set(data.map((p) => p.status).filter(Boolean))];
-      const beds = [
-        ...new Set(data.map((p) => p.beds).filter(Boolean)),
-      ];
+      const beds = [...new Set(data.map((p) => p.beds).filter(Boolean))];
       const bathroom = [
         ...new Set(data.map((p) => p.bathroom).filter(Boolean)),
       ];
@@ -110,14 +113,13 @@ const RentProperty = ({filterOptions, setFilterOptions}) => {
   });
 
   // Sort properties
- const sortedProperties = [...filteredProperties].sort((a, b) => {
+  const sortedProperties = [...filteredProperties].sort((a, b) => {
     if (sortBy === "latest") return b.id - a.id;
     if (sortBy === "price-low") return (a.price || 0) - (b.price || 0);
     if (sortBy === "price-high") return (b.price || 0) - (a.price || 0);
 
     return 0;
   });
-
 
   const SearchAndFilterProps = {
     activeFilter,
@@ -147,7 +149,7 @@ const RentProperty = ({filterOptions, setFilterOptions}) => {
   const paginateProps = { totalPages, currentPage, handlePageChange };
 
   // console.log(currentItems)
-  
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -167,7 +169,13 @@ const RentProperty = ({filterOptions, setFilterOptions}) => {
         <Pagination {...paginateProps} />
 
         {/* Property */}
-        <ExploreIn Title={"Properties in Low Budget"} PropertyType={"rent"} />
+        <ExploreIn
+          Title={"Properties in Low Budget"}
+          Enablebtn={false}
+          data={propertyData}
+          CardComponent={PropertySwiperCard}
+          cardProps={{ fr: "static" }}
+        />
       </div>
       <HelpFindProperty />
       <div className="px-6 md:px-20 py-16">

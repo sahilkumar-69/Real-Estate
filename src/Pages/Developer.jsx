@@ -8,7 +8,9 @@ import SubscribeSection from "../Components/SubscribeSection";
  
 import MainGrid2 from "../Components/Developer/MainGrid2";
 import { PulseLoader } from "react-spinners";
-import { developersDescription } from "../Data";
+import { developersDescription, propertyData } from "../Data";
+import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard";
+import AreaCard from "../Components/Cards/AreaCard";
 
 const Developers = () => {
   const [developers, setDevelopers] = useState([]);
@@ -19,7 +21,7 @@ const Developers = () => {
   // const [path, setpath] = useState("");
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollTo(0, 0);
 
     const abortController = new AbortController(); // renamed to avoid conflict
     const signal = abortController.signal;
@@ -108,12 +110,28 @@ const Developers = () => {
         )}
       </div>
 
-      <ExploreIn
-        data={developers.slice(0, 9)}
+      {/* <ExploreIn
+   
         PropertyType="developers"
+      
+      /> */}
+
+      <ExploreIn
         Title="Top Developers in India"
+        Enablebtn={false}
+        data={developers.slice(0, 9)}
+        CardComponent={AreaCard}
+        cardProps={{ fr: "static", path: "developers" }}
       />
-      <ExploreIn Title="Popular Projects by Developers" />
+
+      {/* <ExploreIn Title="Popular Projects by Developers" /> */}
+      <ExploreIn
+        Title="Popular Projects by Developers"
+        Enablebtn={false}
+        data={propertyData}
+        CardComponent={PropertySwiperCard}
+        cardProps={{ fr: "static" }}
+      />
 
       <LuxuryPropertyInfo content={developersDescription} />
       <SubscribeSection />

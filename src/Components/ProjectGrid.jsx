@@ -22,8 +22,8 @@ const ProjectGrid = () => {
         {/* Main Cards Section */}
         <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* 4 square cards */}
-          {properties.map((property, i) => (
-            <PropertyListingCard fr={"static"} key={i} property={property} />
+          {project.data.map((property, i) => (
+            <PropertyListingCard fr={"project"} key={i} property={property} />
           ))}
         </div>
 

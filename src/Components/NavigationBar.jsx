@@ -23,11 +23,13 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
   const menuContent = {
     Buy: {
       title: "Buy Properties",
+
       scroll: true,
 
       sections: [
         {
           heading: "Property type",
+          type: "type",
           items: [
             {
               to: "/buy/properties-for-sale",
@@ -41,7 +43,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
             },
             {
               to: "/buy/properties-for-sale",
-              label: "Pent House",
+              label: "PentHouse",
               value: "penthouse",
             },
             {
@@ -50,6 +52,33 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
               value: "bungalow",
             },
             { to: "/buy/properties-for-sale", label: "Villa", value: "villa" },
+          ],
+        },
+        {
+          heading: "Popular Locations",
+          type: "location",
+
+          items: [
+            {
+              to: "/buy/properties-for-sale",
+              label: "Koregaon Park, Pune",
+              value: "Koregaon Park, Pune",
+            },
+            {
+              to: "/buy/properties-for-sale",
+              label: "Andheri West, Mumbai",
+              value: "Andheri West, Mumbai",
+            },
+            {
+              to: "/buy/properties-for-sale",
+              label: "Greater Kailash II, Delhi",
+              value: "Greater Kailash II, Delhi",
+            },
+            {
+              to: "/buy/properties-for-sale",
+              label: "Jubilee Hills, Hyderabad",
+              value: "Jubilee Hills, Hyderabad",
+            },
           ],
         },
       ],
@@ -63,10 +92,12 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
     Rent: {
       title: "Rent Properties",
       scroll: true,
+      name: "rent",
 
       sections: [
         {
-          heading: "Options",
+          heading: "Property type",
+          type: "type",
           items: [
             {
               value: "Apartment",
@@ -74,11 +105,48 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
               to: "/rent/properties-for-rent",
             },
             {
-              value: "townhouse",
+              value: "Townhouse",
               label: "Townhouse",
               to: "/rent/properties-for-rent",
             },
             { value: "Villa", label: "Villa", to: "/rent/properties-for-rent" },
+            {
+              value: "Penthouse",
+              label: "Penthouse",
+              to: "/rent/properties-for-rent",
+            },
+          ],
+        },
+        {
+          heading: "Locations",
+          type: "location",
+
+          items: [
+            {
+              value: "Powai, Mumbai",
+              label: "Powai, Mumbai",
+              to: "/rent/properties-for-rent",
+            },
+            {
+              value: "Worli, South Mumbai",
+              label: "Worli, South Mumbai",
+              to: "/rent/properties-for-rent",
+            },
+            {
+              value: "Worli Sea Face, Mumbai",
+              label: "Worli Sea Face, Mumbai",
+              to: "/rent/properties-for-rent",
+            },
+            {
+              value: "Whitefield, Bangalore",
+              label: "Whitefield, Bangalore",
+              to: "/rent/properties-for-rent",
+            },
+            {
+              value: "Gurugram, Haryana",
+              label: "Gurugram, Haryana",
+              to: "/rent/properties-for-rent",
+            },
           ],
         },
       ],
@@ -112,7 +180,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
       scroll: false,
       sections: [
         {
-          heading: "Popular",
+          heading: "Popular In India",
           items: [
             { label: "Binghatti", to: "/developers/6880d003c496783053e5e06d" },
             {
@@ -127,6 +195,25 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
               label: "Aldar Properties",
               to: "/developers/6881befcc496783053e5e077",
             },
+            {
+              label: "Azizi Developments",
+              to: "/developers/6881baabc496783053e5e071",
+            },
+          ],
+        },
+        {
+          heading: "Popular In Your City",
+          items: [
+            { label: "Damac Properties", to: "/developers/6880cf93c496783053e5e06b" },
+            {
+              label: "Sobha Realty",
+              to: "/developers/6881b9efc496783053e5e06f",
+            },
+            {
+              label: "Emaar Properties",
+              to: "/developers/6880ce9ec496783053e5e069",
+            },
+          
           ],
         },
       ],
@@ -147,6 +234,17 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
             { label: "Mumbai", to: "/areas/6889e1048b94dd0080d2eb13" },
             { label: "Kolkata", to: "/areas/6889e2918b94dd0080d2eb1b" },
             { label: "Chandigarh", to: "/areas/6889e4538b94dd0080d2eb25" },
+            { label: "Delhi", to: "/areas/6889e0aa8b94dd0080d2eb11" },
+            { label: "Jaipur", to: "/areas/6889e39f8b94dd0080d2eb21" },
+          ],
+        },
+        {
+          heading: " ",
+          items: [
+            { label: "Bengaluru", to: "/areas/6889e1748b94dd0080d2eb15" },
+            { label: "Chennai", to: "/areas/6889e2368b94dd0080d2eb19" },
+            { label: "Ahmedabad", to: "/areas/6889e3458b94dd0080d2eb1f" },
+            { label: "Pune", to: "/areas/6889e2f18b94dd0080d2eb1d" },
           ],
         },
       ],
@@ -155,25 +253,6 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
         title: "Explore Areas",
         label: "Browse",
         to: "/areas",
-      },
-    },
-    Services: {
-      title: "Our Services",
-      sections: [
-        {
-          heading: "We Offer",
-          items: [
-            { label: "Legal Advice", to: "/services/legal" },
-            { label: "Home Loans", to: "/services/loan" },
-            { label: "Property Management", to: "/services/management" },
-          ],
-        },
-      ],
-      image: {
-        src: "/src/assets/service_dropdown.jpg",
-        title: "Get Help",
-        label: "Explore",
-        to: "/services",
       },
     },
   };
@@ -221,6 +300,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
             {menuContent[option.title] && (
               <NavbarDropdown
                 setFilterOptions={setFilterOptions}
+                setFilterOptionsForRent={setFilterOptionsForRent}
                 open={openMenu === option.title}
                 content={menuContent[option.title]}
               />

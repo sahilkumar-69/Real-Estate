@@ -39,7 +39,7 @@ export default function SubscribeSection() {
   };
 
   return (
-    <section className="bg-[#f6fafd] py-12">
+    <section className="bg-[#f6fafd] px-3 py-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left content */}
         <div className="text-center md:text-left">

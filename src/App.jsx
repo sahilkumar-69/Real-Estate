@@ -37,7 +37,7 @@ import CareerPage from "./Pages/CareerPage";
 import { useState } from "react";
 import PrivacyPolicy from './Pages/privacyPolicy';
 import OurAwardPage from './Pages/OurAwardPage';
-
+import DetailedServicePage from "./Pages/DetailedServicePage";
 
 function App() {
   const [filterOptions, setFilterOptions] = useState({
@@ -62,11 +62,12 @@ function App() {
   return (
     <Router>
       <DownArrow />
-      <NavigationBar setFilterOptionsForRent={setFilterOptionsForRent} setFilterOptions={setFilterOptions} />
+      <NavigationBar
+        setFilterOptionsForRent={setFilterOptionsForRent}
+        setFilterOptions={setFilterOptions}
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
-
-        <Route path="/careers" element={<CareerPage />} />
 
         <Route
           path="/buy/properties-for-sale"
@@ -108,9 +109,11 @@ function App() {
 
         <Route path="/meet-the-team" element={<MeetTeam />} />
 
-        <Route path="/our-awards" element={<OurAwardPage/>}/>
+        <Route path="/our-awards" element={<OurAwardPage />} />
 
         <Route path="/about-us" element={<AboutusPage />} />
+
+        <Route path="/careers" element={<CareerPage />} />
 
         <Route path="/list-property" element={<WhyListWithUs />} />
 
@@ -121,6 +124,8 @@ function App() {
         <Route path="/download-brochure" element={<DownloadBrochure />} />
 
         <Route path="/Privacy-policy" element={<PrivacyPolicy />} />
+
+        <Route path="/services/id" element={<DetailedServicePage />} />
 
         <Route
           path="/property-details/:id"

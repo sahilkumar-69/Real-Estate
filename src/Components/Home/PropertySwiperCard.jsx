@@ -6,7 +6,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-export const PropertySwiperCard = ({ data,fr }) => {
+export const PropertySwiperCard = ({
+  id,
+  _id,
+  title,
+  developer,
+  price,
+  location,
+  beds,
+  tags,
+  year,
+  images,
+  fr,
+}) => {
   const navigate = useNavigate();
   // console.log(data)
   return (
@@ -20,14 +32,14 @@ export const PropertySwiperCard = ({ data,fr }) => {
           loop="true"
           className="h-full w-full"
         >
-          {data.images.map((img, idx) => (
+          {images.map((img, idx) => (
             <SwiperSlide key={idx}>
               <img
                 onClick={() =>
-                  navigate(`/property-details/${data.id + " " + fr}`)
+                  navigate(`/property-details/${id || _id + " " + fr}`)
                 }
                 src={img}
-                alt={data.title}
+                alt={title}
                 className="w-full cursor-pointer  h-full object-cover"
               />
             </SwiperSlide>
@@ -36,7 +48,7 @@ export const PropertySwiperCard = ({ data,fr }) => {
 
         {/* Tags */}
         <div className="absolute top-3 z-50 left-3 flex flex-wrap gap-2">
-          {data.tags.map((tag, i) => (
+          {tags?.map((tag, i) => (
             <span
               key={i}
               className={`text-xs px-2 py-1 rounded font-medium ${
@@ -50,16 +62,20 @@ export const PropertySwiperCard = ({ data,fr }) => {
 
         {/* Year Badge */}
         <span className="absolute bottom-3 right-3 bg-gradient-to-r from-[#c66e32] to-[#e2a968] text-white text-xs font-semibold px-2 py-1 rounded">
-          {data.year}
+          {year}
         </span>
       </div>
 
       {/* Details */}
       <div className="p-4 flex-grow">
-        <h3 className="text-lg font-bold text-[#0A2C5C]">{data.title}</h3>
+        <h3 className="text-lg font-bold text-[#0A2C5C]">{title}</h3>
         <p className="text-sm text-gray-600 mt-1">
-          by{" "}
-          <span className="font-semibold text-[#0A2C5C]">{data.developer}</span>
+          {developer && (
+            <>
+              by{" "}
+              <span className="font-semibold text-[#0A2C5C]">{developer}</span>
+            </>
+          )}
         </p>
         <p className="text-sm text-gray-700 mt-2">
           Starting Price{" "}
@@ -68,16 +84,16 @@ export const PropertySwiperCard = ({ data,fr }) => {
               style: "currency",
               currency: "INR",
               maximumFractionDigits: 0,
-            }).format(data.price)}
+            }).format(price)}
           </span>
         </p>
         <div className="flex items-center mt-3 text-sm text-gray-500">
           <HiOutlineLocationMarker className="mr-1" />
-          {data.location}
+          {location}
         </div>
         <div className="flex items-center mt-1 text-sm text-gray-500">
           <PiBedBold className="mr-1" />
-          {data.beds}
+          {beds}
         </div>
       </div>
 

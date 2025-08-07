@@ -38,24 +38,40 @@ export default function Footer() {
           <h3 className="font-semibold text-base mb-2">Explore On</h3>
           <ul className="space-y-1 text-sm">
             <li>
-              <Link to="/buy/properties-for-sale">Buy</Link>
+              <Link
+                className="hover:text-orange-500"
+                to="/buy/properties-for-sale"
+              >
+                Buy
+              </Link>
             </li>
             <li>
-              <Link to="/rent/properties-for-rent">Rent</Link>
+              <Link
+                className="hover:text-orange-500"
+                to="/rent/properties-for-rent"
+              >
+                Rent
+              </Link>
             </li>
             <li>
-              <Link to="/areas" className=" ">
+              <Link className="hover:text-orange-500" to="/areas">
                 Areas
               </Link>
             </li>
             <li>
-              <Link to="/developers">Developers</Link>
+              <Link className="hover:text-orange-500" to="/developers">
+                Developers
+              </Link>
             </li>
             <li>
-              <Link to="/projects">Projects</Link>
+              <Link className="hover:text-orange-500" to="/projects">
+                Projects
+              </Link>
             </li>
             <li>
-              <Link to="/services">Services</Link>
+              <Link className="hover:text-orange-500" to="/services">
+                Services
+              </Link>
             </li>
           </ul>
         </div>
@@ -65,16 +81,24 @@ export default function Footer() {
           <h3 className="font-semibold text-base mb-2">About</h3>
           <ul className="space-y-1 text-sm">
             <li>
-              <Link to="/about-us">About Us</Link>
+              <Link className="hover:text-orange-500" to="/about-us">
+                About Us
+              </Link>
             </li>
             <li>
-              <Link to="/meet-the-team">Meet The Team</Link>
+              <Link className="hover:text-orange-500" to="/meet-the-team">
+                Meet The Team
+              </Link>
             </li>
             <li>
-              <Link to="/our-awards">Our Awards</Link>
+              <Link className="hover:text-orange-500" to="/our-awards">
+                Our Awards
+              </Link>
             </li>
             <li>
-              <Link to="/careers">Careers</Link>
+              <Link className="hover:text-orange-500" to="/careers">
+                Careers
+              </Link>
             </li>
           </ul>
         </div>
@@ -84,13 +108,19 @@ export default function Footer() {
           <h3 className="font-semibold text-base mb-2">Others</h3>
           <ul className="space-y-1 text-sm">
             <li>
-              <Link to="/Guide to Selling">Sell Guide</Link>
+              <Link className="hover:text-orange-500" to="/Guide to Selling">
+                Sell Guide
+              </Link>
             </li>
             <li>
-              <Link to="/Guide to buying">Buy Guide</Link>
+              <Link className="hover:text-orange-500" to="/Guide to buying">
+                Buy Guide
+              </Link>
             </li>
             <li>
-              <Link to="/list-property">List Property</Link>
+              <Link className="hover:text-orange-500" to="/list-property">
+                List Property
+              </Link>
             </li>
           </ul>
         </div>
@@ -152,8 +182,8 @@ export default function Footer() {
       {/* Bottom Strip */}
       <div className="border-t border-blue-600 mt-6 pt-3 text-center text-sm text-blue-200 px-4">
         <p>
-          © 2025 Nexus Real Estate | All Rights Reserved.{" "}
-          <Link to="/privacy-policy" className="ml-2 underline">
+          © 2025 Nexus Real Estate | All Rights Reserved.
+          <Link to="/privacy-policy" className="ml-1 underline">
             Privacy Policy
           </Link>
         </p>

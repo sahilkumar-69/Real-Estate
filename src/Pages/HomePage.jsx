@@ -9,6 +9,8 @@ import IconSwiper from "../Components/Home/IconSwiper";
 import SubscribeSection from "../Components/SubscribeSection";
 import { useEffect } from "react";
 import PropertyMarketplace from "../Components/Home/NexusMarketPlace";
+import { propertyData } from "../Data";
+import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard";
 
 const HomePage = () => {
   useEffect(() => {
@@ -23,7 +25,14 @@ const HomePage = () => {
       <div className="px-6 md:px-10 lg:px-20">
         <RealEstateSolutions />
         <BrandedDevelopments />
-        <ExploreIn Enablebtn={false} Title={" Explore Properties in India"} />
+
+        <ExploreIn
+          Title=" Explore Properties in India"
+          Enablebtn={false}
+          data={propertyData}
+          CardComponent={PropertySwiperCard}
+          cardProps={{ fr: "static" }}
+        />
       </div>
       <ContactForm />
       <div className="p-6 md:px-10 lg:px-20">

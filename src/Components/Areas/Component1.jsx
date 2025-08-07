@@ -33,15 +33,7 @@ export default function TopCommunities() {
           </div>
 
           {/* Dropdown */}
-          <div className="relative w-full sm:w-40">
-            <select className="appearance-none w-full px-4 py-3 border rounded-md text-gray-700 focus:outline-none  ">
-              <option value="">All</option>
-              <option value="apartments">Apartments</option>
-              <option value="villas">Villas</option>
-              <option value="townhouses">Townhouses</option>
-            </select>
-            <FaChevronDown className="absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 pointer-events-none" />
-          </div>
+           
         </div>
       </div>
     </section>
