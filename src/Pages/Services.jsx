@@ -52,17 +52,7 @@ const Services = () => {
       <div className="min-h-screen mt-15 bg-[#f7f7f7] pt-10 px-6 md:px-20">
         <Banner />
 
-        {/* {loading ? (
-          <div className="text-center flex items-center justify-center h-screen mt-20 text-lg">
-            <PulseLoader size={25} />
-          </div>
-        ) : error ? (
-          <p className="text-center text-red-500">{error}</p>
-        ) : servicesData.length > 0 ? (
-          <MainGrid3 pagination={false} desc={"show"} data={servicesData} />
-        ) : (
-          <p className="text-center text-gray-500">No services found.</p>
-        )} */}
+       
         <CardDesign />
 
         <HotDealsBanner />
