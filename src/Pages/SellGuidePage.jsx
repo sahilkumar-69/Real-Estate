@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
-import HeroBanner from "../components/SellingGuide/HeroBanner";
+// import HeroBanner from "../components/SellingGuide/HeroBanner";
 import StepList from "../components/SellingGuide/StepList";
 // import FAQSection from '../components/SellingGuide/FAQSection';
 import CTASection from "../Components/SellingGuide/CTASection.jsx";
-import RelatedProperties from "../components/SellingGuide/RelatedProperties";
-import { propertyData, stepsForSelling   } from "../Data.js";
+// import RelatedProperties from "../components/SellingGuide/RelatedProperties";
+import { propertyData,     } from "../Data.js";
 import StepTimeline from "../Components/SellingGuide/TimeLine.jsx";
 import HeroSection from "../Components/SellingGuide/HeroSection.jsx";
 import SubscribeSection from "../Components/SubscribeSection.jsx";
