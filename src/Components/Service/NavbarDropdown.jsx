@@ -13,7 +13,7 @@ const NavbarDropdown = ({
   const scrollRef = useRef(null);
 
   return (
-    <div className="absolute top-full   -left-20 w-[750px] bg-[#F5F5F5] shadow-xl rounded-xl p-5 flex gap-10 z-50">
+    <div className="absolute top-full   -left-[20vw] w-[750px] bg-[#F5F5F5] shadow-xl rounded-xl p-5 flex gap-10 z-50">
       {/* Left Column: Links */}
       <div className="flex-1 w-2/3">
         <h4 className="text-lg font-semibold text-[#0b2c50] mb-4">
