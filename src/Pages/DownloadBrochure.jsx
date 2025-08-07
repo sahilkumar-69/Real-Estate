@@ -1,4 +1,3 @@
-// src/pages/DownloadBrochure.jsx
 import { useEffect } from "react";
 
 const DownloadBrochure = () => {
@@ -14,9 +13,7 @@ const DownloadBrochure = () => {
     }, 100);
   }, []);
 
-  // return (
-  //   <div className="text-center mt-20 text-lg">Preparing your download...</div>
-  // );
+ 
 };
 
 export default DownloadBrochure;

@@ -25,18 +25,16 @@ import ServiceDetails from "./Pages/ServiceDetails";
 import UnderDevelopment from './Pages/UnderDevelopement';
 import MeetTeam from './Pages/MeetOurTeam';
 
-import { Navbar2 } from "./Components/Nav";
 import LearnMore from "./Pages/LearnMore";
 import WhyListWithUs from "./Components/Others/WhyListWithUs";
 
- 
 import DownloadBrochure from "./Pages/DownloadBrochure";
 import TermsAndPrivacy from "./Pages/TermsAndPrivacy";
 import BuyGuidePage from "./Pages/BuyGuidePage";
 import CareerPage from "./Pages/CareerPage";
 import { useState } from "react";
-import PrivacyPolicy from './Pages/privacyPolicy';
-import OurAwardPage from './Pages/OurAwardPage';
+import PrivacyPolicy from "./Pages/privacyPolicy";
+import OurAwardPage from "./Pages/OurAwardPage";
 import DetailedServicePage from "./Pages/DetailedServicePage";
 
 function App() {
@@ -118,8 +116,6 @@ function App() {
         <Route path="/list-property" element={<WhyListWithUs />} />
 
         <Route path="/blogs/:id" element={<DedicatedBlogPage />} />
-
-        <Route path="/nav" element={<Navbar2 />} />
 
         <Route path="/download-brochure" element={<DownloadBrochure />} />
 

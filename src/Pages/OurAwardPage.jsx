@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import AwardSection from "../Components/ourAwards/AwardSection";
 import AwardSlider from "../Components/ourAwards/AwardSlider";
 import AwardBanner from "../Components/ourAwards/AwardBanner";

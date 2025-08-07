@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import HeroSectionListProperty from "./HeroForListingPage";
 import PropertyListingPage from "./ListingForm";
 import SubscribeSection from "../SubscribeSection";

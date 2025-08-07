@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import NewsHeader from "../Components/Blog/Hero";
 import MainGrid from "../Components/Developer/MainGrid";
 import ContactForm from "../Components/Home/ContactForm";
 import SubscribeSection from "../Components/SubscribeSection";

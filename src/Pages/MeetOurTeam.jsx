@@ -1,5 +1,5 @@
 
-import React, {useEffect} from "react";
+import  {useEffect} from "react";
 
 import TeamGrid from "../Components/Cards/MeetMember";
 import VideoCard from "../Components/Aboutus/videoCard";

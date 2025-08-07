@@ -1,7 +1,6 @@
 import ContentSplitSection from "../Components/ServiceDetailedPage/ContentSplitSection";
 import HeroSectionForService from "../Components/ServiceDetailedPage/HeroSection";
 import RealEstateServices from "../Components/ServiceDetailedPage/RealEstateService";
-import {CardDesign} from "../Components/ServiceDetailedPage/Card";
 
 const DetailedServicePage = () => {
   const heroProps = {

@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import DoubleSwiper from "../Components/DoubleSwiper";
 import { propertyData } from "../Data.js";
-// import { properties } from "../Data.js";
 
 import {
   FaBed,

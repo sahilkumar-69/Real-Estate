@@ -7,7 +7,6 @@ import ExpertCardsWraper from "../Components/PropForSale/ExpertCardsWraper";
 import Description from "../Components/Others/Description";
 import HelpFindProperty from "../Components/PropForSale/PostComponent";
 import SearchAndFilter from "../Components/SearchAndFilter";
-import RentAndBuyHeroSection from "../Components/RentAndBuyHeroSection";
 import Pagination from "../Components/Others/Pagination";
 import PropertyListingCard from "../Components/Cards/PropertyListingCard";
 import FaqSection from "../Components/Others/FAQ";

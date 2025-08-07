@@ -1,22 +1,16 @@
-import React, {useEffect} from "react";
-// import HeroBanner from "../components/SellingGuide/HeroBanner";
+import { useEffect } from "react";
 import StepList from "../components/SellingGuide/StepList";
-// import FAQSection from '../components/SellingGuide/FAQSection';
-import CTASection from "../Components/SellingGuide/CTASection.jsx";
-// import RelatedProperties from "../components/SellingGuide/RelatedProperties";
-import { propertyData,     } from "../Data.js";
+import { propertyData } from "../Data.js";
 import StepTimeline from "../Components/SellingGuide/TimeLine.jsx";
 import HeroSection from "../Components/SellingGuide/HeroSection.jsx";
 import SubscribeSection from "../Components/SubscribeSection.jsx";
 import ExploreIn from "../Components/Home/ExploreIn.jsx";
 import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard.jsx";
- 
 
 export default function SellGuidePage() {
- useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
 
   const stepsForSelling = [
     {
@@ -71,15 +65,15 @@ export default function SellGuidePage() {
           </section>
 
           {/* <ExploreIn Title={"Explore new Properties"} /> */}
-      
-        <ExploreIn
-        Title={"Explore new Properties"}
-          // Title="Featured Properties"
-          Enablebtn={false}
-          data={propertyData}
-          CardComponent={PropertySwiperCard}
-          cardProps={{ fr: "static" }}
-        />
+
+          <ExploreIn
+            Title={"Explore new Properties"}
+            // Title="Featured Properties"
+            Enablebtn={false}
+            data={propertyData}
+            CardComponent={PropertySwiperCard}
+            cardProps={{ fr: "static" }}
+          />
 
           <SubscribeSection />
         </main>
