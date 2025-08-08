@@ -152,7 +152,7 @@ const RentProperty = ({ filterOptions, setFilterOptions }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <Hero Hidebtn={true} video={"/src/assets/rent_hero.mp4"} />
+      <Hero Hidebtn={true} video={"/public/assets/rent_hero.mp4"} />
       {/* Search and Filter Section */}
       <SearchAndFilter {...SearchAndFilterProps} />
 

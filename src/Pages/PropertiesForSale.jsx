@@ -147,7 +147,7 @@ const SaleProperty = ({filterOptions, setFilterOptions}) => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Hero video={"/src/assets/Sale_hero.mp4"} />
+      <Hero video={"/public/assets/Sale_hero.mp4"} />
       <SearchAndFilter {...SearchAndFilterProps} />
       <div className="container mx-auto px-14 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -156,8 +156,8 @@ const SaleProperty = ({filterOptions, setFilterOptions}) => {
           ))}
         </div>
         <Pagination {...paginateProps} />
-        
-         <ExploreIn
+
+        <ExploreIn
           Title="Featured Properties"
           Enablebtn={false}
           data={propertyData}

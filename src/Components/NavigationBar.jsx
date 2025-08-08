@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import NavbarDropdown from "./Service/NavbarDropdown.jsx";
-import RentDropDownImg from "../../src/assets/rent_dropdown_img.jpg";
-import developers_dropdown from "../../src/assets/developers_dropdown.jpg";
-import area_dropdown from "../../src/assets/area_dropdown.jpg";
+ 
 
 export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -154,7 +152,7 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: RentDropDownImg,
+        src: "../../public/assets/rent_dropdown_img.jpg",
         title: "Find Rentals",
         label: "View All",
         to: "/rent/properties-for-rent",
@@ -223,7 +221,7 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: developers_dropdown,
+        src: "../../public/assets/developers_dropdown.jpg",
         title: "All Developers",
         label: "Browse",
         to: "/developers",
@@ -254,7 +252,7 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: area_dropdown,
+        src: "../../public/assets/area_dropdown.jpg",
         title: "Explore Areas",
         label: "Browse",
         to: "/areas",
@@ -283,7 +281,7 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
         className="flex items-center gap-2 cursor-pointer"
       >
         <img
-          src="/src/assets/nexus real estate logo.png"
+          src="../../public/assets/nexuslogo.png"
           alt="logo"
           className="w-28 object-contain"
         />

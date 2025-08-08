@@ -4,7 +4,7 @@ const CareerBanner = () => {
     <div
       className="bg-cover bg-center overflow-hidden text-center h-70 w-[90svw]  py-6 px-6 md:px-12 rounded-xl text-white"
       style={{
-        backgroundImage: "url('/src/assets/CareerImages/bannerimg.jpg')", // Replace with your image path
+        backgroundImage: "url('/public/assets/CareerImages/bannerimg.jpg')", // Replace with your image path
       }}
     >
       <div className="max-w-5xl mx-auto bg-black/40 p-8 rounded-lg">

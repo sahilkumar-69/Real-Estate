@@ -123,28 +123,28 @@ export const solutions = [
     title: "Connect with a Specialist",
     description:
       "Access our dedicated team of over 400+ expert agents ready to assist you.",
-    icon: "src/assets/icons/specialist.svg",
+    icon: "public/assets/icons/specialist.svg",
     to: "contact-form",
   },
   {
     title: "List Your Property",
     description:
       "Achieve optimal value by listing your property with our expert marketing strategies.",
-    icon: "src/assets/icons/listProperties.svg",
+    icon: "public/assets/icons/listProperties.svg",
     to: "/list-property",
   },
   {
     title: "Download Report",
     description:
       "Download the latest Comprehensive India Real Estate Market Report Q1 2025",
-    icon: "src/assets/icons/downloadReport.svg",
+    icon: "public/assets/icons/downloadReport.svg",
     to: "/download-brochure",
   },
   {
     title: "Explore India Projects",
     description:
       "Browse and find your ideal property from our extensive portfolio of India projects.",
-    icon: "src/assets/icons/skyscraper.svg",
+    icon: "public/assets/icons/skyscraper.svg",
     to: "/projects",
   },
 ];

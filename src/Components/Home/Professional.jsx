@@ -8,7 +8,7 @@ const Professional = () => {
         {/* Left - Image */}
         <div className="w-full md:w-1/2">
           <img
-            src="src/assets/pexels-weirdfish-2640604.jpg"
+            src="public/assets/pexels-weirdfish-2640604.jpg"
             alt="Dream House"
             className="rounded-xl w-full h-auto object-cover"
           />

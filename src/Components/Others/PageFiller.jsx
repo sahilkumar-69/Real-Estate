@@ -15,9 +15,9 @@ export default function ProjectPage() {
         <div className="w-full aspect-video overflow-hidden rounded-xl shadow-lg">
           <video
             className="w-full h-full object-cover"
-            src="/src/assets/hero_bg.mp4"
+            src="/public/assets/hero_bg.mp4"
             controls
-            poster="/src/assets/swiper.jpg"
+            poster="/public/assets/swiper.jpg"
           />
         </div>
 
@@ -49,7 +49,7 @@ export default function ProjectPage() {
             {["/media/pic1.jpg", "/media/pic2.jpg", "/media/pic3.jpg", "/media/pic4.jpg"].map((src, i) => (
               <img
                 key={i}
-                src={"/src/assets/swiper.jpg"}
+                src={"/public/assets/swiper.jpg"}
                 alt={`Gallery ${i + 1}`}
                 className="rounded-lg object-cover w-full h-60 shadow"
               />

@@ -27,7 +27,7 @@ const Hero_section = ({ video }) => {
           playsInline
         >
           <source
-            src={video || "src/assets/realEstate_bg_video.mp4"}
+            src={video || "public/assets/realEstate_bg_video.mp4"}
             type="video/mp4"
           />
           Your browser does not support the video tag.
