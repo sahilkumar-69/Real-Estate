@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="space-y-2">
           <Link to="/">
             <img
-              src="/public/assets/nexuslogo.png"
+              src="/assets/nexuslogo.png"
               alt="Nexus Real Estate Logo"
               className="w-32 mb-2"
             />
