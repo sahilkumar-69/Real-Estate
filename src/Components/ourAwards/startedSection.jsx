@@ -24,7 +24,7 @@ const Started = () => {
         {/* Right Image */}
         <div>
           <img
-            src="public/assets/meetteam/trophy.jpg" // Replace with your image path
+            src="/assets/meetteam/trophy.jpg" // Replace with your image path
             alt="Trophies & Awards"
             className="w-full rounded-lg shadow-md object-cover"
           />

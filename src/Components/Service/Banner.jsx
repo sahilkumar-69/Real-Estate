@@ -30,7 +30,7 @@ const Banner = () => {
 
         <div className="w-full md:w-1/2">
           <img
-            src="public/assets/service_banner.jpg"
+            src="/assets/service_banner.jpg"
             alt="Dream House"
             className="rounded-xl w-full h-auto object-cover"
           />

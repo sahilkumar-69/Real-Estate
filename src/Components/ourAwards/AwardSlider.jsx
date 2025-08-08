@@ -5,11 +5,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const images = [
-  "public/assets/meetteam/award1.jpg",
-  "public/assets/meetteam/award2.jpg",
-  "public/assets/meetteam/award3.jpg",
-  "public/assets/meetteam/award4.jpg",
-  "public/assets/meetteam/award5.jpg",
+  "/assets/meetteam/award1.jpg",
+  "/assets/meetteam/award2.jpg",
+  "/assets/meetteam/award3.jpg",
+  "/assets/meetteam/award4.jpg",
+  "/assets/meetteam/award5.jpg",
 ];
 
 const AwardSlider = () => {

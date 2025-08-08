@@ -10,14 +10,15 @@ const PerksBenefitsSection = () => {
             Perks & Benefits
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
-            Join a team where you’re rewarded for fulfilling your potential and growth
+            Join a team where you’re rewarded for fulfilling your potential and
+            growth
           </h2>
         </div>
 
         {/* Right Side Image */}
         <div className="rounded-xl overflow-hidden">
           <img
-            src=" \public\assets\CareerImages\groupPhoto.jpg" // update this path to your actual image
+            src=" \\assets\CareerImages\groupPhoto.jpg" // update this path to your actual image
             alt="Team at Nexus Real Estate"
             className="w-full h-auto object-cover"
           />

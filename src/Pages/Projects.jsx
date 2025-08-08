@@ -19,7 +19,7 @@ const Projects = () => {
 
   return (
     <>
-      <Hero video={"public/assets/Project_Hero_Video.mp4"} />
+      <Hero video={"/assets/Project_Hero_Video.mp4"} />
       {/* <SearchAndFilter {...SearchAndFilterProps} /> */}
       <ProjectGrid />
       <div className=" px-10 p-4">

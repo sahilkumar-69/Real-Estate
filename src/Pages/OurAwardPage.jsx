@@ -98,9 +98,9 @@ const OurAwardPage = () => {
       <startedSection />
       <AwardBanner />
       <MilestoneAwards {...milestone} />
-      <AwardCelebrationSection image={"public/assets/meetteam/images.jpg"} />
+      <AwardCelebrationSection image={"/assets/meetteam/images.jpg"} />
       <MilestoneAwards {...milestone2} />
-      <AwardCelebrationSection image={"public/assets/meetteam/happy.jpg"} />
+      <AwardCelebrationSection image={"/assets/meetteam/happy.jpg"} />
       <ContactForm />
     </main>
   );

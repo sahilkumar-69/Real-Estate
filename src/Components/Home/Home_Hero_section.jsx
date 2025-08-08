@@ -13,7 +13,7 @@ export default function Hero({ video ,Hidebtn}) {
         playsInline
       >
         <source
-          src={video || "public/assets/realEstate_bg_video.mp4"}
+          src={video || "/assets/realEstate_bg_video.mp4"}
           type="video/mp4"
         />
         Your browser does not support the video tag.
@@ -29,12 +29,13 @@ export default function Hero({ video ,Hidebtn}) {
           Explore top real estate options around you.
         </p>
         <button
-        
           onClick={() => {
             scrollTo({ top: 1600, behavior: "smooth" });
             // Navigate("/buy/properties-for-sale");
           }}
-          className={`bg-white ${Hidebtn || Hidebtn == undefined ?"hidden":""} text-black px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition`}
+          className={`bg-white ${
+            Hidebtn || Hidebtn == undefined ? "hidden" : ""
+          } text-black px-6 py-2 rounded-md font-semibold hover:bg-gray-200 transition`}
         >
           Get Started
         </button>

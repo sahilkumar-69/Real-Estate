@@ -29,7 +29,7 @@ const CareerImageSlider = () => {
           <SwiperSlide key={index}>
             <div className="rounded-xl overflow-hidden shadow-md">
               <img
-                src={` /public/assets/CareerImages/p (${index + 1}).jpg`}
+                src={`  /assets/CareerImages/p (${index + 1}).jpg`}
                 alt={`slide-${index}`}
                 className="w-full h-100 object-cover"
               />

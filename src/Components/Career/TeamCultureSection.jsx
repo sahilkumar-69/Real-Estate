@@ -8,7 +8,7 @@ const TeamCultureSection = () => {
         {/* Left Side - Image */}
         <div className="rounded-xl overflow-hidden shadow-lg">
           <img
-            src=" /public/assets/CareerImages/Team2.jpeg"
+            src="  /assets/CareerImages/Team2.jpeg"
             alt="Nexus team"
             className="w-full h-[500px] object-cover"
           />
