@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import StepList from "../components/SellingGuide/StepList.jsx";
+import StepList from "../Components/SellingGuide/StepList.jsx";
 import { propertyData } from "../Data.js";
 import StepTimeline from "../Components/SellingGuide/TimeLine.jsx";
 import HeroSection from "../Components/SellingGuide/HeroSection.jsx";
