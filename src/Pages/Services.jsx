@@ -6,7 +6,7 @@ import ChannelPartners from "../Components/Service/ChannerlPartners.jsx";
 import PartnerSwiper from "../Components/Service/PartnerSwiper.jsx";
 import ContactForm from "../Components/Home/ContactForm.jsx";
 import SubscribeSection from "../Components/SubscribeSection.jsx";
-import { CardDesign } from "../Components/ServiceDetailedPage.jsx/Card";
+import { CardDesign } from "../Components/ServiceDetailedPage.jsx";
 
 const Services = () => {
   const [servicesData, setServicesData] = useState([]);
