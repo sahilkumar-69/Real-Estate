@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import NavbarDropdown from "./Service/NavbarDropdown.jsx";
+import RentDropDownImg from "../../src/assets/rent_dropdown_img.jpg";
+import developers_dropdown from "../../src/assets/developers_dropdown.jpg";
+import area_dropdown from "../../src/assets/area_dropdown.jpg";
 
-export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
+export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
@@ -151,7 +154,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: "/src/assets/rent_dropdown_img.jpg",
+        src: RentDropDownImg,
         title: "Find Rentals",
         label: "View All",
         to: "/rent/properties-for-rent",
@@ -204,7 +207,10 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
         {
           heading: "Popular In Your City",
           items: [
-            { label: "Damac Properties", to: "/developers/6880cf93c496783053e5e06b" },
+            {
+              label: "Damac Properties",
+              to: "/developers/6880cf93c496783053e5e06b",
+            },
             {
               label: "Sobha Realty",
               to: "/developers/6881b9efc496783053e5e06f",
@@ -213,12 +219,11 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
               label: "Emaar Properties",
               to: "/developers/6880ce9ec496783053e5e069",
             },
-          
           ],
         },
       ],
       image: {
-        src: "/src/assets/developers_dropdown.jpg",
+        src: developers_dropdown,
         title: "All Developers",
         label: "Browse",
         to: "/developers",
@@ -249,7 +254,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: "/src/assets/area_dropdown.jpg",
+        src: area_dropdown,
         title: "Explore Areas",
         label: "Browse",
         to: "/areas",
