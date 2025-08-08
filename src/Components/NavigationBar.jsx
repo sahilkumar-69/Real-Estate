@@ -152,7 +152,7 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: "../../public/assets/rent_dropdown_img.jpg",
+        src: "../../assets/rent_dropdown_img.jpg",
         title: "Find Rentals",
         label: "View All",
         to: "/rent/properties-for-rent",
@@ -281,7 +281,7 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
         className="flex items-center gap-2 cursor-pointer"
       >
         <img
-          src="../../public/assets/nexuslogo.png"
+          src="../../assets/nexuslogo.png"
           alt="logo"
           className="w-28 object-contain"
         />
