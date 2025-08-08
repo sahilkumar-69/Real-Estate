@@ -221,7 +221,7 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: "../.. /assets/developers_dropdown.jpg",
+        src: "../../assets/developers_dropdown.jpg",
         title: "All Developers",
         label: "Browse",
         to: "/developers",
@@ -252,7 +252,7 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: "../.. /assets/area_dropdown.jpg",
+        src: "../../assets/area_dropdown.jpg",
         title: "Explore Areas",
         label: "Browse",
         to: "/areas",
