@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import NavbarDropdown from "./Service/NavbarDropdown";
+import NavbarDropdown from "./Service/NavbarDropdown.jsx";
 
 export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
