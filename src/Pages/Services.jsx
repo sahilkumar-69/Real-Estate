@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Service_Hero from "../Components/Service/Service_Hero.jsx";
-import Banner from "../Components/Service/Banner.jsx";
-import HotDealsBanner from "../Components/Service/HotDeals.jsx";
-import ChannelPartners from "../Components/Service/ChannerlPartners.jsx";
-import PartnerSwiper from "../Components/Service/PartnerSwiper.jsx";
-import ContactForm from "../Components/Home/ContactForm.jsx";
-import SubscribeSection from "../Components/SubscribeSection.jsx";
-import { CardDesign } from "../Components/ServiceDetailedPage.jsx";
+import Service_Hero from "../Components/Service/Service_Hero";
+import Banner from "../Components/Service/Banner";
+import HotDealsBanner from "../Components/Service/HotDeals";
+import ChannelPartners from "../Components/Service/ChannerlPartners";
+import PartnerSwiper from "../Components/Service/PartnerSwiper";
+import ContactForm from "../Components/Home/ContactForm";
+import SubscribeSection from "../Components/SubscribeSection";
+import { CardDesign } from "../Components/ServiceDetailedPage/Card";
 
 const Services = () => {
   const [servicesData, setServicesData] = useState([]);
