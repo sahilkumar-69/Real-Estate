@@ -323,7 +323,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
       <div className="md:hidden flex items-center">
         <button
           className="text-green-700
-           text-xl"
+            text-xl"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <FaTimes /> : <FaBars />}

@@ -3,6 +3,7 @@ import { useState } from "react";
 const PropertyListingPage = () => {
   const [formData, setFormData] = useState({
     propertyType: "",
+    askingPrice: "",
     address: "",
     city: "",
     state: "",
@@ -10,12 +11,11 @@ const PropertyListingPage = () => {
     bedrooms: "",
     bathrooms: "",
     squareFootage: "",
-    price: "",
-    description: "",
-    contactName: "",
-    contactEmail: "",
-    contactPhone: "",
-    images: null,
+    propertyDescription: "",
+    fullName: "",
+    emailAddress: "",
+    phoneNumber: "",
+    propertyImages: [],
   });
 
   const propertyTypes = [
@@ -29,43 +29,13 @@ const PropertyListingPage = () => {
   ];
 
   const states = [
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chhattisgarh",
-    "Goa",
-    "Gujarat",
-    "Haryana",
-    "Himachal Pradesh",
-    "Jharkhand",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh",
-    "Maharashtra",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Nagaland",
-    "Odisha",
-    "Punjab",
-    "Rajasthan",
-    "Sikkim",
-    "Tamil Nadu",
-    "Telangana",
-    "Tripura",
-    "Uttar Pradesh",
-    "Uttarakhand",
-    "West Bengal",
-    "Andaman and Nicobar Islands",
-    "Chandigarh",
-    "Dadra and Nagar Haveli and Daman and Diu",
-    "Delhi",
-    "Jammu and Kashmir",
-    "Ladakh",
-    "Lakshadweep",
-    "Puducherry",
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana",
+    "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana",
+    "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"
   ];
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData((prev) => ({
@@ -74,11 +44,61 @@ const PropertyListingPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically send the data to your backend
-    alert("Thank you for listing your property! We will contact you shortly.");
+
+    const form = new FormData();
+
+    // Append each field to FormData
+    Object.entries(formData).forEach(([key, value]) => {
+      if (key === "propertyImages" && value.length > 0) {
+        Array.from(value).forEach((file) => {
+          form.append("propertyImages", file);
+        });
+      } else {
+        form.append(key, value);
+      }
+    });
+
+    try {
+      const response = await fetch("https://realestatebackend-2-v5e5.onrender.com/api/List-Property", {
+        method: "POST",
+        body: form,
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || "Upload failed");
+      }
+
+      const result = await response.json();
+      console.log("✅ Upload successful:", result);
+
+      // Reset form
+      setFormData({
+        propertyType: "",
+        askingPrice: "",
+        address: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        bedrooms: "",
+        bathrooms: "",
+        squareFootage: "",
+        propertyDescription: "",
+        fullName: "",
+        emailAddress: "",
+        phoneNumber: "",
+        propertyImages: [],
+      });
+      alert("Thank you for listing your property! We will contact you shortly.");
+
+      document.getElementById("propertyImages").value = ""; // Reset file input manually
+    } catch (error) {
+      console.error("Error uploading:", error.message);
+      alert("Something went wrong. Please try again later.");
+    }
   };
 
   return (
@@ -126,7 +146,7 @@ const PropertyListingPage = () => {
 
                 <div>
                   <label
-                    htmlFor="price"
+                    htmlFor="askingPrice"
                     className="block text-sm font-medium text-gray-700"
                   >
                     Asking Price*
@@ -138,13 +158,13 @@ const PropertyListingPage = () => {
                     <input
                       min={0}
                       type="number"
-                      name="price"
-                      id="price"
+                      name="askingPrice"
+                      id="askingPrice"
                       required
-                      value={formData.price}
+                      value={formData.askingPrice}
                       onChange={handleChange}
                       className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md border py-2"
-                      placeholder="0.00"
+                      // placeholder="0.00"
                     />
                   </div>
                 </div>
@@ -292,17 +312,17 @@ const PropertyListingPage = () => {
 
             <div>
               <label
-                htmlFor="description"
-                className="block text-sm font-medium text-gray-700"
+                htmlFor="propertyDescription"
+                className="text-sm font-medium text-gray-700"
               >
                 Property Description*
               </label>
               <textarea
-                id="description"
-                name="description"
+                id="propertyDescription"
+                name="propertyDescription"
                 rows={4}
                 required
-                value={formData.description}
+                value={formData.propertyDescription}
                 onChange={handleChange}
                 className="mt-1 resize-none focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                 placeholder="Describe your property in detail..."
@@ -331,13 +351,13 @@ const PropertyListingPage = () => {
                   </svg>
                   <div className="flex text-sm text-gray-600">
                     <label
-                      htmlFor="images"
+                      htmlFor="propertyImages"
                       className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                     >
                       <span>Upload files</span>
                       <input
-                        id="images"
-                        name="images"
+                        id="propertyImages"
+                        name="propertyImages"
                         type="file"
                         required
                         multiple
@@ -362,17 +382,17 @@ const PropertyListingPage = () => {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
                   <label
-                    htmlFor="contactName"
+                    htmlFor="fullName"
                     className="block text-sm font-medium text-gray-700"
                   >
                     Full Name*
                   </label>
                   <input
                     type="text"
-                    name="contactName"
-                    id="contactName"
+                    name="fullName"
+                    id="fullName"
                     required
-                    value={formData.contactName}
+                    value={formData.fullName}
                     onChange={handleChange}
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                   />
@@ -380,17 +400,17 @@ const PropertyListingPage = () => {
 
                 <div>
                   <label
-                    htmlFor="contactEmail"
+                    htmlFor="emailAddress"
                     className="block text-sm font-medium text-gray-700"
                   >
                     Email Address*
                   </label>
                   <input
                     type="email"
-                    name="contactEmail"
-                    id="contactEmail"
+                    name="emailAddress"
+                    id="emailAddress"
                     required
-                    value={formData.contactEmail}
+                    value={formData.emailAddress}
                     onChange={handleChange}
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                   />
@@ -399,17 +419,17 @@ const PropertyListingPage = () => {
 
               <div className="mt-6">
                 <label
-                  htmlFor="contactPhone"
+                  htmlFor="phoneNumber"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Phone Number*
                 </label>
                 <input
                   type="tel"
-                  name="contactPhone"
-                  id="contactPhone"
+                  name="phoneNumber"
+                  id="phoneNumber"
                   required
-                  value={formData.contactPhone}
+                  value={formData.phoneNumber}
                   onChange={handleChange}
                   className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                 />
