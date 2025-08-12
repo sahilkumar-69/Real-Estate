@@ -20,7 +20,7 @@ const HomePage = () => {
     const heroProps = {
       desc: "Explore top real estate options around you.",
       title: "Find Your Dream Home With Nexus",
-      video: " /assets/Sale_hero.mp4",
+      video: " /assets/realEstate_bg_video.mp4",
     };
 
     return (
