@@ -6,7 +6,6 @@ import SubscribeSection from "../Components/SubscribeSection";
 import Description from "../Components/Others/Description";
 import { PulseLoader } from "react-spinners";
 import { areaDescription } from "../Data";
-import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard";
 import AreaCard from "../Components/Cards/AreaCard";
 
 const Area_page = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import AwardSection from "../Components/ourAwards/AwardSection";
 import AwardSlider from "../Components/ourAwards/AwardSlider";
 import AwardBanner from "../Components/ourAwards/AwardBanner";
@@ -98,10 +98,10 @@ const OurAwardPage = () => {
       <startedSection />
       <AwardBanner />
       <MilestoneAwards {...milestone} />
-      <AwardCelebrationSection image={"src/assets/meetteam/images.jpg"} />
+      <AwardCelebrationSection image={"/assets/meetteam/images.jpg"} />
       <MilestoneAwards {...milestone2} />
-      <AwardCelebrationSection image={"src/assets/meetteam/happy.jpg"} />
-      <ContactForm/>
+      <AwardCelebrationSection image={"/assets/meetteam/happy.jpg"} />
+      <ContactForm />
     </main>
   );
 };

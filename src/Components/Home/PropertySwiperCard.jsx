@@ -1,5 +1,5 @@
 import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
-import { FiHeart, FiShare2 } from "react-icons/fi";
+// import { FiHeart, FiShare2 } from "react-icons/fi";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { PiBedBold } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";

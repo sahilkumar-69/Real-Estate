@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import NavbarDropdown from "./Service/NavbarDropdown";
+import NavbarDropdown from "./Service/NavbarDropdown.jsx";
+ 
 
-export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
+export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
@@ -151,7 +152,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: "/src/assets/rent_dropdown_img.jpg",
+        src: "../../assets/rent_dropdown_img.jpg",
         title: "Find Rentals",
         label: "View All",
         to: "/rent/properties-for-rent",
@@ -182,43 +183,48 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
         {
           heading: "Popular In India",
           items: [
-            { label: "Binghatti", to: "/developers/6880d003c496783053e5e06d" },
             {
-              label: "Samana Developers",
-              to: "/developers/6881c0aac496783053e5e079",
+              label: "GreenLeaf Constructions",
+              to: "/developers/6899937c8e01ab845e2387f7",
             },
             {
-              label: "Imtiaz Developments",
-              to: "/developers/6881c1dac496783053e5e07b",
+              label: "Sunrise Realty India",
+              to: "/developers/6899ae16c7ef3781f49f2e34",
             },
             {
-              label: "Aldar Properties",
-              to: "/developers/6881befcc496783053e5e077",
+              label: "Amber Group Developers",
+              to: "/developers/6899aef1c7ef3781f49f2e36",
             },
             {
-              label: "Azizi Developments",
-              to: "/developers/6881baabc496783053e5e071",
+              label: "Crescent Homes",
+              to: "/developers/6899b0f1c7ef3781f49f2e3a",
+            },
+            {
+              label: "Emerald Estates",
+              to: "/developers/6899b1b3c7ef3781f49f2e3c",
             },
           ],
         },
         {
           heading: "Popular In Your City",
           items: [
-            { label: "Damac Properties", to: "/developers/6880cf93c496783053e5e06b" },
             {
-              label: "Sobha Realty",
-              to: "/developers/6881b9efc496783053e5e06f",
+              label: "BlueStone Infra",
+              to: "/developers/68999b078e01ab845e238801",
             },
             {
-              label: "Emaar Properties",
-              to: "/developers/6880ce9ec496783053e5e069",
+              label: "Pinnacle Heights",
+              to: "/developers/6899b021c7ef3781f49f2e38",
             },
-          
+            {
+              label: "UrbanVista Constructions",
+              to: "/developers/6899b5afc7ef3781f49f2e40",
+            },
           ],
         },
       ],
       image: {
-        src: "/src/assets/developers_dropdown.jpg",
+        src: "../../assets/developers_dropdown.jpg",
         title: "All Developers",
         label: "Browse",
         to: "/developers",
@@ -249,7 +255,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
         },
       ],
       image: {
-        src: "/src/assets/area_dropdown.jpg",
+        src: "../../assets/area_dropdown.jpg",
         title: "Explore Areas",
         label: "Browse",
         to: "/areas",
@@ -278,7 +284,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
         className="flex items-center gap-2 cursor-pointer"
       >
         <img
-          src="/src/assets/nexus real estate logo.png"
+          src="../../assets/nexuslogo.png"
           alt="logo"
           className="w-28 object-contain"
         />
@@ -332,7 +338,7 @@ export default function Navbar({ setFilterOptions,setFilterOptionsForRent }) {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-black text-white flex flex-col gap-4 px-6 py-4 z-40 md:hidden transition-all">
+        <div className="absolute top-full left-0 w-full bg-black text-white flex flex-col gap-4 px-6 py-4 z-40 md:hidden transition-all max-h-[calc(100vh-4rem)] overflow-y-auto">
           {navOptions.map((option, index) => (
             <div key={index}>
               <Link

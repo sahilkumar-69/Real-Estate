@@ -1,11 +1,10 @@
 import ContentSplitSection from "../Components/ServiceDetailedPage/ContentSplitSection";
 import HeroSectionForService from "../Components/ServiceDetailedPage/HeroSection";
 import RealEstateServices from "../Components/ServiceDetailedPage/RealEstateService";
-import {CardDesign} from "../Components/ServiceDetailedPage/Card";
 
 const DetailedServicePage = () => {
   const heroProps = {
-    backgroundImage: "/src/assets/service_sell.jpg",
+    backgroundImage: " /assets/service_sell.jpg",
     title: "Buy Property in India’s Top Cities",
     subtitle:
       "Find your dream home across India's leading real estate markets – from luxury apartments in Mumbai to budget-friendly homes in tier-2 cities.",

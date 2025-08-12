@@ -74,12 +74,12 @@ export const CardDesign = () => {
 
   
   return (
-    <div className="container mx-auto py-10 px-4">
+    <div className="container  not-last: mx-auto py-10 px-4">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-semibold">Services We Provide </h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1     sm:grid-cols-2 lg:grid-cols-4 gap-7">
         {cardData.map((card, index) => (
           <Card
             key={index}
@@ -87,7 +87,7 @@ export const CardDesign = () => {
             description={card.description}
             bg={card.bg}
           />
-         ))}
+        ))}
       </div>
     </div>
   );

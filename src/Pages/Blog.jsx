@@ -83,7 +83,7 @@ export default function DedicatedBlogPage() {
     <div className="min-h-screen bg-gray-100 font-sans px-4 py-6 md:px-10">
       <div className="flex flex-col mt-15 lg:flex-row gap-8">
         {/* Sidebar */}
-        <aside className="lg:w-1/4 bg-white shadow rounded-lg p-4 max-h-[80vh] overflow-y-auto sticky top-6">
+        <aside className="lg:w-1/4 hidden lg:block bg-white shadow rounded-lg p-4 max-h-[80vh]  overflow-y-auto sticky top-20">
           <h2 className="text-lg font-semibold mb-4 text-blue-600">
             Other Blog Posts
           </h2>

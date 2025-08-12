@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import {
-  propertiesForRent,
   rentDescription,
   FAQForRent,
   propertyData,
@@ -52,6 +51,7 @@ const RentProperty = ({ filterOptions, setFilterOptions }) => {
   const itemsPerPage = 9;
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [lowBedget, setLowBedget] = useState([]);
 
   useEffect(() => {
     if (property?.data?.length > 0) {
@@ -66,6 +66,14 @@ const RentProperty = ({ filterOptions, setFilterOptions }) => {
         ...new Set(data.map((p) => p.bathroom).filter(Boolean)),
       ];
       setUniqueFilters({ locations, types, statuses, beds, bathroom });
+
+      setLowBedget(
+        property.data
+          .sort((a, b) => {
+            return (a.price || 0) - (b.price || 0);
+          })
+          .slice(9)
+      );
     }
   }, [property]);
 
@@ -150,18 +158,30 @@ const RentProperty = ({ filterOptions, setFilterOptions }) => {
 
   // console.log(currentItems)
 
+  const heroProps = {
+    title: "Flexible Living, No Long-Term Commitments",
+    desc: "Find your ideal short-term or furnished rental. Enjoy comfort without the hassle.",
+    video: "/assets/rent_hero.mp4",
+    Hidebtn: true,
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen mt-15 md:mt-10 lg:mt-0 bg-gray-50">
       {/* Hero Section */}
-      <Hero Hidebtn={true} video={"/src/assets/rent_hero.mp4"} />
+      <Hero {...heroProps} />
       {/* Search and Filter Section */}
       <SearchAndFilter {...SearchAndFilterProps} />
 
       {/* Property Listings */}
-      <div className="container mx-auto px-14 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {currentItems.map((property) => (
-            <PropertyListingCard fr={"rent"} property={property} />
+      <div className="container mx-auto px-4 md:px-8 lg:px-14 py-4">
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {currentItems.map((property, index) => (
+            <PropertyListingCard
+              fr={"rent"}
+              key={index}
+              desc={true}
+              property={property}
+            />
           ))}
         </div>
 
@@ -170,11 +190,11 @@ const RentProperty = ({ filterOptions, setFilterOptions }) => {
 
         {/* Property */}
         <ExploreIn
-          Title={"Properties in Low Budget"}
+          Title={"Properties in Affordable Prices"}
           Enablebtn={false}
-          data={propertyData}
+          data={lowBedget}
           CardComponent={PropertySwiperCard}
-          cardProps={{ fr: "static" }}
+          cardProps={{ fr: "rent" }}
         />
       </div>
       <HelpFindProperty />

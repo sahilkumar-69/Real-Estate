@@ -1,9 +1,9 @@
 
 import React, {useEffect} from "react";
-import AboutHero from "../Components/Aboutus/AboutHero";
-import VideoCard from "../Components/Aboutus/videoCard";
-import SubscribeSection from "../Components/SubscribeSection";
-import AboutStatement from "../Components/Aboutus/AboutStatement";
+import AboutHero from "../Components/Aboutus/AboutHero.jsx";
+import VideoCard from "../Components/Aboutus/videoCard.jsx";
+import SubscribeSection from "../Components/SubscribeSection.jsx";
+import AboutStatement from "../Components/Aboutus/AboutStatement.jsx";
 
 const AboutusPage = () => {
   

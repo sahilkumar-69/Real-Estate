@@ -1,22 +1,16 @@
-import React, {useEffect} from "react";
-import HeroBanner from "../components/SellingGuide/HeroBanner";
-import StepList from "../components/SellingGuide/StepList";
-// import FAQSection from '../components/SellingGuide/FAQSection';
-import CTASection from "../Components/SellingGuide/CTASection.jsx";
-import RelatedProperties from "../components/SellingGuide/RelatedProperties";
-import { propertyData, stepsForSelling   } from "../Data.js";
+import { useEffect } from "react";
+import StepList from "../Components/SellingGuide/StepList.jsx";
+import { propertyData } from "../Data.js";
 import StepTimeline from "../Components/SellingGuide/TimeLine.jsx";
 import HeroSection from "../Components/SellingGuide/HeroSection.jsx";
 import SubscribeSection from "../Components/SubscribeSection.jsx";
 import ExploreIn from "../Components/Home/ExploreIn.jsx";
 import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard.jsx";
- 
 
 export default function SellGuidePage() {
- useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
 
   const stepsForSelling = [
     {
@@ -60,7 +54,7 @@ export default function SellGuidePage() {
   return (
     <div className="font-sans text-gray-800">
       <HeroSection {...HeroSectionProps} />
-      <div className="container mx-auto px-14 py-8">
+      <div className="container mx-auto  px-6 lg:px-14 py-8">
         <main className="bg-white">
           <StepTimeline {...StepTimelineProps} />
           <section className="py-12 px-6 md:px-20 max-w-4xl mx-auto">
@@ -71,15 +65,15 @@ export default function SellGuidePage() {
           </section>
 
           {/* <ExploreIn Title={"Explore new Properties"} /> */}
-      
-        <ExploreIn
-        Title={"Explore new Properties"}
-          // Title="Featured Properties"
-          Enablebtn={false}
-          data={propertyData}
-          CardComponent={PropertySwiperCard}
-          cardProps={{ fr: "static" }}
-        />
+
+          <ExploreIn
+            Title={"Explore new Properties"}
+            // Title="Featured Properties"
+            Enablebtn={false}
+            data={propertyData}
+            CardComponent={PropertySwiperCard}
+            cardProps={{ fr: "static" }}
+          />
 
           <SubscribeSection />
         </main>

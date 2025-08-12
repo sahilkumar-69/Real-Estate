@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import ProjectGrid from "../Components/ProjectGrid";
  
@@ -15,21 +15,25 @@ const Projects = () => {
     scrollTo(0, 0);
   }, []);
 
- 
+   const heroProps = {
+     title: "Discover Your Future Home Project",
+     desc: "Explore premium residential and commercial spaces tailored to modern lifestyles. From luxury apartments to smart investment properties, find your perfect match in our latest real estate projects.",
+     video: "/assets/Project_Hero_Video.mp4",
+   };
 
-  return (
-    <>
-      <Hero video={"src/assets/Project_Hero_Video.mp4"} />
-      {/* <SearchAndFilter {...SearchAndFilterProps} /> */}
-      <ProjectGrid />
-      <div className=" px-10 p-4">
-        <LuxuryPropertyInfo content={projectDescription} />
-        <WhyChoose />
-        {/* <FaqSection faqs={} /> */}
-        <SubscribeSection />
-      </div>
-    </>
-  );
+   return (
+     <div className="mt-5">
+       <Hero {...heroProps} />
+       {/* <SearchAndFilter {...SearchAndFilterProps} /> */}
+       <ProjectGrid />
+       <div className=" px-10 p-4">
+         <LuxuryPropertyInfo content={projectDescription} />
+         <WhyChoose />
+         {/* <FaqSection faqs={} /> */}
+         <SubscribeSection />
+       </div>
+     </div>
+   );
 };
 
 export default Projects;

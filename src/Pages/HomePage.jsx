@@ -17,35 +17,41 @@ const HomePage = () => {
     scrollTo(0, 0);
   }, []);
 
-  return (
-    <>
-      <Home_Hero_section Hidebtn={false} />
+    const heroProps = {
+      desc: "Explore top real estate options around you.",
+      title: "Find Your Dream Home With Nexus",
+      video: " /assets/Sale_hero.mp4",
+    };
 
-      <IconSwiper />
-      <div className="px-6 md:px-10 lg:px-20">
-        <RealEstateSolutions />
-        <BrandedDevelopments />
+    return (
+      <>
+        <Home_Hero_section {...heroProps} Hidebtn={false} />
 
-        <ExploreIn
-          Title=" Explore Properties in India"
-          Enablebtn={false}
-          data={propertyData}
-          CardComponent={PropertySwiperCard}
-          cardProps={{ fr: "static" }}
-        />
-      </div>
-      <ContactForm />
-      <div className="p-6 md:px-10 lg:px-20">
-        <TestimonialCard />
-      </div>
+        <IconSwiper />
+        <div className="px-6 md:px-10 lg:px-20">
+          <RealEstateSolutions />
+          <BrandedDevelopments />
 
-      <Professional />
-      <PropertyMarketplace />
-      <div className="px-6 md:px-10 lg:px-20">
-        <SubscribeSection />
-      </div>
-    </>
-  );
+          <ExploreIn
+            Title="Explore Properties in India"
+            Enablebtn={false}
+            data={propertyData}
+            CardComponent={PropertySwiperCard}
+            cardProps={{ fr: "static" }}
+          />
+        </div>
+        <ContactForm />
+        <div className="p-6 md:px-10 lg:px-20">
+          <TestimonialCard />
+        </div>
+
+        <Professional />
+        <PropertyMarketplace />
+        <div className="px-6 md:px-10 lg:px-20">
+          <SubscribeSection />
+        </div>
+      </>
+    );
 };
 
 export default HomePage;

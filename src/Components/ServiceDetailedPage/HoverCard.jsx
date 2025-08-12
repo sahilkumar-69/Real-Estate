@@ -1,7 +1,7 @@
 export const Card = ({ bg, title, description }) => {
   return (
-    <div className="group h-80 w-64 [perspective:1000px]">
-      <div className="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+    <div className="group w-full h-100 lg:h-80 lg:w-64 [perspective:1000px]">
+      <div  className="relative  h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
         <div className="absolute inset-0 flex flex-col items-center justify-end rounded-2xl bg-white p-4 [backface-visibility:hidden]">
           <div className="absolute inset-0">
             <img

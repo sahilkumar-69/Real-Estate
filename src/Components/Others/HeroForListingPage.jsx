@@ -5,14 +5,14 @@ const HeroSectionListProperty = () => {
     <section className="relative mt-13 px-10 w-full h-[85vh] md:h-[80vh] overflow-hidden">
       {/* Fullscreen background image */}
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAT9szKYhgR5cP3Zu7FGdNxBIiQV7_mVN4CbLhnnnLrUOc0NN9meMxI09NglH_IenO8-E&usqp=CAU"
+        src="https://t3.ftcdn.net/jpg/10/04/19/62/360_F_1004196225_q7gtiEbZD2OQEDFsqL82Kt5t104sa82G.jpg"
         alt="Trophies"
         className="absolute top-0 left-0 w-full h-full object-cover object-center z-0"
       />
 
       <div className="relative z-20 h-full w-full flex flex-col justify-center text-white">
         {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight max-w-5xl">
+        <h1 className="text-3xl sm:text-4xl  md:text-5xl font-bold leading-tight max-w-5xl">
           List your property in best price all over India with Nexus real estate
         </h1>
 
@@ -26,7 +26,7 @@ const HeroSectionListProperty = () => {
               onClick={() => {
                 scrollTo({
                   behavior: "smooth",
-                  top: 900,
+                  top: 1000,
                   left: 0,
                 });
               }}

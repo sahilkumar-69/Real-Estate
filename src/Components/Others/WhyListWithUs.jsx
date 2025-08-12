@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import HeroSectionListProperty from "./HeroForListingPage";
 import PropertyListingPage from "./ListingForm";
 import SubscribeSection from "../SubscribeSection";
@@ -22,7 +21,7 @@ const WhyListWithUs = () => {
   return (
     <>
       <HeroSectionListProperty />
-      <section className="py-16 px-14 bg-white">
+      <section className="py-16 px-4 md:px-8 lg:px-14 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
           {/* Left Content */}
           <div className="lg:w-1/2 text-center lg:text-left">
@@ -45,13 +44,13 @@ const WhyListWithUs = () => {
           </div>
 
           {/* Right Image */}
-          <div className="lg:w-1/2 flex justify-center">
+          <div className="lg:w-1/2 flex overflow-hidden justify-center">
             <img
               src={
                 "https://images.pexels.com/photos/4963437/pexels-photo-4963437.jpeg"
               }
               alt="Handshake with house"
-              className="w-full max-w-lg h-auto object-contain"
+              className="w-full max-w-lg h-auto rounded-lg   object-contain"
             />
           </div>
         </div>

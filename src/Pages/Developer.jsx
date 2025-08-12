@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import DeveloperHero from "../Components/Developer/DeveloperHero";
-import MainGrid from "../Components/Developer/MainGrid";
-import WhyChoose from "../Components/Others/WhyChoose";
 import ExploreIn from "../Components/Home/ExploreIn";
 import LuxuryPropertyInfo from "../Components/Others/Description";
 import SubscribeSection from "../Components/SubscribeSection";

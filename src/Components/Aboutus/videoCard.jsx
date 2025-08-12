@@ -1,6 +1,6 @@
 import React from "react";
 import { FaPlay } from "react-icons/fa";
-import videoThumb from "../../assets/RealEstateVideo.mp4";
+import videoThumb from "../../../public/assets/RealEstateVideo.mp4";
 
 const VideoCard = () => {
   const handleVideoClick = () => {

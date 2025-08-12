@@ -7,7 +7,6 @@ import ExpertCardsWraper from "../Components/PropForSale/ExpertCardsWraper";
 import Description from "../Components/Others/Description";
 import HelpFindProperty from "../Components/PropForSale/PostComponent";
 import SearchAndFilter from "../Components/SearchAndFilter";
-import RentAndBuyHeroSection from "../Components/RentAndBuyHeroSection";
 import Pagination from "../Components/Others/Pagination";
 import PropertyListingCard from "../Components/Cards/PropertyListingCard";
 import FaqSection from "../Components/Others/FAQ";
@@ -146,29 +145,35 @@ const SaleProperty = ({filterOptions, setFilterOptions}) => {
 
   const paginateProps = { totalPages, currentPage, handlePageChange };
 
+  const heroProps = {
+    desc: "Discover high-potential properties with great ROI. Our market insights help you make the best buying decisions.",
+    title: "Smart Investments, Lasting Value",
+    video: " /assets/Sale_hero.mp4",
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Hero video={"/src/assets/Sale_hero.mp4"} />
+    <div className="min-h-screen  mt-15 md:mt-10 lg:mt-0 bg-gray-50">
+      <Hero {...heroProps} />
       <SearchAndFilter {...SearchAndFilterProps} />
-      <div className="container mx-auto px-14 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="container mx-auto px-4 md:px-8 lg:px-14 py-4">
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {currentItems.map((property) => (
-            <PropertyListingCard fr={"sale"} property={property} />
+            <PropertyListingCard fr={"sale"} desc={true} property={property} />
           ))}
         </div>
         <Pagination {...paginateProps} />
-        
-         <ExploreIn
+
+        <ExploreIn
           Title="Featured Properties"
           Enablebtn={false}
-          data={propertyData}
+          data={buyProperty.data.slice(6)}
           CardComponent={PropertySwiperCard}
-          cardProps={{ fr: "static" }}
+          cardProps={{ fr: "sale" }}
         />
       </div>
-      <HelpFindProperty />
-      <div className="px-6 md:px-20 py-16">
-        <h2 className="text-2xltext-3xl md:text-4xl font-bold text-slate-800 mb-2  max-w-4xl">
+      {/* <HelpFindProperty /> */}
+      <div className="px-6 md:px-20   py-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2  max-w-4xl">
           Meet out Experts Now. Contact them when you feel free !
         </h2>
         <ExpertCardsWraper />

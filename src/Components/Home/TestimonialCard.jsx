@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import axios from "axios";
+import { PulseLoader } from "react-spinners";
 
 export default function TestimonialSwiper() {
   const [testimonials, setTestimonials] = useState([]);
@@ -50,7 +51,11 @@ export default function TestimonialSwiper() {
   }, []);
 
   if (loading) {
-    return <div className="text-center py-10">Loading testimonials...</div>;
+    return (
+      <div className="text-center py-10">
+        <PulseLoader />
+      </div>
+    );
   }
 
   return (

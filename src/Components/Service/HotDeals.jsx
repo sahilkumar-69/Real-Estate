@@ -12,11 +12,11 @@ const HotDealsBanner = () => {
         className="   rounded-xl bg-cover bg-no-repeat bg-center overflow-hidden p-8 md:p-10 lg:p-12"
       >
         <div className="max-w-3xl">
-          <h1 className="text-3xl md:text-4xl text-white font-bold   mb-4">
+          <h1 className="text-3xl md:text-4xl  lg:text-white font-bold   mb-4">
             Explore our hot deals!
           </h1>
 
-          <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+          <p className="text-lg text-gray-800 lg:text-gray-300 mb-8 leading-relaxed">
             Connect with our seasoned agents to find out more about our services
             and exclusive offers.
           </p>

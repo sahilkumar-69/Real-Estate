@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import DoubleSwiper from "../Components/DoubleSwiper";
-import { propertyData } from "../Data.js";
-// import { properties } from "../Data.js";
+import { properties, propertyData } from "../Data.js";
 
 import {
   FaBed,
@@ -38,7 +37,10 @@ const PropertyDetails = () => {
           );
           setProperty(response.data.data);
         } else if (postfix == "static") {
-          response = propertyData.filter((items) => items.id == slicedId);
+          response = propertyData.filter((items) => items._id == slicedId);
+          setProperty(response[0]);
+        } else if (postfix == "upcomming") {
+          response = properties.filter((items) => items._id == slicedId);
           setProperty(response[0]);
         } else if (postfix == "project") {
           response = await axios.get(
@@ -73,7 +75,7 @@ const PropertyDetails = () => {
     );
 
   return (
-    <div className="max-w-7xl mx-auto px-20 pt-20 pb-16">
+    <div className="max-w-7xl mx-auto lg:px-20 md:px-15 px-4 pt-20 pb-16">
       {/* Image Carousel */}
       <div className="mb-10">
         <DoubleSwiper images={property.images} />
