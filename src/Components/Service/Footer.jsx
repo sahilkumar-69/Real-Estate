@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import {
   FaInstagram,
   FaFacebookF,
@@ -5,8 +7,59 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
+  }, [message]);
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!email) {
+      setMessage({ type: "error", text: "Please enter your email." });
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setMessage(null);
+
+      // Example API call
+      const res = await axios.post(
+        "https://realestatebackend-2-v5e5.onrender.com/api/subscribe-all",
+        {
+          email,
+        }
+      );
+      console.log(res);
+
+      if (res.status === 200) {
+        setMessage({ type: "success", text: "Subscribed successfully!" });
+        setEmail("");
+      } else {
+        setMessage({
+          type: "error",
+          text: res.data?.message || "Something went wrong.",
+        });
+      }
+    } catch (err) {
+      setMessage({
+        type: "error",
+        text: err.response?.data?.message || "Network error. Try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="bg-[#002c6d] text-white py-8">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
@@ -97,16 +150,38 @@ export default function Footer() {
           <label className="block text-sm mb-1">
             Subscribe us for Latest News
           </label>
-          <div className="flex bg-white rounded-md overflow-hidden">
+          <form
+            onSubmit={handleOnSubmit}
+            className="flex bg-white rounded-md overflow-hidden"
+          >
             <input
               type="email"
+              name="email"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="p-2 text-sm text-black w-full outline-none"
+              disabled={loading}
             />
-            <button className="bg-white text-blue-800 px-4 text-sm">
-              Submit
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-white text-blue-800 px-4 text-sm"
+            >
+              {loading ? <ClipLoader size={20} /> : "Submit"}
             </button>
-          </div>
+          </form>
+          {message && (
+            <p
+              className={`text-sm mt-1 ${
+                message.type === "success" ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {message.text}
+            </p>
+          )}
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ToggleLeft } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import PhoneInput from "react-phone-input-2";
 import { ClipLoader } from "react-spinners";
 
 const Service_Hero = () => {
@@ -122,16 +123,30 @@ const Service_Hero = () => {
                 placeholder="Your Email"
                 className="w-full border border-gray-300 rounded-md px-4 py-2"
               />
-              <input
-                name="phoneNumber"
+
+              <PhoneInput
+                country={"in"}
                 value={data.phoneNumber}
-                onChange={(e) => {
-                  setData({ ...data, [e.target.name]: e.target.value });
+                onChange={(phoneNumber) => {
+                  setData((prev) => ({ ...prev, phoneNumber }));
                 }}
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full border border-gray-300 rounded-md px-4 py-2"
+                inputStyle={{
+                  paddingTop: "20px",
+                  paddingBottom: "20px",
+                  paddingLeft: "56px",
+                  fontSize: "16px",
+                  border: "1px solid #E5E4E2",
+                  borderRadius: "4px",
+                  width: "100%",
+                }}
+                containerStyle={{ width: "100%" }}
+                buttonStyle={{
+                  borderTopLeftRadius: "4px",
+                  borderBottomLeftRadius: "4px",
+                }}
+                dropdownStyle={{ zIndex: 9999 }}
               />
+
               <textarea
                 placeholder="Your Message"
                 name="message"

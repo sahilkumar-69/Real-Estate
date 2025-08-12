@@ -9,7 +9,7 @@ const DownloadBrochure = () => {
 
     // Optionally redirect after download
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/services";
     }, 100);
   }, []);
 

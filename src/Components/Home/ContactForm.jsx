@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,15 @@ const ContactForm = () => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
+  }, [message]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -24,6 +34,8 @@ const ContactForm = () => {
     e.preventDefault();
 
     try {
+      setLoading(true);
+      setMessage(null);
       const res = await fetch(
         "https://realestatebackend-2-v5e5.onrender.com/api/Contact-Us",
         {
@@ -39,13 +51,13 @@ const ContactForm = () => {
       console.log("Status:", res.status);
       console.log("Response body:", data);
       if (!res.ok) {
-        alert(
-          "Failed to send message: " +
-            (data?.message || data?.error || JSON.stringify(data))
-        );
+        setMessage({
+          type: "error",
+          text: res.data?.message || "Something went wrong.",
+        });
         return;
       }
-      alert("Message sent successfully!");
+      setMessage({ type: "success", text: "Submitted successfully!" });
       setFormData({
         name: "",
         email: "",
@@ -53,12 +65,13 @@ const ContactForm = () => {
         language: "english",
         message: "",
       });
-      // } else {
-      //   alert("Failed to send message: " + data.message);
-      // }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Something went wrong.");
+      setMessage({
+        type: "error",
+        text: err.response?.data?.message || "Network error. Try again.",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -88,6 +101,7 @@ const ContactForm = () => {
               name="name"
               id="name"
               value={formData.name}
+              disabled={loading}
               onChange={handleChange}
               required
             />
@@ -103,6 +117,7 @@ const ContactForm = () => {
               name="email"
               id="email"
               value={formData.email}
+              disabled={loading}
               onChange={handleChange}
               required
             />
@@ -130,6 +145,7 @@ const ContactForm = () => {
                 borderBottomLeftRadius: "4px",
               }}
               dropdownStyle={{ zIndex: 9999 }}
+              disabled={loading}
             />
           </div>
 
@@ -141,6 +157,7 @@ const ContactForm = () => {
               name="language"
               value={formData.language}
               onChange={handleChange}
+              disabled={loading}
               className="w-full bg-white outline-[1px] outline-[#E5E4E2] focus:outline-[#C0C0C0] p-3 rounded-sm text-md"
             >
               <option value="english">English</option>
@@ -165,23 +182,32 @@ const ContactForm = () => {
             />
           </div>
 
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-md shadow hover:opacity-90 transition"
+          >
+            {loading ? <ClipLoader size={20} /> : "Submit"}
+          </button>
+          {message && (
+            <p
+              className={`text-sm mt-1 ${
+                message.type === "success" ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {message.text}
+            </p>
+          )}
           <p className="text-center md:text-right text-sm text-gray-600 mt-4">
             By clicking Submit, you agree to our{" "}
             <Link to="/terms-and-privacy" className="underline text-black">
               Terms & Conditions
             </Link>
-           { " and "}
+            {" and "}
             <Link to="/Privacy-policy" className="underline text-black">
               Privacy Policy
             </Link>
           </p>
-
-          <button
-            type="submit"
-            className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-md shadow hover:opacity-90 transition"
-          >
-            Submit Detail
-          </button>
         </motion.div>
       </form>
 
@@ -252,4 +278,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
- 
