@@ -355,8 +355,20 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
                       <Link
                         key={subIndex}
                         to={sub.to}
-                        className="block py-1 hover:text-white"
-                        onClick={() => setMobileMenuOpen(false)}
+                        className="block py-1 text-green-700 hover:text-white"
+                        onClick={() => {
+                          option?.title == "Rent"
+                            ? setFilterOptionsForRent((prev) => ({
+                                ...prev,
+                                type: sub.value,
+                              }))
+                            : setFilterOptions((prev) => ({
+                                ...prev,
+                                type: sub.value,
+                              }));
+
+                          setMobileMenuOpen(false);
+                        }}
                       >
                         {sub.label}
                       </Link>
