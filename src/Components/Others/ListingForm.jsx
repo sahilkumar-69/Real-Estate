@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import { ClipLoader } from "react-spinners";
 
 const PropertyListingPage = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +20,9 @@ const PropertyListingPage = () => {
     propertyImages: [],
   });
 
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("null");
+
   const propertyTypes = [
     "Single Family Home",
     "Condo",
@@ -28,12 +33,49 @@ const PropertyListingPage = () => {
     "Commercial",
   ];
 
+  useEffect(() => {
+    setTimeout(() => {
+      setMessage("");
+    }, 5000);
+  }, [message]);
+
   const states = [
-    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana",
-    "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
-    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana",
-    "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh",
-    "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Delhi",
+    "Jammu and Kashmir",
+    "Ladakh",
+    "Lakshadweep",
+    "Puducherry",
   ];
 
   const handleChange = (e) => {
@@ -44,7 +86,6 @@ const PropertyListingPage = () => {
     }));
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -62,19 +103,27 @@ const PropertyListingPage = () => {
     });
 
     try {
-      const response = await fetch("https://realestatebackend-2-v5e5.onrender.com/api/List-Property", {
-        method: "POST",
-        body: form,
-      });
+      setLoading(true);
+      setMessage(null);
+      const response = await fetch(
+        "https://realestatebackend-2-v5e5.onrender.com/api/List-Property",
+        {
+          method: "POST",
+          body: form,
+        }
+      );
 
       if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(errorText || "Upload failed");
+        setMessage({
+          type: "error",
+          text: res.data?.message || "Something went wrong.",
+        });
+        return;
       }
 
       const result = await response.json();
       console.log("✅ Upload successful:", result);
-
+      setMessage({ type: "success", text: "Submitted successfully!" });
       // Reset form
       setFormData({
         propertyType: "",
@@ -92,12 +141,15 @@ const PropertyListingPage = () => {
         phoneNumber: "",
         propertyImages: [],
       });
-      alert("Thank you for listing your property! We will contact you shortly.");
 
       document.getElementById("propertyImages").value = ""; // Reset file input manually
-    } catch (error) {
-      console.error("Error uploading:", error.message);
-      alert("Something went wrong. Please try again later.");
+    } catch (err) {
+      setMessage({
+        type: "error",
+        text: err.response?.data?.message || "Network error. Try again.",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -133,7 +185,7 @@ const PropertyListingPage = () => {
                     required
                     value={formData.propertyType}
                     onChange={handleChange}
-                    className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md border"
+                    className="mt-1 block w-full pl-3 pr-10 py-2.5 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md border"
                   >
                     <option value="">Select property type</option>
                     {propertyTypes.map((type) => (
@@ -151,7 +203,7 @@ const PropertyListingPage = () => {
                   >
                     Asking Price*
                   </label>
-                  <div className="mt-1 relative rounded-md shadow-sm">
+                  <div className="mt-1 relative rounded-md">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <span className="text-gray-500 sm:text-sm">₹</span>
                     </div>
@@ -186,7 +238,7 @@ const PropertyListingPage = () => {
                   required
                   value={formData.address}
                   onChange={handleChange}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                 />
               </div>
 
@@ -204,7 +256,7 @@ const PropertyListingPage = () => {
                   required
                   value={formData.city}
                   onChange={handleChange}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                 />
               </div>
             </div>
@@ -223,7 +275,7 @@ const PropertyListingPage = () => {
                   required
                   value={formData.state}
                   onChange={handleChange}
-                  className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md border"
+                  className="mt-1 block w-full pl-3 pr-10 py-2.5 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md border"
                 >
                   <option value="">Select state</option>
                   {states.map((state) => (
@@ -248,7 +300,7 @@ const PropertyListingPage = () => {
                   required
                   value={formData.zipCode}
                   onChange={handleChange}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                 />
               </div>
             </div>
@@ -268,7 +320,7 @@ const PropertyListingPage = () => {
                   id="bedrooms"
                   value={formData.bedrooms}
                   onChange={handleChange}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                 />
               </div>
 
@@ -287,7 +339,7 @@ const PropertyListingPage = () => {
                   step="0.5"
                   value={formData.bathrooms}
                   onChange={handleChange}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                 />
               </div>
 
@@ -305,7 +357,7 @@ const PropertyListingPage = () => {
                   id="squareFootage"
                   value={formData.squareFootage}
                   onChange={handleChange}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                 />
               </div>
             </div>
@@ -324,7 +376,7 @@ const PropertyListingPage = () => {
                 required
                 value={formData.propertyDescription}
                 onChange={handleChange}
-                className="mt-1 resize-none focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                className="mt-1 resize-none focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                 placeholder="Describe your property in detail..."
               />
             </div>
@@ -394,7 +446,7 @@ const PropertyListingPage = () => {
                     required
                     value={formData.fullName}
                     onChange={handleChange}
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                   />
                 </div>
 
@@ -412,37 +464,63 @@ const PropertyListingPage = () => {
                     required
                     value={formData.emailAddress}
                     onChange={handleChange}
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md border py-2 px-3"
                   />
                 </div>
               </div>
 
-              <div className="mt-6">
+              <div className="flex flex-col lg:w-[48%]   gap-y-1 mt-2 ">
                 <label
-                  htmlFor="phoneNumber"
                   className="block text-sm font-medium text-gray-700"
+                  htmlFor="phone"
                 >
-                  Phone Number*
+                  Phone
                 </label>
-                <input
-                  type="tel"
+                <PhoneInput
+                  country={"in"}
                   name="phoneNumber"
-                  id="phoneNumber"
-                  required
                   value={formData.phoneNumber}
-                  onChange={handleChange}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border py-2 px-3"
+                  onChange={(phoneNumber) =>
+                    setFormData((prev) => ({ ...prev, phoneNumber }))
+                  }
+                  inputStyle={{
+                    paddingTop: "19px",
+                    paddingBottom: "19px",
+                    paddingLeft: "56px",
+                    fontSize: "16px",
+                    border: "1px solid #E5E4E2",
+                    borderRadius: "4px",
+                    width: "100%",
+                  }}
+                  containerStyle={{ width: "100%" }}
+                  buttonStyle={{
+                    borderTopLeftRadius: "4px",
+                    borderBottomLeftRadius: "4px",
+                  }}
+                  dropdownStyle={{ zIndex: 9999 }}
+                  disabled={loading}
                 />
               </div>
             </div>
 
-            <div className="flex items-center justify-end pt-6">
+            <div className="flex flex-col items-end justify-end pt-6">
               <button
                 type="submit"
-                className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent  text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Submit Listing
+                {loading ? <ClipLoader size={20} /> : "  Submit Listing"}
               </button>
+              {message && (
+                <p
+                  className={`text-sm mt-1 ${
+                    message.type === "success"
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
+                >
+                  {message.text}
+                </p>
+              )}
             </div>
           </form>
         </div>
