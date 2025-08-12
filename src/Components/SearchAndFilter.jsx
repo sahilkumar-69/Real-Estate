@@ -18,7 +18,7 @@ const SearchAndFilter = ({
   const btnTitle = ["All Properties", "Villas", "Apartments"];
 
   return (
-    <div className="container mx-auto px-14 py-8 -mt-10 relative z-20">
+    <div className="container mx-auto px-4 lg:px-14 py-8 -mt-10 relative z-20">
       <div className="bg-white rounded-lg shadow-lg p-6">
         {/* Top dropdown filters */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">

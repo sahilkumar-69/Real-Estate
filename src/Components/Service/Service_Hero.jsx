@@ -1,13 +1,65 @@
-import React, { useState } from "react";
+import axios from "axios";
+import { ToggleLeft } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 
 const Service_Hero = () => {
   const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+
+  useEffect(() => {
+    setData({
+      name: "",
+      email: "",
+      phoneNumber: "",
+      message: "",
+    });
+  }, [showForm]);
 
   const toggleForm = () => setShowForm(!showForm);
 
+  const handleOnSubmit = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+    try {
+      const resp = await axios.post(
+        "https://realestatebackend-2-v5e5.onrender.com/api/create-Inquiry",
+        data
+      );
+
+      if (resp.data?.success) {
+        alert("Query Submitted");
+        toggleForm();
+        setData({
+          name: "",
+          email: "",
+          phoneNumber: "",
+          message: "",
+        });
+        setLoading(true);
+      }
+    } catch (formError) {
+      setLoading(true);
+      setData({
+        name: "",
+        email: "",
+        phoneNumber: "",
+        message: "",
+      });
+      alert(formError);
+    }
+  };
+
   return (
     <section
-      className="w-full h-[95vh] bg-cover bg-center z-10 flex items-center px-6 md:px-24 relative"
+      className="w-full h-[70vh]   lg:h-[95vh] bg-cover bg-center z-10 flex items-center px-6 md:px-24 relative"
       style={{
         backgroundImage: `url("https://www.tribecacare.com/wp-content/uploads/2022/07/Edinburgh-Property-management.jpg")`,
       }}
@@ -19,8 +71,10 @@ const Service_Hero = () => {
       <div className="relative z-10 text-white max-w-[46rem]">
         <h1 className="text-3xl md:text-5xl space-y-3.5 text-black font-bold mb-4">
           Top–Notch{" "}
-          <span className="bg-black px-2 rounded-md text-white">Property Services</span> in
-          India
+          <span className="bg-black px-2 rounded-md text-white">
+            Property Services
+          </span>{" "}
+          in India
         </h1>
 
         <p className="text-lg  mb-6">
@@ -47,32 +101,52 @@ const Service_Hero = () => {
               ×
             </button>
             <h2 className="text-xl font-semibold mb-4">Enquiry Form</h2>
-            <form className="space-y-4">
+            <form onSubmit={handleOnSubmit} className="space-y-4">
               <input
                 type="text"
                 placeholder="Your Name"
+                value={data.name}
+                onChange={(e) => {
+                  setData({ ...data, [e.target.name]: e.target.value });
+                }}
+                name="name"
                 className="w-full border border-gray-300 rounded-md px-4 py-2"
               />
               <input
                 type="email"
+                name="email"
+                value={data.email}
+                onChange={(e) => {
+                  setData({ ...data, [e.target.name]: e.target.value });
+                }}
                 placeholder="Your Email"
                 className="w-full border border-gray-300 rounded-md px-4 py-2"
               />
               <input
+                name="phoneNumber"
+                value={data.phoneNumber}
+                onChange={(e) => {
+                  setData({ ...data, [e.target.name]: e.target.value });
+                }}
                 type="tel"
                 placeholder="Phone Number"
                 className="w-full border border-gray-300 rounded-md px-4 py-2"
               />
               <textarea
                 placeholder="Your Message"
+                name="message"
+                value={data.message}
+                onChange={(e) => {
+                  setData({ ...data, [e.target.name]: e.target.value });
+                }}
                 rows="3"
-                className="w-full border border-gray-300 rounded-md px-4 py-2"
+                className="w-full border resize-none border-gray-300 rounded-md px-4 py-2"
               ></textarea>
               <button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md"
               >
-                Submit
+                {loading ? <ClipLoader size={18} /> : "Submit"}
               </button>
             </form>
           </div>

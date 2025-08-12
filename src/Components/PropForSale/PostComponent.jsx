@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { FaClock } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import QuestionnaireModal from "../Others/QuestionnaireModal";
 
 const HelpFindProperty = () => {
-  const [showMore, setShowMore] = useState(false);
-  const Navigate = useNavigate()
+  const [showMore, setShowMore] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  // const Navigate = useNavigate();
 
   const toggleView = () => setShowMore(!showMore);
 
@@ -14,7 +17,7 @@ const HelpFindProperty = () => {
         {/* Left Side Image */}
         <div className="md:w-1/2 w-full">
           <img
-            src=" https://static.vecteezy.com/system/resources/previews/013/507/535/non_2x/confident-it-expert-handsome-young-man-in-shirt-and-tie-working-on-laptop-and-smiling-while-standing-against-grey-background-free-photo.JPG" // replace with actual path or import
+            src=" https://static.vecteezy.com/system/resources/previews/013/507/535/non_2x/confident-it-expert-handsome-young-man-in-shirt-and-tie-working-on-laptop-and-smiling-while-standing-against-grey-background-free-photo.JPG"
             alt="India Property"
             className="w-full h-full object-cover"
           />
@@ -43,28 +46,23 @@ const HelpFindProperty = () => {
                 the simple steps on the screen to get a personalized selection
                 of properties that match your preferences.
               </p>
-
-              {!showMore && (
-                <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent pointer-events-none" />
-              )}
             </div>
-
-            <button
-              className="text-orange-500 mt-2 underline font-semibold"
-              onClick={toggleView}
-            >
-              {showMore ? "View Less" : "Read More"}
-            </button>
           </div>
 
           {/* Call-to-Action Buttons */}
           <div className="flex items-center gap-4 mt-6 flex-wrap">
-            <button onClick={(first) => { Navigate("/buy/properties-for-sale");scrollTo({
-              behavior:"smooth",
-              top:500
-            }) }}  className="bg-orange-500 hover:bg-orange-600 transition text-white font-semibold px-6 py-3 rounded-lg">
+            <button
+              onClick={() => {
+                setShowModal(true);
+              }}
+              className="bg-orange-500 hover:bg-orange-600 transition text-white font-semibold px-6 py-3 rounded-lg"
+            >
               Find My Dream Home!
             </button>
+            <QuestionnaireModal
+              isOpen={showModal}
+              onClose={() => setShowModal(false)}
+            />
             <div className="flex items-center gap-2 text-orange-500 font-medium underline underline-offset-2">
               <FaClock />
               <span>It takes less than 2 minutes</span>

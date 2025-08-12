@@ -18,7 +18,7 @@ const PerksBenefitsSection = () => {
         {/* Right Side Image */}
         <div className="rounded-xl overflow-hidden">
           <img
-            src=" \\assets\CareerImages\groupPhoto.jpg" // update this path to your actual image
+            src="/assets/CareerImages/groupPhoto.jpg" // update this path to your actual image
             alt="Team at Nexus Real Estate"
             className="w-full h-auto object-cover"
           />

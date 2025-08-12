@@ -54,7 +54,7 @@ export default function SellGuidePage() {
   return (
     <div className="font-sans text-gray-800">
       <HeroSection {...HeroSectionProps} />
-      <div className="container mx-auto px-14 py-8">
+      <div className="container mx-auto  px-6 lg:px-14 py-8">
         <main className="bg-white">
           <StepTimeline {...StepTimelineProps} />
           <section className="py-12 px-6 md:px-20 max-w-4xl mx-auto">
