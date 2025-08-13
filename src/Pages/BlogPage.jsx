@@ -97,7 +97,7 @@ const BlogPage = () => {
             No blog posts found.
           </div>
         ) : (
-          <MainGrid blog={true} data={filteredPosts} />
+          <MainGrid blog={true} data={filteredPosts.slice(3,)} />
         )}
       </div>
 
