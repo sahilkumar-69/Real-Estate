@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 
-const FilterDropDown = ({ label, options, value, onChange }) => {
+const AnimatedDropDown = ({ label, options, value, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -27,18 +27,18 @@ const FilterDropDown = ({ label, options, value, onChange }) => {
             transition={{ duration: 0.2 }}
             className="absolute left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-2 z-50 max-h-60 overflow-y-auto"
           >
-            {options.map((opt) => (
+            {options.map((opt, idx) => (
               <li
-                key={opt}
+                key={idx}
                 onClick={() => {
-                  onChange(opt);
+                  onChange(opt.value);
                   setIsOpen(false);
                 }}
                 className={`p-3 cursor-pointer hover:bg-blue-50 ${
-                  opt === value ? "bg-blue-100 text-blue-700" : ""
+                  opt.value === value ? "bg-blue-100 text-blue-700" : ""
                 }`}
               >
-                {opt}
+                {opt.op}
               </li>
             ))}
           </motion.ul>
@@ -48,4 +48,4 @@ const FilterDropDown = ({ label, options, value, onChange }) => {
   );
 };
 
-export default FilterDropDown;
+export default AnimatedDropDown;

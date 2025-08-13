@@ -22,7 +22,7 @@ export const PropertySwiperCard = ({
   const navigate = useNavigate();
   // console.log(data)
   return (
-    <div className="bg-white  rounded-lg hover_img overflow-hidden  hover:shadow-lg transition duration-300 h-full flex flex-col">
+    <div className="bg-white  rounded-lg hover_img   overflow-hidden  hover:shadow-xl transition duration-300 h-full flex flex-col">
       {/* Swiper Image Slider */}
       <div className="relative  h-48">
         <Swiper
@@ -68,7 +68,7 @@ export const PropertySwiperCard = ({
 
       {/* Details */}
       <div className="p-4 flex-grow">
-        <h3 className="text-lg font-bold text-[#0A2C5C]">{title}</h3>
+        <h3 className="text-lg font-bold text-[#0A2C5C]">{title.slice(0,30)}...</h3>
         <p className="text-sm text-gray-600 mt-1">
           {developer && (
             <>

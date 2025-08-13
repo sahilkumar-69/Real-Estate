@@ -2,7 +2,7 @@ const benefits = [
   {
     id: "01",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReOES2_3L6wZITDQ6mXRsKSYwFSLoFpY0oxw&s", // Replace with your local image path or URL
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReOES2_3L6wZITDQ6mXRsKSYwFSLoFpY0oxw&s",
     title: "Over 12 Lac properties",
     description: "10,000+ properties are added every day",
   },
@@ -38,12 +38,12 @@ export default function WhyChoose() {
           {benefits.map((item) => (
             <div
               key={item.id}
-              className="flex shadow-sm rounded-md flex-col items-center text-center p-6"
+              className="flex shadow-sm why_card rounded-md flex-col items-center text-center p-6 group transition-transform"
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-16 hover:rotate-360 hover:scale-75  transition ease-in-out duration-1000   h-16 object-contain mb-4"
+                className="w-16 h-16 object-contain mb-4 transform transition-transform duration-300 group-hover:scale-110"
               />
               <h3 className="text-blue-600 font-semibold text-sm">
                 {item.id}. <span className="text-gray-900">{item.title}</span>

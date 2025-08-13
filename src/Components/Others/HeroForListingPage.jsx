@@ -9,6 +9,7 @@ const HeroSectionListProperty = () => {
         alt="Trophies"
         className="absolute top-0 left-0 w-full h-full object-cover object-center z-0"
       />
+      <div className="absolute inset-0 bg-black/30 bg-opacity-40 z-0"></div>
 
       <div className="relative z-20 h-full w-full flex flex-col justify-center text-white">
         {/* Heading */}
@@ -22,19 +23,20 @@ const HeroSectionListProperty = () => {
         </p>
 
         {/* CTA */}
-        <Link
-              onClick={() => {
-                scrollTo({
-                  behavior: "smooth",
-                  top: 1000,
-                  left: 0,
-                });
-              }}
-            >
-              <button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md text-base transition shadow-md">
-                List Your Property →
-              </button>
-            </Link>
+        <Link className="cursor-default">
+          <button
+            onClick={() => {
+              scrollTo({
+                behavior: "smooth",
+                top: 1000,
+                left: 0,
+              });
+            }}
+            className="bg-orange-600  hover:bg-orange-700 text-white px-6 py-3 rounded-md text-base transition shadow-md"
+          >
+            List Your Property →
+          </button>
+        </Link>
 
         {/* Ratings */}
         <div className="flex items-center space-x-6 mt-6 text-sm">

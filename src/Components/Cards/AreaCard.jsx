@@ -34,7 +34,7 @@ const AreaCard = ({
           className="text-lg font-semibold text-slate-800 hover:text-[#F68537] flex items-center gap-2"
         >
           {name}
-          <FaArrowUpRightFromSquare size={12} />
+          <FaArrowUpRightFromSquare className="w-12" size={12} />
         </Link>
 
         {logo && (

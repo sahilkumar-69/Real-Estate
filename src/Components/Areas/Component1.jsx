@@ -1,11 +1,7 @@
-import { FaSearch } from "react-icons/fa";
-import { FaChevronDown } from "react-icons/fa6";
- 
-
-export default function TopCommunities() {
+export default function TopCommunities({ searchTerm, setSearchTerm }) {
   return (
-    <section className="bg-white   py-16 ">
-      <div className="max-w-5xl mx-auto text-center">
+    <section className="bg-white    py-16 ">
+      <div className="max-w-5xl   mx-auto text-center">
         {/* Heading */}
         <h2 className="text-4xl font-bold text-[#0b2c50] mb-4">
           Top India Communities
@@ -21,19 +17,17 @@ export default function TopCommunities() {
         </p>
 
         {/* Search & Filter */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
+        <div className="flex w-full  flex-col     sm:flex-row justify-center items-center gap-4 mt-6">
           {/* Search Input */}
-          <div className="relative w-full sm:w-96">
+          <div className="relative w-full lg:w-[90%]">
             <input
               type="text"
-              placeholder="Search Communities"
-              className="w-full px-10 py-3 border rounded-md  outline-[1px] outline-[#E5E4E2] focus:outline-[#C0C0C0] "
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-[80%] outline-none pl-7 p-3 border-2 rounded-4xl border-black text-lg"
+              placeholder="Search Communities . . . "
             />
-            <FaSearch className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-500" />
           </div>
-
-          {/* Dropdown */}
-           
         </div>
       </div>
     </section>

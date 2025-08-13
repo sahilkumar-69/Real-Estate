@@ -152,7 +152,7 @@ export default function Footer() {
           </label>
           <form
             onSubmit={handleOnSubmit}
-            className="flex bg-white rounded-md overflow-hidden"
+            className="flex  rounded-md overflow-hidden"
           >
             <input
               type="email"
@@ -161,14 +161,14 @@ export default function Footer() {
               required
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="p-2 text-sm text-black w-full outline-none"
+              className="p-2 text-sm bg-white text-black w-full outline-none"
               disabled={loading}
             />
 
             <button
               type="submit"
               disabled={loading}
-              className="bg-white text-blue-800 px-4 text-sm"
+              className="text-white bg-blue-800 px-4 text-sm"
             >
               {loading ? <ClipLoader size={20} /> : "Submit"}
             </button>

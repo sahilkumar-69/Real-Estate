@@ -3,6 +3,7 @@
 import { FiSearch, FiChevronDown, FiFilter } from "react-icons/fi";
 import PropertyFilterButton from "./ButtonComponents/PropertyFilterButton";
 import FilterDropDown from "./Others/FilterDropDown";
+import AnimatedDropDown from "./Others/AnimatedDropDown2";
 
 const SearchAndFilter = ({
   activeFilter,
@@ -18,10 +19,10 @@ const SearchAndFilter = ({
   const btnTitle = ["All Properties", "Villas", "Apartments"];
 
   return (
-    <div className="container mx-auto px-4 lg:px-14 py-8 -mt-10 relative z-20">
-      <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="container mx-auto px-4 z-20 lg:px-14 py-8 -mt-10 relative ">
+      <div className="bg-white   rounded-lg shadow-lg p-6">
         {/* Top dropdown filters */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-1   md:grid-cols-4 gap-4 mb-6">
           {uniqueFilters?.locations?.length > 0 && (
             <FilterDropDown
               label="Location"
@@ -54,42 +55,25 @@ const SearchAndFilter = ({
               }
             />
           )}
+
+          <AnimatedDropDown
+            label="Sort By"
+            options={[
+              { op: "Latest", value: "latest" },
+              { op: "Price: Low to High", value: "price-low" },
+              { op: "Price: High to Low", value: "price-high" },
+            ]}
+            value={sortBy}
+            onChange={setSortBy}
+          />
         </div>
 
-        {/* Filter Buttons and Sort */}
-        <div className="flex flex-wrap items-center justify-between">
-          {/* <div className="flex space-x-2 mb-4 md:mb-0">
-            {btnTitle.map((title, index) => (
-              <PropertyFilterButton
-                title={title}
-                key={index}
-                activeFilter={activeFilter}
-                setActiveFilter={setActiveFilter}
-              />
-            ))}
-          </div> */}
-
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="appearance-none bg-white border border-gray-300 rounded-lg pl-3 pr-8 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="latest">Latest</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-              </select>
-              <FiChevronDown className="absolute right-3 top-3 text-gray-500" />
-            </div>
-            <button
-              onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center text-gray-700"
-            >
-              <FiFilter className="mr-2" /> More Filters
-            </button>
-          </div>
-        </div>
+        <button
+          onClick={() => setShowFilters(!showFilters)}
+          className="flex items-center text-gray-700"
+        >
+          <FiFilter className="mr-2" /> More Filters
+        </button>
 
         {/* Advanced Filters */}
         {showFilters && (

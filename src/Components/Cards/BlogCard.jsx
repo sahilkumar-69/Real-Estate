@@ -42,9 +42,9 @@ const BlogCard = ({ _id, title, img, tag, createdAt, blogContent }) => {
         </div>
 
         {/* Title */}
-        <div className="text-lg p-2 font-semibold text-slate-800 hover:text-[#F68537] cursor-pointer hover:underline flex items-center gap-2">
-          <p>{title}</p>
-          <FaArrowUpRightFromSquare size={12} />
+        <div className="text-lg p-2   font-semibold text-slate-800 hover:text-[#F68537] cursor-pointer hover:underline flex items-center gap-2">
+          <p >{title}</p>
+          <FaArrowUpRightFromSquare className="w-12" size={12} />
         </div>
 
         {/* Snippet */}

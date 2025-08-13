@@ -72,7 +72,7 @@ const Service_Hero = () => {
       <div className="relative z-10 text-white max-w-[46rem]">
         <h1 className="text-3xl md:text-5xl space-y-3.5 text-black font-bold mb-4">
           Top–Notch{" "}
-          <span className="bg-black px-2 rounded-md text-white">
+          <span className="bg-[#ac9976] px-2 rounded-md text-white">
             Property Services
           </span>{" "}
           in India

@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import PropertyMarketplace from "../Components/Home/NexusMarketPlace";
 import { propertyData } from "../Data";
 import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard";
+import ContactCards from "../Components/Slider";
 
 const HomePage = () => {
   useEffect(() => {

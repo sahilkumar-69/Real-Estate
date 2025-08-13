@@ -6,6 +6,7 @@ import "react-phone-input-2/lib/style.css";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import ContactCards from "../Slider";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,12 @@ const ContactForm = () => {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
+
+  const [isAgreed, setIsAgreed] = useState(false);
+
+  const handleCheckboxChange = (e) => {
+    setIsAgreed(e.target.checked);
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -78,7 +85,7 @@ const ContactForm = () => {
   return (
     <div
       id="contact-form"
-      className="flex flex-col md:flex-row bg-[#d0eaf5] p-6 md:p-10 lg:p-20 w-full justify-center items-center"
+      className="flex flex-col    md:flex-row bg-[#d0eaf5] p-6 md:p-10 lg:px-20 w-full  items-start"
     >
       {/* Left: Form */}
       <form
@@ -184,8 +191,19 @@ const ContactForm = () => {
 
           <button
             type="submit"
-            disabled={loading}
-            className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-md shadow hover:opacity-90 transition"
+            disabled={loading || !isAgreed}
+            style={
+              !isAgreed
+                ? {
+                    cursor: "not-allowed",
+                  }
+                : {
+                    cursor: "pointer",
+                  }
+            }
+            className={`w-full sm:w-auto px-6 py-3 bg-gradient-to-r  text-white font-semibold rounded-md shadow hover:opacity-90 transition ${
+              !isAgreed ? "bg-gray-500   " : "from-orange-500 to-orange-600  "
+            }`}
           >
             {loading ? <ClipLoader size={20} /> : "Submit"}
           </button>
@@ -198,12 +216,25 @@ const ContactForm = () => {
               {message.text}
             </p>
           )}
-          <p className="text-center md:text-right text-sm text-gray-600 mt-4">
-            By clicking Submit, you agree to our{" "}
-            <Link to="/terms-and-privacy" className="underline text-black">
-              Terms & Conditions
-            </Link>
-            {" and "}
+          <p className="flex flex-col sm:flex-row sm:items-center sm:justify-center  lg:justify-start px-2 gap-1 text-sm text-gray-600 mt-4">
+            {/* Checkbox + Terms */}
+            <span className="flex items-center flex-wrap">
+              <input
+                type="checkbox"
+                checked={isAgreed}
+                onChange={handleCheckboxChange}
+                className="mx-1"
+                name="terms"
+                id="terms"
+              />
+              <span>By clicking, you agree to our&nbsp;</span>
+              <Link to="/terms-and-privacy" className="underline text-black">
+                Terms & Conditions
+              </Link>
+              <span>&nbsp;and&nbsp;</span>
+            </span>
+
+            {/* Privacy Policy */}
             <Link to="/Privacy-policy" className="underline text-black">
               Privacy Policy
             </Link>
@@ -212,7 +243,7 @@ const ContactForm = () => {
       </form>
 
       {/* Right: Contact Info */}
-      <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-12 space-y-6">
+      <div className="w-full  md:w-1/2 py-8 md:px-12 lg:py-0 space-y-6">
         <div className="flex flex-col gap-y-3 mb-7">
           <h1 className="text-2xl md:text-3xl font-semibold">
             Speak with our Real Estate specialists today
@@ -224,53 +255,7 @@ const ContactForm = () => {
         </div>
 
         <div className="flex flex-col gap-y-4">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="flex border-b-2 gap-3 items-center justify-start p-3 border-[#44362F]"
-          >
-            <FaWhatsapp className="w-8 h-8 text-green-600" />
-            <div>
-              <p className="text-md font-medium">WhatsApp</p>
-              <Link
-                to={`https://wa.me/${+911234567890}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#F68537] hover:underline text-sm"
-              >
-                Click to whatsapp
-              </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="flex border-b-2 gap-3 items-center justify-start p-3 border-[#44362F]"
-          >
-            <FaPhoneAlt className="w-6 h-6 text-blue-600" />
-            <div>
-              <p className="text-md font-medium">Phone</p>
-              <p className="text-sm">+91 1234567890</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="flex border-b-2 gap-3 items-center justify-start p-3 border-[#44362F]"
-          >
-            <MdOutlineEmail className="w-8 h-8 text-red-500" />
-            <div>
-              <p className="text-md font-medium">Email</p>
-              <Link className="text-[#F68537] hover:underline text-sm">
-                info@nexusrealestate.com
-              </Link>
-            </div>
-          </motion.div>
+          <ContactCards />
         </div>
       </div>
     </div>

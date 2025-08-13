@@ -12,6 +12,9 @@ const Area_page = () => {
   const [areaData, setAreaData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     scrollTo(0, 0);
@@ -24,8 +27,9 @@ const Area_page = () => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        const data = await response.json();
-        setAreaData(data);
+        const data1 = await response.json();
+        // console.log("data", data);
+        setAreaData(data1.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -36,9 +40,21 @@ const Area_page = () => {
     fetchAreas();
   }, []);
 
+  useEffect(() => {
+    let filtered = areaData;
+
+    if (searchTerm.trim()) {
+      filtered = filtered.filter((post) =>
+        post.name?.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    setFilteredPosts(filtered);
+  }, [searchTerm, areaData]);
+
   return (
     <div className="mt-15 px-6 md:px-10 lg:px-20">
-      <TopCommunities />
+      <TopCommunities searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       {loading ? (
         <div className="text-center text-yellow-600 text-xl py-10">
@@ -46,14 +62,18 @@ const Area_page = () => {
         </div>
       ) : error ? (
         <p>Error: {error}</p>
+      ) : filteredPosts.length === 0 ? (
+        <div className="text-center text-yellow-600 text-xl py-10">
+          No area found .
+        </div>
       ) : (
-        <MainGrid data={areaData.data} />
+        <MainGrid data={filteredPosts} />
       )}
 
       <ExploreIn
         Title={"Popular Area in India"}
         Enablebtn={false}
-        data={ areaData.data && areaData.data.slice(7,15)}
+        data={areaData.data && areaData.data.slice(7, 15)}
         CardComponent={AreaCard}
         cardProps={{ path: "areas" }}
       />

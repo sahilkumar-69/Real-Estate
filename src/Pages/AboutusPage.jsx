@@ -12,7 +12,7 @@ const AboutusPage = () => {
 
   }, []);
   return (
-    <main>
+    <main className="px-4" >
       <AboutHero />
       <VideoCard />
       <AboutStatement />

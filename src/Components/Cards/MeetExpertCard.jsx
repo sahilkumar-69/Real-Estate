@@ -8,19 +8,19 @@ const ConsultantCard = ({ data }) => {
     name = "Unknown",
     image = "",
     position = "Not specified",
-    language = [],
+    language,
     email = "",
-    phoneNumber = ""
+    phoneNumber = "",
   } = data;
-
+  // console.log(data);
   return (
     <div className="max-w-xs mx-auto bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
       {/* Image */}
-      <div className="w-full">
+      <div className="w-full  ">
         <img
           src={image}
           alt={name}
-          className="w-full h-[300px] object-cover"
+          className="w-full h-[300px] object-center"
         />
       </div>
 
@@ -35,7 +35,7 @@ const ConsultantCard = ({ data }) => {
             <span className="font-medium text-gray-800">Languages:</span>
             {language.map((lang, idx) => (
               <span key={idx} className="text-blue-600">
-                {" "}
+                {", "}
                 {lang}
               </span>
             ))}

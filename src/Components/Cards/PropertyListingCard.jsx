@@ -10,7 +10,7 @@ const PropertyListingCard = ({ property, fr, desc }) => {
   return (
     <div
       key={property.id}
-      className="  rounded-lg overflow-hidden     hover:shadow-lg transition duration-300"
+      className="  rounded-lg overflow-hidden z-10 shadow-lg   hover:shadow-2xl transition duration-300"
     >
       <div className="relative  z-20 ">
         <Swiper
@@ -34,7 +34,7 @@ const PropertyListingCard = ({ property, fr, desc }) => {
 
       <div className="p-5">
         <h3 className="text-lg font- font-bold text-gray-800 mb-1">
-          {property.title}
+          {property.title.slice(0,30)}...
         </h3>
         <p className="text-sm">
           By{" "}

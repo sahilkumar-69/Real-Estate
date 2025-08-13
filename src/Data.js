@@ -574,36 +574,7 @@ export const upcomingProjects = [
   },
 ];
 
-export const solutions = [
-  {
-    title: "Connect with a Specialist",
-    description:
-      "Access our dedicated team of over 400+ expert agents ready to assist you.",
-    icon: "/assets/icons/specialist.svg",
-    to: "contact-form",
-  },
-  {
-    title: "List Your Property",
-    description:
-      "Achieve optimal value by listing your property with our expert marketing strategies.",
-    icon: "/assets/icons/listProperties.svg",
-    to: "/list-property",
-  },
-  {
-    title: "Download Report",
-    description:
-      "Download the latest Comprehensive India Real Estate Market Report Q1 2025",
-    icon: "/assets/icons/downloadReport.svg",
-    to: "/download-brochure",
-  },
-  {
-    title: "Explore India Projects",
-    description:
-      "Browse and find your ideal property from our extensive portfolio of India projects.",
-    icon: "/assets/icons/skyscraper.svg",
-    to: "/projects",
-  },
-];
+
 
 export const testimonials = [
   {
@@ -666,8 +637,8 @@ export const propertyData = [
   {
     _id: 1,
     area: 700,
-    title: "Prestige Shantiniketan",
-    developer: "Prestige Group",
+    title: "Kalpataru Serenity",
+    developer: "Kalpataru Limited",
     price: 45000000,
     location: "Whitefield, Bengaluru",
     beds: "5",
@@ -677,17 +648,17 @@ export const propertyData = [
     description:
       "An ultra-luxury 5BHK villa spread across 7,500 sq. ft., featuring landscaped gardens, a private temperature-controlled pool, and exclusive clubhouse access. Located in the heart of Whitefield’s IT corridor, this property offers proximity to major tech parks, international schools, and premium shopping malls. Completion expected by Q2 2025 with advanced smart home automation and 24/7 concierge services.",
     images: [
-      "https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1635108200398-e4fb676ff5b4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTkxfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1635108201474-929f493eb1f2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTg5fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://plus.unsplash.com/premium_photo-1733514432701-8bd4f8d2a1a0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTk0fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
   {
     _id: 2,
-    title: "Godrej Woods",
+    title: "Royal Crest Villas",
     area: 850,
 
-    developer: "Godrej Properties",
+    developer: "Crownstone Estates",
     price: 18000000,
     location: "Sector 43, Noida",
     beds: "3",
@@ -697,16 +668,17 @@ export const propertyData = [
     description:
       "A premium 3BHK apartment surrounded by over 600 mature trees, offering natural shade, serene views, and exceptional air quality. Interiors feature imported marble flooring, modular kitchens, and VRV air-conditioning. Located near Noida Golf Course with seamless connectivity to the Delhi Metro. Possession expected by December 2024.",
     images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1639751787355-bbc3ed1fd639?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjA3fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://plus.unsplash.com/premium_photo-1682377521724-ececd24a83b4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjEwfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://plus.unsplash.com/premium_photo-1733514691581-ad459db86e86?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjAyfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
   {
     _id: 3,
-    title: "Lodha World One",
+    title: "Cloud Nine Residences",
     area: 1000,
 
-    developer: "Lodha Group",
+    developer: "Nimbus Builders",
     price: 75000000,
     location: "Lower Parel, Mumbai",
     beds: "4",
@@ -716,14 +688,15 @@ export const propertyData = [
     description:
       "One of Mumbai's tallest residential towers with breathtaking views of the Arabian Sea and the city skyline. The 4BHK penthouses come with private sky decks, Italian marble interiors, and 5-star hospitality services. Located in the premium Lower Parel area, close to High Street Phoenix Mall and business hubs. Possession targeted for 2026 with LEED-certified sustainable design.",
     images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1651766302262-8fbef3e3bac6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzIyfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1629584603667-e8ad7c8feb0b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzE2fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1656646424447-ac04d9ca8c83?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzI1fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
   {
     _id: 4,
-    title: "DLF The Camellias",
-    developer: "DLF Limited",
+    title: "Skycrest Residences",
+    developer: "Zenith Realty",
     area: 900,
 
     price: 150000000,
@@ -735,15 +708,15 @@ export const propertyData = [
     description:
       "Super-luxury residences overlooking the DLF Golf & Country Club, featuring private elevators, landscaped terraces, and interiors by globally renowned designers. Residents enjoy a 1.3-acre sky garden, spa, and access to an exclusive business lounge. Final handover scheduled for late 2024.",
     images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1656646425017-a50cfd465420?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzM3fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1656646424386-69c923c411f0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQ5fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1679105796568-6ff0b24670a5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQwfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
   {
     _id: 5,
-    title: "Sobha City",
-    developer: "Sobha Ltd",
+    title: "Sapphire Heights",
+    developer: "Bluepeak Developers",
     area: 1100,
 
     price: 22000000,
@@ -755,14 +728,14 @@ export const propertyData = [
     description:
       "Premium 3BHK apartments with a world-class sports complex including tennis courts, an Olympic-sized swimming pool, and a cricket practice pitch. Located minutes from the upcoming metro line and IGI Airport. Expected possession in early 2025.",
     images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1656646424715-5c2974c66377?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzU3fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1656646424687-b303e1758b36?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzY0fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
   {
     _id: 6,
-    title: "Brigade Exotica",
-    developer: "Brigade Group",
+    title: "Sunset Royale",
+    developer: "Sundream Constructions",
     price: 30000000,
     area: 1300,
 
@@ -774,8 +747,8 @@ export const propertyData = [
     description:
       "Spacious sky villas starting from the 35th floor, offering 360-degree panoramic city views, landscaped terraces, and high-security access control. Close to ITPL and upcoming metro lines. Ready-to-move-in by mid-2024.",
     images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1638284556849-1848ec7beb4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDUwfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1628116906837-42a88b365273?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDQ4fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
   {
@@ -793,16 +766,17 @@ export const propertyData = [
     description:
       "Located in Mumbai's elite Bandra East neighborhood, offering luxury living within walking distance to BKC and the upcoming coastal road. Amenities include rooftop gardens, infinity pool, and business centers. Completion set for late 2025.",
     images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1656646424531-cc9041d3e5ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDUyfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://plus.unsplash.com/premium_photo-1733514433306-7a63586e8381?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDcxfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1639663742190-1b3dba2eebcf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDcwfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
   {
     _id: 8,
-    title: "ATS Knightsbridge",
+    title: "Lotus Crown Residences",
     area: 950,
 
-    developer: "ATS Infrastructure",
+    developer: "ATS InfrastructureBlossomstone Estates",
     price: 65000000,
     location: "Sector 124, Noida",
     beds: "4",
@@ -812,8 +786,10 @@ export const propertyData = [
     description:
       "Exclusive 4BHK residences with private lift lobbies, oversized balconies, and panoramic views of the Yamuna River. Features include heated pools, yoga decks, and art galleries within the complex. Possession expected Q3 2024.",
     images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1672860044506-e3ec09653e82?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDkwfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1673905373555-5c08337c06a7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDczfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1612301988752-5a5b19021f45?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDgyfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1626075246403-544a14566c3d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDcyfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
   {
@@ -831,8 +807,8 @@ export const propertyData = [
     description:
       "Luxury residences with direct views of the Bay of Bengal, featuring sea-facing balconies, premium modular kitchens, and high-end security systems. Close to Marina Beach and top educational institutions. Completion set for mid-2025.",
     images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDg5fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1733431766379-278a43ed0a7e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTIwfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
   {
@@ -850,8 +826,8 @@ export const propertyData = [
     description:
       "Smart 2BHK apartments with advanced home automation, landscaped gardens, jogging tracks, and children's play zones. Located near Noida Metro Aqua Line with easy access to Yamuna Expressway. Expected possession: September 2024.",
     images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1601002257790-ebe0966a85ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjQwfHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1700391979275-6650741b96de?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjM0fHxyZWFsZXN0YXRlfGVufDB8fDB8fHww",
     ],
   },
 ];
