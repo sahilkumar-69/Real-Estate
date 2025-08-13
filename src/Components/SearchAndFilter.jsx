@@ -1,9 +1,11 @@
 // --- SearchAndFilter.jsx ---
 
-import { FiSearch, FiChevronDown, FiFilter } from "react-icons/fi";
-import PropertyFilterButton from "./ButtonComponents/PropertyFilterButton";
+import { FiFilter } from "react-icons/fi";
+// import PropertyFilterButton from "./ButtonComponents/PropertyFilterButton";
+import { MdOutlineFilterAltOff } from "react-icons/md";
 import FilterDropDown from "./Others/FilterDropDown";
 import AnimatedDropDown from "./Others/AnimatedDropDown2";
+import { useEffect } from "react";
 
 const SearchAndFilter = ({
   activeFilter,
@@ -17,6 +19,8 @@ const SearchAndFilter = ({
   uniqueFilters,
 }) => {
   const btnTitle = ["All Properties", "Villas", "Apartments"];
+
+  useEffect(() => {}, [uniqueFilters, filterOptions]);
 
   return (
     <div className="container mx-auto px-4 z-20 lg:px-14 py-8 -mt-10 relative ">
@@ -67,13 +71,30 @@ const SearchAndFilter = ({
             onChange={setSortBy}
           />
         </div>
-
-        <button
-          onClick={() => setShowFilters(!showFilters)}
-          className="flex items-center text-gray-700"
-        >
-          <FiFilter className="mr-2" /> More Filters
-        </button>
+        <div className="flex justify-between items-center">
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="flex items-center text-gray-700"
+          >
+            <FiFilter className="mr-2" /> More Filters
+          </button>
+          <button
+            onClick={() => {
+              setFilterOptions({
+                beds: "Any",
+                bathroom: "Any",
+                minArea: "",
+                maxArea: "",
+                location: "",
+                type: "",
+                status: "",
+              });
+            }}
+            className="flex items-center text-gray-700"
+          >
+            <MdOutlineFilterAltOff size={20} className="mr-2" /> Clear Filters
+          </button>
+        </div>
 
         {/* Advanced Filters */}
         {showFilters && (

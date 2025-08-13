@@ -5,6 +5,7 @@ import ExploreIn from "../Components/Home/ExploreIn";
 import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard";
 import { findPropertiesByLocation } from "../Functions";
 import BlogContext from "../context/Property";
+import PropertyListingCard from "../Components/Cards/PropertyListingCard";
 
 const AreaDetailPage = () => {
   const { id } = useParams();
@@ -94,20 +95,22 @@ const AreaDetailPage = () => {
           className="text-gray-700"
         ></div>
       </div>
-      {/* Show filtered properties */}
+      <p  className=" text-3xl font-semibold my-3 px-6 md:px-10 lg:px-20" >Properties in {areaData.name}</p>
       <div className="px-6 md:px-10 lg:px-20">
         {loading1 ? (
           <div className="w-full h-[20vh] flex items-center justify-center">
             <PulseLoader size={25} />
           </div>
         ) : propertyInArea?.length > 0 ? (
-          <ExploreIn
-            Title={`Property in ${areaData.name}`}
-            Enablebtn={false}
-            data={propertyInArea}
-            CardComponent={PropertySwiperCard}
-            cardProps={{ fr: "sale" }}
-          />
+          <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {propertyInArea.map((property) => (
+              <PropertyListingCard
+                fr={"sale"}
+                desc={true}
+                property={property}
+              />
+            ))}
+          </div>
         ) : showFetching ? (
           <div className="w-full h-[20vh] flex items-center justify-center text-lg">
             <PulseLoader size={25} />

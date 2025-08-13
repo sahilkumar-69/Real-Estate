@@ -1,11 +1,10 @@
 // --- SaleProperty.jsx ---
 
 import { useContext, useEffect, useState } from "react";
-import { FAQForSale, propertyData, SaleDescription } from "../Data";
+import { FAQForSale, SaleDescription } from "../Data";
 import ExploreIn from "../Components/Home/ExploreIn";
 import ExpertCardsWraper from "../Components/PropForSale/ExpertCardsWraper";
 import Description from "../Components/Others/Description";
-import HelpFindProperty from "../Components/PropForSale/PostComponent";
 import SearchAndFilter from "../Components/SearchAndFilter";
 import Pagination from "../Components/Others/Pagination";
 import PropertyListingCard from "../Components/Cards/PropertyListingCard";
@@ -17,7 +16,7 @@ import BlogContext from "../context/Property";
 import { PulseLoader } from "react-spinners";
 import { PropertySwiperCard } from "../Components/Home/PropertySwiperCard";
 
-const SaleProperty = ({filterOptions, setFilterOptions}) => {
+const SaleProperty = ({ filterOptions, setFilterOptions }) => {
   const { buyProperty, loading } = useContext(BlogContext);
 
   useEffect(() => {
@@ -58,9 +57,7 @@ const SaleProperty = ({filterOptions, setFilterOptions}) => {
       ];
       const types = [...new Set(data.map((p) => p.type).filter(Boolean))];
       const statuses = [...new Set(data.map((p) => p.status).filter(Boolean))];
-      const beds = [
-        ...new Set(data.map((p) => p.beds).filter(Boolean)),
-      ];
+      const beds = [...new Set(data.map((p) => p.beds).filter(Boolean))];
       const bathroom = [
         ...new Set(data.map((p) => p.bathroom).filter(Boolean)),
       ];

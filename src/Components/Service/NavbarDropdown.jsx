@@ -26,6 +26,7 @@ const NavbarDropdown = ({
                 {section.heading}
               </h5>
               <ul className="space-y-3 text-md font-semibold ">
+                {/* <li>Select type</li> */}
                 {section.items.map((item) => (
                   <li ref={scrollRef} key={item.to}>
                     <Link

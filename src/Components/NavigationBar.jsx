@@ -247,7 +247,7 @@ export default function Navbar({ setFilterOptions, setFilterOptionsForRent }) {
         {
           heading: " ",
           items: [
-            { label: "Bengaluru", to: "/areas/6889e1748b94dd0080d2eb15" },
+            { label: "Bangalore", to: "/areas/6889e1748b94dd0080d2eb15" },
             { label: "Chennai", to: "/areas/6889e2368b94dd0080d2eb19" },
             { label: "Ahmedabad", to: "/areas/6889e3458b94dd0080d2eb1f" },
             { label: "Pune", to: "/areas/6889e2f18b94dd0080d2eb1d" },
