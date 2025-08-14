@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import ConsultantCard from "../Cards/MeetExpertCard";
+import { PulseLoader } from "react-spinners";
 
 export default function ExpertCardsWraper() {
   const navigationPrevRef = useRef(null);
@@ -60,7 +61,7 @@ export default function ExpertCardsWraper() {
 
   if (loading) {
     return (
-      <div className="py-12 text-center text-blue-500 text-lg">Loading experts...</div>
+      <div className="py-12 text-center text-blue-500 text-lg"><PulseLoader /></div>
     );
   }
 

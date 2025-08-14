@@ -37,6 +37,7 @@ import PrivacyPolicy from "./Pages/privacyPolicy";
 import OurAwardPage from "./Pages/OurAwardPage";
 import DetailedServicePage from "./Pages/DetailedServicePage";
 import HelpFindProperty from "./Components/PropForSale/PostComponent";
+import PopupForm from "./Components/Others/PopUpForm";
 
 function App() {
   const [filterOptions, setFilterOptions] = useState({
@@ -95,7 +96,6 @@ function App() {
 
         <Route path="/developers" element={<Developers />} />
 
-
         <Route path="/areas" element={<Area_page />} />
 
         <Route path="/areas/:id" element={<AreaDetail />} />
@@ -138,6 +138,7 @@ function App() {
         <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
       </Routes>
       <Footer />
+      <PopupForm />
     </Router>
   );
 }

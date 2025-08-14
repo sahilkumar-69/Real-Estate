@@ -27,7 +27,6 @@ const FilterDropDown = ({ label, options, value, onChange }) => {
             transition={{ duration: 0.2 }}
             className="absolute left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-2 z-50 max-h-60 overflow-y-auto"
           >
-            {/* <li className="p-3 cursor-pointer hover:bg-blue-50" >Select None</li> */}
             {options.map((opt) => (
               <li
                 key={opt}

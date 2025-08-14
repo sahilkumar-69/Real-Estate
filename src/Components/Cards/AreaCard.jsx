@@ -34,7 +34,7 @@ const AreaCard = ({
           className="text-lg font-semibold text-slate-800 hover:text-[#F68537] flex items-center gap-2"
         >
           {name}
-          <FaArrowUpRightFromSquare className="w-12" size={12} />
+          <FaArrowUpRightFromSquare size={12} />
         </Link>
 
         {logo && (
@@ -48,11 +48,16 @@ const AreaCard = ({
       </div>
 
       {/* Description */}
-      {desc != "show" && <p className="text-sm text-gray-700 px-3 pb-4">
-        {description?.length
-          ? description.slice(0, 120) + "..."
-          : "No description available."}
-      </p>}
+      {desc != "show" && description?.length ? (
+        <p
+          dangerouslySetInnerHTML={{
+            __html: description.slice(0, 81) + "...",
+          }}
+          className="text-sm text-gray-700 px-3 pb-4"
+        ></p>
+      ) : (
+        "No description available."
+      )}
     </div>
   );
 };
